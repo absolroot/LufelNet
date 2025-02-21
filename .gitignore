@@ -14,4 +14,5 @@
 /img/wonder-weapon/png/
 
 /text.html
-**/resize image.py
+resize_image.py
+**/resize_image.py
