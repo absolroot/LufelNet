@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>루페르넷</title>
+    <link rel="stylesheet" href="./styles/common.css">
+    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="icon" type="image/x-icon" href="./img/ui/favicon.ico">
+    <style>
+        /* falling cards를 위한 캔버스 스타일 */
+        canvas {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            z-index: 0;  /* 컨텐츠보다 뒤에 위치 */
+            pointer-events: none;  /* 마우스 이벤트 무시 */
+        }
+        
+        /* 컨텐츠가 캔버스 위에 보이도록 */
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 네비게이션이 삽입될 컨테이너 -->
+        <div id="nav-container"></div>
+
+        <!-- 메인 컨텐츠 wrapper -->
+        <div class="main-wrapper">
+            <!-- 헤더 (로고 등) -->
+            <div class="header-container">
+                <h1>페르소나5 팬텀X 루페르넷 (Beta)</h1>
+            </div>
+
+            <!-- 메인 컨텐츠 -->
+
+            <div class="main-content">
+                
+                <div class="menu-cards">
+                    <div class="menu-card" onclick="location.href='./character/character.html'">
+                        <h2>괴도</h2>
+                        <p>괴도별 추천 육성, 스킬, 의식, 무기 정보를 제공해요.</p>
+                    </div>
+                    
+                    <div class="menu-card" onclick="location.href='./revelations/revelations.html'">
+                        <h2>계시</h2>
+                        <p>정보를 확인하고, 연관된 계시를 쉽게 확인하세요.</p>
+                    </div>
+
+                    <div class="menu-card" onclick="location.href='./tactic/tactic.html'">
+                        <h2>택틱</h2>
+                        <p>파티 구성과 턴별 행동을 설정하고 공유할 수 있어요.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-container">
+                <div class="footer-text">
+                    <p>※ 루페르넷은 개인이 만든 페르소나5X 유저들을 위한 정보 제공 사이트로 게임의 콘텐츠와 소재의 트레이드마크와 저작권은 SEGA/ATLUS/Perfect World Games에 있습니다.</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/nav.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            Navigation.load('home', 0);
+        });
+    </script>
+
+</body>
+</html>

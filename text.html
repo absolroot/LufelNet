@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5 텍스트 생성기</title>
+    <style>
+        body {
+            background: #fff;
+            color: #000;
+            font-family: sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .text-box {
+            display: inline-block;
+            padding: var(--padding);
+            font-size: var(--fontSize);
+            font-weight: 900;
+            background: #fff;
+            color: #000;
+            margin: -2px;
+            position: relative;
+            font-family: Arial, sans-serif;
+            transform-origin: center center;
+            line-height: 1;
+        }
+
+        .text-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px solid #000;
+            transform: skew(var(--skewX), var(--skewY));
+            z-index: -1;
+        }
+
+        .text-box.inverted {
+            background: #000;
+            color: #fff;
+        }
+
+        .text-box.double {
+            position: relative;
+        }
+
+        .text-box.double::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 3px solid #000;
+            background: var(--bgColor);
+            z-index: -2;
+            transform: translate(4px, 4px) skew(var(--skewX), var(--skewY));
+        }
+
+        #text-container {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .text-line {
+            display: flex;
+            align-items: center;
+            transform: rotate(var(--lineRotation));
+        }
+
+        input, button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" id="inputText" value="토미 야마카요 루페르">
+        <button onclick="createRansomText()">생성</button>
+    </div>
+    <div id="text-container"></div>
+
+    <script>
+        function createRansomText() {
+            const input = document.getElementById('inputText');
+            const container = document.getElementById('text-container');
+            container.innerHTML = '';
+            
+            const lines = input.value.split('\n');
+            
+            lines.forEach((line, lineIndex) => {
+                const lineDiv = document.createElement('div');
+                lineDiv.className = 'text-line';
+                lineDiv.style.setProperty('--lineRotation', `${Math.random() * 6 - 3}deg`);
+                
+                const characters = line.split('');
+                let prevStyle = null;
+                
+                characters.forEach((char, index) => {
+                    if (char === ' ') {
+                        const space = document.createElement('div');
+                        space.style.width = '10px';
+                        lineDiv.appendChild(space);
+                        prevStyle = null;
+                        return;
+                    }
+
+                    const box = document.createElement('div');
+                    box.className = 'text-box';
+                    box.textContent = char;
+                    
+                    // 랜덤 폰트 크기 (28px ~ 36px)
+                    const fontSize = 32 + (Math.random() * 8 - 4);
+                    box.style.setProperty('--fontSize', `${fontSize}px`);
+                    
+                    // 랜덤 패딩 (6px ~ 10px)
+                    const paddingVertical = 8 + (Math.random() * 4 - 2);
+                    const paddingHorizontal = 12 + (Math.random() * 4 - 2);
+                    box.style.setProperty('--padding', `${paddingVertical}px ${paddingHorizontal}px`);
+                    
+                    // 기울어진 효과
+                    const skewX = Math.random() * 20 - 10;
+                    const skewY = Math.random() * 20 - 10;
+                    box.style.setProperty('--skewX', `${skewX}deg`);
+                    box.style.setProperty('--skewY', `${skewY}deg`);
+                    
+                    // 스타일 결정 (이전 스타일과 다르게)
+                    let currentStyle;
+                    do {
+                        currentStyle = Math.random() < 0.5 ? 'normal' : 'inverted';
+                    } while (currentStyle === prevStyle);
+                    
+                    if (currentStyle === 'inverted') {
+                        box.classList.add('inverted');
+                    }
+                    
+                    // 글자 회전
+                    box.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
+                    
+                    lineDiv.appendChild(box);
+                    prevStyle = currentStyle;
+                });
+                
+                container.appendChild(lineDiv);
+            });
+        }
+
+        window.onload = createRansomText;
+    </script>
+</body>
+</html>

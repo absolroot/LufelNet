@@ -1,0 +1,18 @@
+<!-- 택틱 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 현재 URL의 경로가 tactic.html인 경우에만 리다이렉트
+        if (window.location.pathname.endsWith('tactic.html')) {
+            const currentUrl = new URL(window.location.href);
+            const queryString = currentUrl.search;
+            window.location.href = `./tactic/tactic.html${queryString}`;
+        }
+    </script>
+</head>
+<body>
+    <p>리다이렉팅 중...</p>
+</body>
+</html> 
