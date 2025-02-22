@@ -38,6 +38,7 @@
 
 .boss-select-container select {
     width: 100%;
+    padding: 4px 8px !important;
     margin: 4px 0px 4px 0px;
     background-color: rgb(0, 0, 0, 0.2);
 }

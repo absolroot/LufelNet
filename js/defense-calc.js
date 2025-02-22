@@ -224,10 +224,12 @@ class DefenseCalc {
         const withReduceDamage = this.calculateDamage(baseDefense, finalDefenseCoef);
         
         // 최종 대미지 증가율
-        const damageIncrease = ((withReduceDamage / noReduceDamage) - 1) * 100;
+        const damageIncrease = (1-(withReduceDamage / noReduceDamage)) * 100;
 
-        // 화면 업데이트
-        this.damageIncreaseDiv.textContent = `+${damageIncrease.toFixed(1)}%`;
+        // 화면 업데이트 - 음수일 때는 '-'를, 양수일 때는 '+'를 표시
+        this.damageIncreaseDiv.textContent = damageIncrease >= 0 
+            ? `+${damageIncrease.toFixed(1)}%`
+            : `${damageIncrease.toFixed(1)}%`;  // 음수는 자동으로 '-' 포함
         this.noDefReduceSpan.textContent = noReduceDamage.toFixed(3);
         this.withDefReduceSpan.textContent = withReduceDamage.toFixed(3);
     }
