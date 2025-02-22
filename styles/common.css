@@ -818,3 +818,9 @@ body {
         display: none;
     }
 }
+
+
+/* html이나 body에 추가 */
+html {
+    overflow-y: scroll; /* 항상 세로 스크롤바 표시 */
+}

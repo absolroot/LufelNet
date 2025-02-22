@@ -34,6 +34,11 @@
     color: #dd8484;
 }
 
+.total-value-description {
+    margin-top: 14px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
 
 
 .boss-select-container select {
@@ -208,7 +213,7 @@ select:-moz-focusring {
 } 
 
 
-.defense-table tr:last-child td {;
+.defense-table tr:last-child td {
     border-bottom: 1px solid  rgb(255, 255, 255, 0.2);
 } 
 

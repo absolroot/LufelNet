@@ -392,11 +392,6 @@ input, textarea {
     -ms-user-select: auto;
 }
 
-/* html이나 body에 추가 */
-html {
-    overflow-y: scroll; /* 항상 세로 스크롤바 표시 */
-}
-
 /* 크로스 브라우징을 위한 스크롤바 스타일링 */
 ::-webkit-scrollbar {
     width: 8px;

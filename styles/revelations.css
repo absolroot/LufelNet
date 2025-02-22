@@ -238,6 +238,13 @@
     height: 16px;
 }
 
+.filter-options p {
+    font-size: 11px;
+    font-weight: 400;
+    padding: 0px 6px 0px 6px;
+    color: rgb(255, 255, 255, 0.9);
+}
+
 
 .separator-line {
     padding : 0 20px;
