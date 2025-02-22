@@ -353,6 +353,49 @@
                 });
             });
             */
+           
+            // 마지막줄 카드 더미 추가 
+            function adjustLastRow() {
+                const cardsContainer = document.querySelector('.character-cards');
+                const cards = cardsContainer.querySelectorAll('.card');
+                const width = window.innerWidth;
+
+                // 기존에 추가된 더미 요소들 제거
+                const dummies = cardsContainer.querySelectorAll('.dummy-card');
+                dummies.forEach(dummy => dummy.remove());
+
+                function addDummyCards(columnsCount) {
+                    const totalCards = cards.length;
+                    const remainder = totalCards % columnsCount;
+                    
+                    if (remainder > 0) {
+                        const dummyCount = columnsCount - remainder;
+                        
+                        for (let i = 0; i < dummyCount; i++) {
+                            const dummy = document.createElement('div');
+                            dummy.className = 'card dummy-card';
+                            dummy.style.visibility = 'hidden';
+                            dummy.style.width = `calc((100% - 8vw) / ${columnsCount})`;
+                            dummy.style.margin = '0';
+                            cardsContainer.appendChild(dummy);
+                        }
+                    }
+                }
+
+                if (width > 1159) {
+                    addDummyCards(6);  // 6열 레이아웃
+                } else if (width >= 960 && width <= 1159) {
+                    addDummyCards(5);  // 5열 레이아웃
+                } else if (width >= 745 && width <= 959) {
+                    addDummyCards(4);  // 4열 레이아웃
+                } else if (width >= 563 && width <= 745) {
+                    addDummyCards(3);  // 3열 레이아웃
+                }
+            }
+
+            // 초기 로드와 리사이즈 시 실행
+            window.addEventListener('load', adjustLastRow);
+            window.addEventListener('resize', adjustLastRow);
         });
         
     </script>
