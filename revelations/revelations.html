@@ -58,7 +58,7 @@
             <!--구분선-->
             <div class="separator-line"></div>
 
-            <!-- 캐릭터 카드 컨테이너 -->
+            <!-- 계시 카드 컨테이너 -->
             <div class="revelation-cards" id="revelationCards">
                 <!-- 자바스크립트로 동적 생성됨 -->
             </div>
@@ -84,7 +84,25 @@
             ];
             
             // 각 계시에 대해 카드 생성
-            allRevelations.forEach(revelation => {
+            allRevelations.forEach((revelation, index) => {
+                // 7개의 카드마다 광고 삽입 (index는 0부터 시작하므로 7로 나눈 나머지가 7이면 8번째 카드)
+                if (index > 0 && index % 7 === 0) {
+                    const adContainer = document.createElement('div');
+                    adContainer.className = 'card ad-card';
+                    adContainer.innerHTML = `
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-format="fluid"
+                             data-ad-layout-key="-fh+6+3e-os+119"
+                             data-ad-client="ca-pub-5862324369257695"
+                             data-ad-slot="7402083530"></ins>
+                    `;
+                    cardsContainer.appendChild(adContainer);
+                    
+                    // 새로운 광고 요소 초기화
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                }
+
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.dataset.type = revelation.type;
