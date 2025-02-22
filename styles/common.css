@@ -175,6 +175,13 @@ body {
     margin-right: 10px;
 }
 
+.nav-item img[src*="defense-calc.png"] {
+    width: 24px !important;
+    height: 24px !important;
+    padding : 4px; 
+    object-fit: contain !important;
+}
+
 .nav-item:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
@@ -802,5 +809,12 @@ body {
     /* 체크박스 선택 상태는 유지 */
     .filter-options input[type="checkbox"]:checked + label {
         background-color: rgba(255, 255, 255, 0.4) !important;
+    }
+}
+
+/* 모바일에서 방어력 계산기 nav 버튼 숨기기 */
+@media (max-width: 768px) {  /* nav.js와 동일한 모바일 기준점 사용 */
+    .nav-item[data-nav="defense-calc"] {
+        display: none;
     }
 }

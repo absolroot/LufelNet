@@ -50,6 +50,11 @@ class Navigation {
                     <img src="${rootPath}img/nav/simulator.png" alt="simulator" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="시">시</span><span data-text="뮬">뮬</span><span data-text="레">레</span><span data-text="이">이</span><span data-text="터">터</span>
                 </a> -->
+
+                <a href="${rootPath}defense-calc/defense-calc.html" class="nav-item" data-nav="defense-calc">
+                    <img src="${rootPath}img/nav/defense-calc.png" alt="defense-calc" style="width: 32px; height: 32px; object-fit: contain;" />
+                    <span data-text="방">방</span><span data-text="어">어</span><span data-text="력">력</span>
+                </a>
                 <a href="${rootPath}tactic/tactic.html" class="nav-item" data-nav="tactic">
                     <img src="${rootPath}img/nav/tactic.png" alt="tactic" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="택">택</span><span data-text="틱">틱</span>

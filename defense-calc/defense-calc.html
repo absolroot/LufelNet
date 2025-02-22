@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>방어력 계산-루페르넷</title>
+    <title>방어력 계산 - 루페르넷</title>
     <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.1">
     <link rel="stylesheet" href="../styles/common.css">
     <link rel="stylesheet" href="../styles/defense-calc.css">
@@ -14,6 +14,7 @@
     <script src="../data/tooltip.js"></script>
     <script src="../js/tooltip.js"></script>
     <script src="../js/nav.js"></script>
+    <script src="../data/boss.js"></script>
     <script src="../data/defense-data.js"></script>
     <script src="../js/defense-calc.js"></script>
 
@@ -31,13 +32,40 @@
                 <span class="current-page">방어력 계산</span>
             </div>
             <div class="header-container">
-                <h1>방어력 계산</h1>
+                <h1>방어력 감소 계산기</h1>
             </div>
             
-            <!-- 합계 표시 영역 -->
-            <div class="total-defense card-style">
-                <h2>방어력 감소 합계</h2>
-                <div class="total-value">0%</div>
+            <!-- 상단 카드 컨테이너 -->
+            <div class="top-cards">
+                <!-- 방어력 감소 합계 카드 -->
+                <div class="stat-card card-style">
+                    <h2>방어력 감소 합계</h2>
+                    <div class="total-value">0%</div>
+                </div>
+                
+                <!-- 보스 선택 카드 -->
+                <div class="boss-card card-style">
+                    <h2>보스 정보</h2>
+                    <div class="boss-select-container">
+                        <select id="bossSelect">
+                            <option value="">보스 선택</option>
+                        </select>
+                        <div class="boss-stats">
+                            <div>기본 방어력: <span id="baseDefense">-</span></div>
+                            <div>보스 방어 계수: <span id="defenseCoef">-</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 최종 대미지 증가 카드 -->
+                <div class="damage-card card-style">
+                    <h2>최종 대미지 증가</h2>
+                    <div class="damage-increase"></div>
+                    <div class="damage-formula">
+                        <div class="formula-row">기본 최종 대미지 배수: <span id="noDefReduce">-</span></div>
+                        <div class="formula-row">방어력 감소 최종 대미지 배수: <span id="withDefReduce">-</span></div>
+                    </div>
+                </div>
             </div>
 
             <!-- 데이터 테이블 -->

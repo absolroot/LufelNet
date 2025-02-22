@@ -4,6 +4,7 @@ class DefenseCalc {
         this.totalValue = document.querySelector('.total-value');
         this.selectedItems = new Set();
         this.initializeTable();
+        this.initializeBossSelect();
     }
 
     initializeTable() {
@@ -158,6 +159,91 @@ class DefenseCalc {
             .reduce((sum, item) => sum + item.value, 0);
             
         this.totalValue.textContent = `${total.toFixed(1)}%`;
+        this.updateDamageCalculation();
+    }
+
+    initializeBossSelect() {
+        this.bossSelect = document.getElementById('bossSelect');
+        this.baseDefenseSpan = document.getElementById('baseDefense');
+        this.defenseCoefSpan = document.getElementById('defenseCoef');
+        this.damageIncreaseDiv = document.querySelector('.damage-increase');
+        this.noDefReduceSpan = document.getElementById('noDefReduce');
+        this.withDefReduceSpan = document.getElementById('withDefReduce');
+
+        // 보스 선택 옵션 추가
+        bossData.forEach(boss => {
+            const option = document.createElement('option');
+            option.value = boss.id;
+            option.textContent = boss.name;
+            if (boss.id === 1) {  // id가 1인 보스를 기본 선택
+                option.selected = true;
+            }
+            this.bossSelect.appendChild(option);
+        });
+
+        this.bossSelect.addEventListener('change', () => this.updateDamageCalculation());
+        
+        // 초기 계산 실행
+        this.updateDamageCalculation();
+    }
+
+    updateDamageCalculation() {
+        const selectedBossId = this.bossSelect.value;
+        if (!selectedBossId) {
+            this.resetDamageDisplay();
+            return;
+        }
+
+        const boss = bossData.find(b => b.id === parseInt(selectedBossId));
+        if (!boss) {
+            this.resetDamageDisplay();
+            return;
+        }
+
+        // 기본 방어력과 방어 계수 표시 처리
+        this.baseDefenseSpan.textContent = boss.baseDefense === '-' ? '미확인' : boss.baseDefense;
+        this.defenseCoefSpan.textContent = boss.defenseCoef === '-' ? '미확인' : `${boss.defenseCoef}%`;
+
+        // 기본 방어력이 미확인인 경우 계산 중단
+        if (boss.baseDefense === '-') {
+            this.damageIncreaseDiv.textContent = '-';
+            this.noDefReduceSpan.textContent = '-';
+            this.withDefReduceSpan.textContent = '-';
+            return;
+        }
+
+        const baseDefense = parseFloat(boss.baseDefense);
+        const defenseCoef = parseFloat(boss.defenseCoef);
+        const defenseReduce = parseFloat(this.totalValue.textContent);
+        
+        // 방어력 감소 미적용
+        const noReduceDamage = this.calculateDamage(baseDefense, defenseCoef);
+        
+        // 방어력 감소 적용
+        const finalDefenseCoef = defenseCoef - defenseReduce;
+        const withReduceDamage = this.calculateDamage(baseDefense, finalDefenseCoef);
+        
+        // 최종 대미지 증가율
+        const damageIncrease = ((withReduceDamage / noReduceDamage) - 1) * 100;
+
+        // 화면 업데이트
+        this.damageIncreaseDiv.textContent = `+${damageIncrease.toFixed(1)}%`;
+        this.noDefReduceSpan.textContent = noReduceDamage.toFixed(3);
+        this.withDefReduceSpan.textContent = withReduceDamage.toFixed(3);
+    }
+
+    calculateDamage(baseDefense, defenseCoef) {
+        const numerator = baseDefense * (defenseCoef / 100);
+        const denominator = numerator + 1400;
+        return numerator / denominator;
+    }
+
+    resetDamageDisplay() {
+        this.baseDefenseSpan.textContent = '-';
+        this.defenseCoefSpan.textContent = '-';
+        this.damageIncreaseDiv.textContent = '-';
+        this.noDefReduceSpan.textContent = '-';
+        this.withDefReduceSpan.textContent = '-';
     }
 }
 
