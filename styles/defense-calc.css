@@ -82,7 +82,7 @@
 .defense-table-container {
     overflow-x: auto;
     margin : 0 20px;
-    padding : 20px 20px;
+    padding : 20px 20px 30px 20px;
     border-radius: 10px;
     background-color: #3d3030;
 }
@@ -204,12 +204,12 @@ select:-moz-focusring {
 
 /* 첫 번째 행은 항상 테두리 표시 */
 .defense-table tr:first-child td {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid rgb(255, 255, 255, 0.5);
 } 
 
 
-.defense-table tr:last-child td {
-    border-bottom: 1px solid #ddd;
+.defense-table tr:last-child td {;
+    border-bottom: 1px solid  rgb(255, 255, 255, 0.2);
 } 
 
 /* 테이블 헤더 스타일 */

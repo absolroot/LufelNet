@@ -2,9 +2,9 @@ class DefenseCalc {
     constructor() {
         this.tableBody = document.getElementById('defenseTableBody');
         this.totalValue = document.querySelector('.total-value');
-        this.selectedItems = new Set();
-        this.initializeTable();
-        this.initializeBossSelect();
+        this.selectedItems = new Set([1, 3, 4]); // 초기 선택 항목 설정
+        this.initializeBossSelect(); // 보스 선택 초기화를 먼저 실행
+        this.initializeTable(); // 그 다음 테이블 초기화
     }
 
     initializeTable() {
@@ -12,13 +12,15 @@ class DefenseCalc {
             const row = this.createTableRow(data);
             this.tableBody.appendChild(row);
         });
+        // 초기 합계 계산
+        this.updateTotal();
     }
 
     createTableRow(data) {
         const row = document.createElement('tr');
         
         // 괴도 이름이 비어있는 경우 클래스 추가
-        if (!data.charName && data.id !== 1) {  // id가 1이 아니고 charName이 비어있는 경우
+        if (!data.charName && data.id !== 1) {
             row.className = 'empty-char';
         }
         
@@ -26,7 +28,10 @@ class DefenseCalc {
         const checkCell = document.createElement('td');
         checkCell.className = 'check-column';
         const checkbox = document.createElement('img');
-        checkbox.src = '../img/ui/check-off.png';
+        // 초기 선택된 항목은 체크 표시
+        checkbox.src = this.selectedItems.has(data.id) 
+            ? '../img/ui/check-on.png' 
+            : '../img/ui/check-off.png';
         checkbox.onclick = () => this.toggleCheck(checkbox, data);
         checkCell.appendChild(checkbox);
         row.appendChild(checkCell);
