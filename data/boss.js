@@ -103,7 +103,7 @@ const bossData = [
             curse: "null"
         },
         baseDefense: "-",
-        defenseCoef: 263.2,
+        defenseCoef: "-",
         comment: ""
     },
     {
@@ -125,7 +125,7 @@ const bossData = [
             curse: "null"
         },
         baseDefense: "-",
-        defenseCoef: 263.2,
+        defenseCoef: "-",
         comment: ""
     },
     {

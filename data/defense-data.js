@@ -206,7 +206,7 @@ const defenseCalcData = [
         charName: "",
         charImage: "",
         type: "계시",
-        target: "광역",
+        target: "단일",
         skillIcon: "../img/revelation/결심.webp",
         skillName: "직책 + 결심",
         options: [],

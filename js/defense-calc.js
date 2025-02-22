@@ -19,9 +19,14 @@ class DefenseCalc {
     createTableRow(data) {
         const row = document.createElement('tr');
         
+        // 초기 선택된 항목에 대해 selected 클래스 추가
+        if (this.selectedItems.has(data.id)) {
+            row.classList.add('selected');
+        }
+        
         // 괴도 이름이 비어있는 경우 클래스 추가
         if (!data.charName && data.id !== 1) {
-            row.className = 'empty-char';
+            row.classList.add('empty-char');
         }
         
         // 체크박스 열

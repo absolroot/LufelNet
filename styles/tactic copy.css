@@ -32,8 +32,8 @@ body {
     -moz-appearance: none;
     appearance: none;
     color: rgba(255, 255, 255, 0.9) !important;
-    background-color: rgba(0, 0, 0, 0.15);
-    border : none;
+    background-color: transparent !important;
+    border: 1px solid rgb(255, 255, 255, 0.5);
     border-radius: 3px;
     padding: 8px;
     font-size: 13px;
@@ -130,7 +130,7 @@ body {
   .action-item {
     cursor: grab;
     padding: 2px;
-    border: 1px solid rgb(255, 255, 255, 0);
+    border: 1px solid rgb(255, 255, 255, 0.3);
     border-radius: 3px;
     margin-bottom: 4px;
     display: grid;
@@ -183,10 +183,11 @@ body {
   .action-memo {
     width: 160px;
     padding: 8px 12px;
+    border: 1px solid #ffffff;
     border-radius: 3px;
     font-size: 14px;
     transition: all 0.2s ease;
-    background-color: transparent !important;
+    background-color: transparent;
   }
   
   .action-memo:hover {
@@ -261,10 +262,10 @@ body {
   .party-name-input {
     width: 120px;
     padding : 8px;
+    border: 1px solid rgb(255, 255, 255, 0.5);
     border-radius: 3px;
-    border : none;
-    background-color: rgba(0, 0, 0, 0.15);
     font-size: 14px;
+    background-color: transparent;
     color: rgba(255, 255, 255, 0.9);
   }
 
@@ -398,8 +399,9 @@ body {
   .wonder-weapon-input {
     width: 218px;
     padding: 8px;
+    border: 1px solid #DFE1E6;
     border-radius: 3px;
-    font-size: 14px;    
+    font-size: 14px;
   }
 
   .logo-container-tactic {

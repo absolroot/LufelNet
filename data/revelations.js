@@ -76,7 +76,7 @@ const revelationData = {
         "우려": {
             "set2": "SP 회복이 80% 증가한다.",
             "set4": "전투 진입 즉시 25%의 HIGHLIGHT 에너지를 회복하며, HIGHLIGHT 에너지 회복 효과는 중복 발동할 수 없다.",
-            "type": ["HL 25%", "버프"]
+            "type": ["HL 25%"]
         },
         "좌절": {
             "set2": "효과 명중이 15% 증가한다.",
