@@ -214,22 +214,22 @@ class DefenseCalc {
 
         const baseDefense = parseFloat(boss.baseDefense);
         const defenseCoef = parseFloat(boss.defenseCoef);
-        const defenseReduce = parseFloat(this.totalValue.textContent);
+        const defenseReduce = Math.min(parseFloat(this.totalValue.textContent), defenseCoef); // 방어 계수를 초과하지 않도록 제한
         
         // 방어력 감소 미적용
-        const noReduceDamage = this.calculateDamage(baseDefense, defenseCoef);
+        const noReduceDamage = 1-this.calculateDamage(baseDefense, defenseCoef);
         
-        // 방어력 감소 적용
-        const finalDefenseCoef = defenseCoef - defenseReduce;
-        const withReduceDamage = this.calculateDamage(baseDefense, finalDefenseCoef);
+        // 방어력 감소 적용 (최소값은 0으로 제한)
+        const finalDefenseCoef = Math.max(0, defenseCoef - defenseReduce);
+        const withReduceDamage = 1-this.calculateDamage(baseDefense, finalDefenseCoef);
         
         // 최종 대미지 증가율
-        const damageIncrease = (1-(withReduceDamage / noReduceDamage)) * 100;
+        const damageIncrease = ((withReduceDamage / noReduceDamage)-1) * 100;
 
-        // 화면 업데이트 - 음수일 때는 '-'를, 양수일 때는 '+'를 표시
+        // 화면 업데이트
         this.damageIncreaseDiv.textContent = damageIncrease >= 0 
             ? `+${damageIncrease.toFixed(1)}%`
-            : `${damageIncrease.toFixed(1)}%`;  // 음수는 자동으로 '-' 포함
+            : `${damageIncrease.toFixed(1)}%`;
         this.noDefReduceSpan.textContent = noReduceDamage.toFixed(3);
         this.withDefReduceSpan.textContent = withReduceDamage.toFixed(3);
     }
