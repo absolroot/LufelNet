@@ -37,15 +37,22 @@
 
 
 .boss-select-container select {
+    font-size: 13px;
+    background-color: #3d3030;
+    color: rgb(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
     width: 100%;
-    padding: 4px 8px !important;
-    margin: 4px 0px 4px 0px;
+    padding: 8px 4px !important;
+    margin: 5px 0px 0px 0px;
     background-color: rgb(0, 0, 0, 0.2);
 }
 
 .boss-stats {
     display: flex;
     flex-direction: column;
+    margin: 0px;
 }
 
 .damage-formula,.boss-stats{
@@ -148,14 +155,15 @@ img[src*="check-on.png"] {
     cursor: pointer;
 }
 
-select {
-    font-size: 13px;
-    background-color: #3d3030;
-    color: rgb(255, 255, 255, 0.8);
+.option-column select {
+    font-size: 12px;
+    background-color: rgb(0, 0, 0, 0.1);
+    color: rgb(255, 255, 255, 0.4);
     border: none;
-    padding: 5px 4px;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    width: fit-content;
+    padding: 8px 4px !important;
 }
 
 /* 옵션 스타일링 */
