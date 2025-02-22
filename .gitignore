@@ -16,3 +16,6 @@
 /text.html
 resize_img.py
 **/resize_img.py
+
+# 템플릿 파일
+/template/

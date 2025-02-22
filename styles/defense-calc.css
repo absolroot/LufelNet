@@ -1,0 +1,191 @@
+.total-defense {
+    margin-bottom: 20px;
+    text-align: left;
+    padding : 0 20px;
+}
+
+.total-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff3e3e;
+}
+
+.defense-table-container {
+    overflow-x: auto;
+    margin : 0 20px;
+    padding : 20px 20px;
+    border-radius: 10px;
+    background-color: #3d3030;
+}
+
+.defense-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.defense-table th,
+.defense-table td {
+    font-size: 13px;
+    padding: 10px;
+    color: rgb(255, 255, 255, 0.4);
+    height: 30px;  /* 셀 높이도 지정 */
+}
+
+.defense-table tr {
+    min-height: 30px;
+}
+
+.skill-name-column {
+    color: rgb(247, 243, 243) !important;
+}
+
+.value-column {
+    color: #dd8484 !important;
+    font-weight: bold;
+}
+
+.check-column {
+    width: 30px;
+}
+
+
+.char-img-column img {
+    height: 36px;
+    border-radius: 25px;
+    object-fit: contain;
+}
+
+.skill-icon-column img {
+    height: 32px;
+    width: 32px;
+    object-fit: contain;
+}
+
+.skill-icon {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    object-fit: contain !important;
+}
+
+
+img[src*="check-off.png"] {
+    width: 20px !important;
+    height: 20px !important;
+    object-fit: contain !important;
+    opacity: 0.6;
+    cursor: pointer;
+}
+img[src*="check-on.png"] {
+    width: 25px !important;
+    height: 25px !important;
+    object-fit: contain !important;
+    transform: translateX(-1px) translateY(-0.5px);
+    cursor: pointer;
+}
+
+select {
+    font-size: 13px;
+    background-color: #3d3030;
+    color: rgb(255, 255, 255, 0.5);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+.defense-table td {
+    vertical-align: middle;
+    padding: 8px;
+}
+
+/* 괴도 이름이 비어있는 행의 스타일 */
+.defense-table tr:not(:first-child) td {
+    border-top: 1px solid rgb(255, 255, 255, 0.2);
+}
+
+.defense-table tr.empty-char td {
+    border-top: none;
+}
+
+/* 첫 번째 행은 항상 테두리 표시 */
+.defense-table tr:first-child td {
+    border-top: 1px solid #ddd;
+} 
+
+
+.defense-table tr:last-child td {
+    border-bottom: 1px solid #ddd;
+} 
+
+/* 테이블 헤더 스타일 */
+.defense-table th {
+    padding: 10px 8px 15px 8px;  /* 상 우 하 좌 패딩 */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);  /* 헤더 아래 구분선 추가 */
+    color: rgba(255, 255, 255, 0.6);  /* 헤더 텍스트 색상 */
+    font-weight: 800;  /* 폰트 두께 */
+}
+
+/* 테이블 셀 스타일 */
+.defense-table td {
+    vertical-align: middle;
+    padding: 8px;
+} 
+
+
+/* 광역 또는 단일/광역인 경우 색상 변경 */
+.target-column[data-target="광역"] {
+    color: rgb(221, 132, 132, 0.5);  /* 붉은 계열 색상 */
+} 
+.target-column[data-target="단일"] {
+    color: rgba(208, 221, 132, 0.5);  /* 붉은 계열 색상 */
+} 
+
+/* 선택된 행의 스타일 */
+.defense-table tr.selected td {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.defense-table tr.selected .target-column[data-target="광역"] {
+    color: rgba(221, 132, 132, 0.9) !important;
+}
+
+.defense-table tr.selected .target-column[data-target="단일"] {
+    color: rgba(208, 221, 132, 0.9) !important;
+}
+
+.defense-table tr.selected .value-column {
+    color: rgba(221, 132, 132) !important;
+} 
+
+
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .defense-table {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    }
+
+    .defense-table thead {
+        display: none;
+    }
+
+    .defense-table tr {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .check-column {
+        grid-column: 1;
+        grid-row: 1;
+    }
+}
