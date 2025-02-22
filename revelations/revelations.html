@@ -86,6 +86,7 @@
             // 각 계시에 대해 카드 생성
             allRevelations.forEach((revelation, index) => {
                 // 7개의 카드마다 광고 삽입 (index는 0부터 시작하므로 7로 나눈 나머지가 7이면 8번째 카드)
+                /*
                 if (index > 0 && index % 7 === 0) {
                     const adContainer = document.createElement('div');
                     adContainer.className = 'card ad-card';
@@ -102,6 +103,7 @@
                     // 새로운 광고 요소 초기화
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 }
+                */
 
                 const card = document.createElement('div');
                 card.className = 'card';
