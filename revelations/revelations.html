@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../styles/revelations.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5862324369257695"
      crossorigin="anonymous"></script>
+     <script src="../js/version.js"></script>
+
 </head>
 <body>
     <script src="../data/tooltip.js"></script>
@@ -160,6 +162,8 @@
         // 페이지 로드 시 네비게이션 초기화
         document.addEventListener('DOMContentLoaded', () => {
             Navigation.load('revelations', 1); // 현재 페이지에 맞는 active 상태 설정
+            VersionChecker.check();
+
             const cardsContainer = document.getElementById('revelationCards');
             
             // 주 계시와 일월성진 계시 분리

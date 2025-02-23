@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>페르소나 - 루페르넷</title>
-    <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.2">
     <link rel="stylesheet" href="../styles/common.css">
     <link rel="stylesheet" href="../styles/persona.css">
+    <script src="../js/version.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -212,6 +214,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             Navigation.load('persona', 1);
+            VersionChecker.check();
+
             const cardsContainer = document.getElementById('personaCards');
             
             /*

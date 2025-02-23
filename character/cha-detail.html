@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../styles/cha_detail.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5862324369257695"
      crossorigin="anonymous"></script>
+     <script src="../js/version.js"></script>
+
 </head>
 <body>
     <script src="../js/nav.js?v=1.0.1"></script>
@@ -372,6 +374,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             Navigation.load('character', 1);
+            VersionChecker.check();
+
             
             const urlParams = new URLSearchParams(window.location.search);
             const characterName = urlParams.get('name');
