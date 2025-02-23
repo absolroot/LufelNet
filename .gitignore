@@ -13,6 +13,9 @@
 # 원더 무기 이미지 원본
 /img/wonder-weapon/png/
 
+# 페르소나 이미지 원본
+/img/persona/png/
+
 /text.html
 resize_img.py
 **/resize_img.py

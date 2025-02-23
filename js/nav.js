@@ -32,11 +32,12 @@ class Navigation {
                     <img src="${rootPath}img/nav/guaidao.png" alt="guaidao" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="괴">괴</span><span data-text="도">도</span>
                 </a>
-                <!--
+
                 <a href="${rootPath}persona/persona.html" class="nav-item" data-nav="persona">
                     <img src="${rootPath}img/nav/persona.png" alt="persona" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="페">페</span><span data-text="르">르</span><span data-text="소">소</span><span data-text="나">나</span>
                 </a>
+                <!--
                 <a href="${rootPath}character/" class="nav-item" data-nav="boss">
                     <img src="${rootPath}img/nav/boss.png" alt="boss" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="보">보</span><span data-text="스">스</span>
