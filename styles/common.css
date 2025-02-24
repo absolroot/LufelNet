@@ -503,6 +503,9 @@ body {
         left: 20px !important;
         right: auto !important;
     }
+    .mobile-logo-container{
+        display: none !important;
+    }
 }
 
 

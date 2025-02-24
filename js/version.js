@@ -1,11 +1,11 @@
-const APP_VERSION = '0.7.0';  // 현재 앱 버전
+const APP_VERSION = '0.9.1';  // 현재 앱 버전
 
 class VersionChecker {
     static check() {
         // 로컬 스토리지에서 마지막으로 확인한 버전 가져오기
         const lastVersion = localStorage.getItem('appVersion');
         console.log('Current stored version:', lastVersion);
-        
+        console.log('Current app version:', APP_VERSION);
         if (lastVersion === null) {
             // 최초 실행시
             localStorage.setItem('appVersion', APP_VERSION);

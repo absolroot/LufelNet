@@ -1,6 +1,8 @@
 .header-container {
     max-width: 1200px;
     padding : 20px 0px 20px 0px;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -61,9 +63,13 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     margin-top: auto;
     padding-top : 20px;
 }
@@ -127,7 +133,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #ffffff;
+    color: rgb(255, 255, 255, 0.9);
     font-size: 20px;
     margin-top: 0;
     margin-bottom: 10px;
@@ -180,6 +186,166 @@
 
 .text-section p.mobile-description {
     display: none;
+}
+
+.middle-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.middle-container h2{
+    font-size: 16px;
+    margin: 0;
+    color: rgb(255, 255, 255, 0.85);
+    padding-bottom: 16px;
+}
+
+.popular-content, .recent-update-content{
+    background: rgb(56, 45, 45);
+}
+
+.popular-content{
+    width: 740px;
+    height: fit-content;
+    min-height : 250px;
+    box-sizing: border-box;
+    border:none;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.character-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.character-card-img{
+    width: 100px;
+    height: 140px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.character-card-img img{
+    width: 100px;
+    height: 100%;
+    border-radius: 8px 8px 0px 0px;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.character-card-text{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0px 0px 8px 8px;
+    text-align: center;
+    margin: 0;
+    padding: 6px 0px;
+}
+
+.character-card-text p{
+    margin: 0;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgb(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.character-card:hover .character-card-text p{
+    color: #fff;
+}
+
+.character-card:hover .character-card-img{
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.character-card:hover .character-card-img img{
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.character-card{
+    cursor: pointer;
+}
+
+.recent-update-content{
+    width: 100%;
+    box-sizing: border-box;
+    min-height : 250px;
+    border:none;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.recent-update-content-text {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto 1fr;  /* date, version, content 순서대로 */
+    gap: 6px;
+    align-items: start;
+}
+
+
+.recent-update-content-text .date, .recent-update-content-text .version{
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 0px;
+    color: rgba(255, 255, 255, 0.3);
+}
+.recent-update-content-text .content {
+    padding: 0px 0px 4px 0px;
+    width: 100%;
+    font-size: 12px;
+}
+.recent-update-content-text .content p {
+    margin: 0;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.recent-update-content button{
+    width: 100%;
+    background: transparent !important;
+    border: 1px solid rgb(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 12px;
+}
+
+.show-more-updates-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #666;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;  /* 변경 */
+    align-items: center;   /* 변경 */
+    margin: 20px auto 0 auto;
+    position: relative;
+}
+
+.show-more-updates-btn:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-color: rgb(255, 255, 255, 0.1) !important;
+}
+
+@media (max-width: 1200px) {
+    .middle-container{
+        display: none;
+    }
 }
 
 /* 반응형 디자인 */
@@ -250,5 +416,3 @@
         font-size: 20px;
     }
 }
-
-
