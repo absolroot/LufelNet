@@ -1,5 +1,5 @@
 .header-container {
-    padding: 40px 0px 20px 0px;
+    padding: 0px 0px 20px 0px;
     margin: 0;
 }
 
@@ -27,6 +27,8 @@
 }
 
 .menu-card {
+    width: 100%;
+    box-sizing: border-box;
     background: rgba(0, 0, 0, 0.4);
     border-radius: 8px;
     padding: 24px;

@@ -250,7 +250,7 @@
 .filter-options {
     display: flex;
     flex-wrap: wrap;
-    gap: .75rem;
+    gap: .5rem;
     margin-right: 0px;
     padding-right: 0px;
 }
@@ -408,3 +408,24 @@ input, textarea {
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.3);
 }
+
+@media (max-width: 768px) {
+    .navigation-path, .header-container, .filter-content {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .header-container h1{
+        margin-bottom: 0px;
+    }
+    .separator-line {
+        margin-bottom: 24px;
+    }
+    .card:nth-child(odd) {
+        transform: rotate(-2deg) translateY(0px);
+    }
+    .card:nth-child(even) {
+        transform: rotate(-2deg) translateY(0px);
+    }
+}
+
+

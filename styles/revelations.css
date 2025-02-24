@@ -23,13 +23,6 @@
     align-items: flex-start;
     flex-wrap: wrap;
     box-sizing: border-box;
-    transition: transform 0.5s, filter 0.3s;
-}
-
-.card.active {
-    filter: brightness(1.05);
-    z-index: 10;
-    border: 1px solid rgb(211, 188, 142, 0.8);
 }
 
 .img-container {
@@ -180,7 +173,7 @@
 .filter-options {
     display: flex;
     flex-wrap: wrap;
-    gap: .75rem;
+    gap: .5rem;
     margin-right: 0px;
     padding-right: 0px;
 }
@@ -286,4 +279,28 @@
         margin-bottom: 10px;
     }
 
+}
+
+/* 모바일 화면 레이아웃 조정 */
+@media (max-width: 768px) {
+
+    .navigation-path, .header-container, .filter-content, .revelation-cards {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .header-container h1{
+        margin-bottom: 0px;
+    }
+
+    .card {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .info-container {
+        min-width: none;
+        width: 100%;
+    }
 }

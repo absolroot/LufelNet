@@ -837,13 +837,6 @@ h2{
 }
 
 
-/* 모바일 대응 */
-@media (max-width: 768px) {
-    
-    .skill-level-btn {
-        font-size: 12px;
-    }
-}
 
 
 
@@ -931,6 +924,24 @@ h2{
 
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+
+    .skill-card {
+        gap: 10px;
+    }
+
+    .skill-level-btn {
+        font-size: 12px;
+    }
+    .skill-icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    .skill-description {
+        width: calc(100%+34px);
+        margin-left: -34px;
     }
 
     .weapons-container {

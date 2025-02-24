@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>페르소나 - 루페르넷</title>
     <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.2">
-    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/common.css?nochace="+ new Date().getTime()>
     <link rel="stylesheet" href="../styles/persona.css">
-    <script src="../js/version.js"></script>
+    <script src="../js/version.js?nocache=" + new Date().getTime()></script>
 
 </head>
 <body>
@@ -208,7 +208,7 @@
     <script src="../js/nav.js?v=1.0.1"></script>
     
     <script src="../data/tooltip.js"></script>
-    <script src="../js/tooltip.js"></script>
+    <script src="../js/tooltip.js?nocache=" + new Date().getTime()"></script>
 
     <script src="../data/skills.js"></script>
     <script>
@@ -502,6 +502,24 @@
                     dropdown.style.display = 'none';
                 }
             });
+
+            // 키보드가 나타날 때
+            searchInput.addEventListener('focus', () => {
+                document.body.classList.add('keyboard-open');
+            });
+
+            // 키보드가 사라질 때
+            searchInput.addEventListener('blur', () => {
+                document.body.classList.remove('keyboard-open');
+            });
+
+            // iOS에서 viewport 크기 변경 방지
+            if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                const viewport = document.querySelector('meta[name="viewport"]');
+                if (viewport) {
+                    viewport.content = 'width=device-width, initial-scale=1, maximum-scale=1';
+                }
+            }
 
         });
         

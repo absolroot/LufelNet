@@ -355,8 +355,8 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
-    background-color: #312121;
+    height: 50px;
+    background-color: rgb(49, 33, 33, 0.8);
     z-index: 1001;
     transition: transform 0.3s ease;
 }
@@ -369,7 +369,7 @@ body {
 .hamburger-btn {
     display: none;
     position: fixed;
-    top: 12px;  /* 헤더 내 위치 조정 */
+    top: 10px;  /* 헤더 내 위치 조정 */
     right: 20px;  /* 오른쪽으로 변경 */
     z-index: 1002;
     background: none;
@@ -606,10 +606,9 @@ input[type="checkbox"]:hover {
     }
 
     .main-wrapper {
-        margin-left: 0;
         width: 100%;
-        padding: 20px;
-        padding-top: 80px;
+        padding: 16px;
+        padding-top: 60px;
     }
 
     .logo-container {
@@ -660,6 +659,7 @@ input[type="checkbox"]:hover {
     .hamburger-btn {
         right: 20px;  /* 오른쪽으로 변경 */
     }
+
 }
 
 
@@ -696,6 +696,11 @@ input[type="checkbox"]:hover {
     top: 100%;
 }
 
+.tooltip-text:hover::before {
+    visibility: visible;
+    opacity: 1;
+}
+
 /* 『』 문자 간격 조정 */
 .bracket-left {
     display: inline-block;
@@ -714,12 +719,54 @@ input[type="checkbox"]:hover {
 
 
 
-@media screen and (max-width: 768px) {
-    .tooltip-text::before {
-        width: auto;         /* calc 제거 */
-        min-width: 200px;    /* 최소 너비 설정 */
-        max-width: 280px;    /* 모바일에서의 최대 너비 축소 */
+/* 모바일 배너 스타일 */
+.tooltip-mobile-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 40px 12px 16px;
+    border-radius: 8px;
+    z-index: 1000;
+    width: 50%;
+    max-width: 90%;
+    text-align: left;
+    font-size: 13px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tooltip-banner-close {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, 20px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* 모바일에서 기존 툴팁 스타일 제거 */
+@media (max-width: 768px) {
+    .tooltip-text::before,
+    .tooltip-text::after {
+        display: none;
     }
+}
+
+
+
+
+@media screen and (max-width: 768px) {
 
     .bracket-left {
         margin-left: 0;
@@ -728,20 +775,6 @@ input[type="checkbox"]:hover {
     .bracket-right {
         margin-right: 0;
     }
-    
-    .tooltip-text.mobile-center::before {
-        left: 50% !important;
-        right: auto !important;
-        transform: translateX(-50%) !important;
-        width: 80vw !important;
-        max-width: 300px !important;
-        min-width: auto !important;
-    }
-}
-
-.tooltip-text:hover::before {
-    visibility: visible;
-    opacity: 1;
 }
 
 
@@ -877,3 +910,41 @@ html {
         opacity: 1;
     }
 }
+
+/* 모바일 화면 대응 */
+@media (max-width: 768px) {
+    .update-notification {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 320px;
+    }
+
+    .update-content {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .update-content-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .update-content button {
+        width: calc(50% - 5px);  /* 버튼 사이 간격 고려 */
+        margin: 0;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translate(-50%, -30%);
+            opacity: 0;
+        }
+        to {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+    }
+}
+

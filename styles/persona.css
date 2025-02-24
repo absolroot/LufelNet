@@ -32,7 +32,6 @@
     /* 카드의 가로:세로 비율을 고정 */
     aspect-ratio: 1/1.67;
     cursor: pointer;
-    margin-bottom: 55px;
     transition: all 0.1s;
     overflow: hidden;
 }
@@ -203,7 +202,7 @@
 .filter-options {
     display: flex;
     flex-wrap: wrap;
-    gap: .75rem;
+    gap: .5rem;
     margin-right: 0px;
     padding-right: 0px;
 }
@@ -489,6 +488,7 @@ input, textarea {
 .persona-detail-container {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     gap: 24px;
     padding: 20px;
     margin-bottom: 32px;
@@ -511,7 +511,7 @@ input, textarea {
 .persona-header-info {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
 }
 
 .persona-header-info h2 {
@@ -558,7 +558,7 @@ input, textarea {
 }
 
 .persona-grade-img {
-    height: 20px;
+    height: 16px;
     width: auto;
     object-fit: contain;
 }
@@ -733,12 +733,15 @@ input, textarea {
 .search-section {
     padding: 0 20px;
     margin-bottom: 4px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .search-container {
     position: relative;
-    max-width: 320px;
     align-items: center;
+    max-width: 260px;
+    box-sizing: border-box;
 }
 
 .search-icon {
@@ -758,6 +761,8 @@ input, textarea {
     background: rgba(0, 0, 0, 0.3);
     color: #fff;
     font-size: 14px;
+    box-sizing: border-box;
+
 }
 
 #personaSearch:focus {
@@ -806,3 +811,66 @@ input, textarea {
     border-radius: 4px;
 }
 
+
+
+/* 모바일 화면 레이아웃 조정 */
+@media (max-width: 768px) {
+
+    .navigation-path, .header-container, .filter-content, .persona-cards{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .header-container h1{
+        margin-bottom: 0px;
+    }
+    .persona-detail-container {
+        padding: 20px 10px 10px 10px;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 0px;
+        gap : 1vh;
+    }
+    .search-section {
+        padding: 0px;
+        width: 100%;
+    }
+    .persona-card-section {
+        padding: 0;
+        margin: 0;
+        width: 100%; 
+        display: flex;
+        justify-content: center;
+    }
+    .card {
+        margin: 0 auto;        
+    }
+
+    .persona-header-info {
+        margin-left : 2px;
+        gap : 4px;
+    }
+
+    
+    .skill-highlight-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .persona-info-section {
+        gap: 10px;
+    }
+
+    /* skill-info 아이템들 상단 정렬*/
+    .skill-info {
+        align-items: flex-start;
+    }
+    
+    /* 긴 단어도 잘리면 줄바꿈 */
+    .skill-description {
+        width: 100%;
+        word-break: break-all;
+    }
+    .skill-name {
+        min-width: 60px;
+    }
+}
