@@ -365,13 +365,26 @@ body {
     transform: translateY(-100%);
 }
 
+.mobile-header.active {
+    background-color: transparent;
+    border-bottom: none;
+}
+
+.mobile-header.active .mobile-logo-container {
+    opacity: 0;
+    visibility: hidden;
+}
+
 .mobile-logo-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 10px;
     height : 50px;
     padding: 10px;
     box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .mobile-logo-container img[src*="lufel.webp"] {

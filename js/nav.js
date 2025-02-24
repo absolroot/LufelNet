@@ -99,8 +99,10 @@ class Navigation {
         // 햄버거 메뉴 이벤트 리스너
         hamburgerBtn.addEventListener('click', () => {
             const nav = document.querySelector('.main-nav');
+            const header = document.querySelector('.mobile-header');
             hamburgerBtn.classList.toggle('active');
             nav.classList.toggle('active');
+            header.classList.toggle('active');
         });
 
         // 모바일에서 메뉴 아이템 클릭시 메뉴 닫기
