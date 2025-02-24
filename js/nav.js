@@ -8,6 +8,16 @@ class Navigation {
         mobileHeader.className = 'mobile-header';
         document.body.insertBefore(mobileHeader, document.body.firstChild);
 
+        // 로고 컨테이너 추가
+        const logoContainer = document.createElement('div');
+        logoContainer.className = 'mobile-logo-container';
+        logoContainer.onclick = () => location.href = `${rootPath}index.html`;
+        logoContainer.innerHTML = `
+            <img src="${rootPath}img/logo/lufel.webp" alt="logo" />
+            <img src="${rootPath}img/logo/lufelnet.png" alt="logo-text" />
+        `;
+        mobileHeader.appendChild(logoContainer);
+
         // 햄버거 버튼 추가
         const hamburgerBtn = document.createElement('button');
         hamburgerBtn.className = 'hamburger-btn';

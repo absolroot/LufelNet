@@ -9,9 +9,8 @@
     <link rel="icon" type="image/x-icon" href="./img/ui/favicon.ico?v=1.0.1">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5862324369257695"
      crossorigin="anonymous"></script>
-
-
      <script src="./js/version.js?nocache=" + new Date().getTime()></script>
+
 </head>
 <body>
     <div class="container">
@@ -23,6 +22,9 @@
             <!-- 헤더 (로고 등) -->
             <div class="header-container">
                 <h1>P5X 루페르넷</h1> <span class="beta-text">beta</span>
+                <button class="music-control" id="musicControl">
+                    <img src="./img/ui/music-off.png" alt="음악 재생" id="musicIcon">
+                </button>
             </div>
 
             <!-- 메인 컨텐츠 -->
@@ -105,10 +107,47 @@
 
     <script src="./js/nav.js?v=1.0.1"></script>
 
+    <!-- iframe 추가 -->
+    <iframe id="music-player" src="music.html" style="display: none;"></iframe>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             Navigation.load('home', 0);
             VersionChecker.check();
+
+            const musicPlayer = document.getElementById('music-player');
+            const musicControl = document.getElementById('musicControl');
+            const musicIcon = document.getElementById('musicIcon');
+            let isPlaying = false;
+
+            // 음악 컨트롤 버튼 클릭 이벤트
+            musicControl.addEventListener('click', () => {
+                if (!isPlaying) {
+                    musicPlayer.contentWindow.postMessage('play', '*');
+                    musicIcon.src = './img/ui/music-on.png';
+                    musicIcon.alt = '음악 중지';
+                } else {
+                    musicPlayer.contentWindow.postMessage('pause', '*');
+                    musicIcon.src = './img/ui/music-off.png';
+                    musicIcon.alt = '음악 재생';
+                }
+                isPlaying = !isPlaying;
+            });
+
+            // 음악 상태 수신
+            window.addEventListener('message', (event) => {
+                if (event.data === 'playing' || event.data === 'paused') {
+                    sessionStorage.setItem('musicState', event.data);
+                    isPlaying = event.data === 'playing';
+                    musicIcon.src = isPlaying ? './img/ui/music-on.png' : './img/ui/music-off.png';
+                    musicIcon.alt = isPlaying ? '음악 중지' : '음악 재생';
+                }
+            });
+
+            // 페이지 언로드 전에 현재 상태 저장
+            window.addEventListener('beforeunload', () => {
+                sessionStorage.setItem('musicState', isPlaying ? 'playing' : 'paused');
+            });
         });
     </script>
 
