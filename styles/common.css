@@ -696,6 +696,12 @@ input[type="checkbox"]:hover {
         right: 20px;  /* 오른쪽으로 변경 */
     }
 
+    .floating-top-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+
 }
 
 
