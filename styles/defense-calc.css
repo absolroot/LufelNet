@@ -259,28 +259,156 @@ select:-moz-focusring {
 
 
 
-/* 모바일 대응 */
+/* 모바일 대응을 위한 테이블 스타일 수정 */
 @media (max-width: 768px) {
-    .defense-table {
+    .navigation-path, .header-container, .filter-content, .top-cards{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .defense-table-container {
+        padding: 0;
+        margin: 0;
+    }
+
+    /* 모바일 헤더 스타일 */
+    .mobile-table-header {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 10px;
+        grid-template-columns: auto auto 1fr auto;
+        gap: 8px;
+        padding: 12px;
+        background: #3d3030;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .mobile-header-group {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .mobile-header-group span {
+        white-space: nowrap;
+    }
+
+    .defense-table {
+        display: block;
+        padding-top: 8px;
     }
 
     .defense-table thead {
         display: none;
     }
 
-    .defense-table tr {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        padding: 10px;
+    .defense-table tbody {
+        display: block;
     }
 
-    .check-column {
-        grid-column: 1;
-        grid-row: 1;
+    .defense-table tr {
+        display: grid;
+        grid-template-areas:
+            "check char-img char-name char-name"
+            "skill-icon skill-name skill-name value"
+            "type target option duration";
+        grid-template-columns: auto auto 1fr auto;
+        gap: 8px;
+        padding: 12px;
+        margin: 0 8px 8px 8px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+    }
+
+    .defense-table td {
+        padding: 4px;
+        border: none !important;
+    }
+
+    /* 각 열의 그리드 영역 지정 */
+    .check-column { 
+        grid-area: check; 
+        display: flex;
+        align-items: center;
+    }
+    .char-img-column { 
+        grid-area: char-img;
+        display: flex;
+        align-items: center;
+    }
+    .char-name-column { 
+        grid-area: char-name;
+        display: flex;
+        align-items: center;
+    }
+    .skill-icon-column { 
+        grid-area: skill-icon;
+        display: flex;
+        align-items: center;
+    }
+    .skill-name-column { 
+        grid-area: skill-name;
+        display: flex;
+        align-items: center;
+    }
+    .value-column { 
+        grid-area: value;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .type-column { 
+        grid-area: type;
+        font-size: 12px;
+    }
+    .target-column { 
+        grid-area: target;
+        font-size: 12px;
+    }
+    .option-column { 
+        grid-area: option;
+        font-size: 12px;
+    }
+    .duration-column { 
+        grid-area: duration;
+        font-size: 12px;
+        text-align: right;
+    }
+
+    /* 이미지 크기 조정 */
+    .char-img-column img {
+        height: 32px;
+        width: 32px;
+    }
+
+    .skill-icon-column img {
+        height: 24px;
+        width: 24px;
+    }
+
+    /* 선택된 행 스타일 */
+    .defense-table tr.selected {
+        background: rgba(221, 132, 132, 0.1);
+    }
+
+    /* 빈 캐릭터 행 스타일 */
+    .defense-table tr.empty-char {
+        padding-top: 8px;
+    }
+
+    /* 옵션 선택 스타일 */
+    .option-column select {
+        width: 100%;
+        padding: 4px !important;
+    }
+
+    /* 체크박스 이미지 크기 */
+    img[src*="check-off.png"],
+    img[src*="check-on.png"] {
+        width: 20px !important;
+        height: 20px !important;
     }
 }

@@ -5,6 +5,7 @@ class DefenseCalc {
         this.selectedItems = new Set([1, 3, 4]); // 초기 선택 항목 설정
         this.initializeBossSelect(); // 보스 선택 초기화를 먼저 실행
         this.initializeTable(); // 그 다음 테이블 초기화
+        this.initializeMobileHeader();
     }
 
     initializeTable() {
@@ -257,6 +258,46 @@ class DefenseCalc {
         this.noDefReduceSpan.textContent = '-';
         this.withDefReduceSpan.textContent = '-';
     }
+
+    initializeMobileHeader() {
+        if (window.innerWidth <= 768) {
+            const headerContainer = document.createElement('div');
+            headerContainer.className = 'mobile-table-header';
+
+            // 첫 번째 그룹 (캐릭터 정보)
+            const charGroup = document.createElement('div');
+            charGroup.className = 'mobile-header-group';
+            charGroup.innerHTML = `
+                <span>선택</span>
+                <span>괴도</span>
+            `;
+
+            // 두 번째 그룹 (스킬 정보)
+            const skillGroup = document.createElement('div');
+            skillGroup.className = 'mobile-header-group';
+            skillGroup.innerHTML = `
+                <span>스킬</span>
+                <span>분류/목표</span>
+            `;
+
+            // 세 번째 그룹 (옵션/수치)
+            const valueGroup = document.createElement('div');
+            valueGroup.className = 'mobile-header-group';
+            valueGroup.innerHTML = `
+                <span>옵션</span>
+                <span>수치/시간</span>
+            `;
+
+            headerContainer.appendChild(charGroup);
+            headerContainer.appendChild(skillGroup);
+            headerContainer.appendChild(valueGroup);
+
+            // 테이블 컨테이너의 맨 앞에 헤더 추가
+            const tableContainer = document.querySelector('.defense-table-container');
+            tableContainer.insertBefore(headerContainer, tableContainer.firstChild);
+        }
+    }
+
 }
 
 // 초기화

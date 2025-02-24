@@ -21,7 +21,7 @@ class Navigation {
         const navTemplate = `
             <nav class="main-nav">
                 <div class="logo-container" onclick="location.href='${rootPath}index.html'">
-                    <img src="${rootPath}img/logo/lufel.png" alt="logo" />
+                    <img src="${rootPath}img/logo/lufel.webp" alt="logo" />
                     <img src="${rootPath}img/logo/lufelnet.png" alt="logo-text" />
                 </div>
                 <a href="${rootPath}index.html" class="nav-item" data-nav="home">

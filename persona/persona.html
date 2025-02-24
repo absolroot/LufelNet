@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>페르소나 - 루페르넷</title>
-    <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.2">
-    <link rel="stylesheet" href="../styles/common.css?nochace="+ new Date().getTime()>
+    <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico">
+    <link rel="stylesheet" href="../styles/common.css">
     <link rel="stylesheet" href="../styles/persona.css">
     <script src="../js/version.js?nocache=" + new Date().getTime()></script>
 
@@ -208,7 +208,7 @@
     <script src="../js/nav.js?v=1.0.1"></script>
     
     <script src="../data/tooltip.js"></script>
-    <script src="../js/tooltip.js?nocache=" + new Date().getTime()"></script>
+    <script src="../js/tooltip.js"></script>
 
     <script src="../data/skills.js"></script>
     <script>
@@ -252,18 +252,21 @@
                 cardBg.src = `../img/persona/persona-card-${personaData[personaName].element}.webp`;
                 cardBg.alt = "card background";
                 cardBg.className = 'card-background';
+                cardBg.loading = 'lazy';
                 
                 // 페르소나 이미지
                 const img = document.createElement('img');
                 img.src = `../img/persona/${personaName}.webp`;
                 img.alt = personaName;
                 img.className = 'persona-img';
+                img.loading = 'lazy';  // 지연 로딩 속성 추가
                 
                 // 등급 커버 추가
                 const coverStar = document.createElement('img');
                 coverStar.src = `../img/persona/persona-cover-star${personaData[personaName].star}.webp`;
                 coverStar.alt = "rarity cover";
                 coverStar.className = 'cover-star';
+                coverStar.loading = 'lazy';
                 
                 // 나머지 요소들 추가
                 const positionContainer = document.createElement('div');

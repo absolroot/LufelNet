@@ -410,7 +410,7 @@ input, textarea {
 }
 
 @media (max-width: 768px) {
-    .navigation-path, .header-container, .filter-content {
+    .navigation-path, .header-container, .filter-content{
         padding-left: 0px;
         padding-right: 0px;
     }
@@ -421,10 +421,10 @@ input, textarea {
         margin-bottom: 24px;
     }
     .card:nth-child(odd) {
-        transform: rotate(-2deg) translateY(0px);
+        transform: rotate(0deg) translateY(0px);
     }
     .card:nth-child(even) {
-        transform: rotate(-2deg) translateY(0px);
+        transform: rotate(0deg) translateY(0px);
     }
 }
 

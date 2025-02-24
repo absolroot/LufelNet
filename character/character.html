@@ -246,6 +246,7 @@
                 img.src = `../img/character-cards/${characterName}.webp`;
                 img.alt = characterName;
                 img.className = 'character-img';
+                img.loading = 'lazy';  // 지연 로딩 속성 추가
                 
                 // 속성 아이콘
                 const elementIcon = document.createElement('img');
@@ -258,6 +259,7 @@
                 nameImg.src = `../img/character-cards/코드_${characterName}.png`;
                 nameImg.alt = characterName;
                 nameImg.className = 'name-img';
+                img.loading = 'lazy';  // 지연 로딩 속성 추가
 
                 // 이름 추가
                 const nameText = document.createElement('span');

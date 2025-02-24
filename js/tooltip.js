@@ -153,41 +153,48 @@ function addTooltips() {
     tooltips.forEach(tooltip => {
         const viewportWidth = window.innerWidth;
         
-        // PC 환경에서만 기존 툴팁 위치 계산 로직 적용
         if (viewportWidth > 768) {
-            const range = document.createRange();
-            const textNode = tooltip.childNodes[0];
-            
-            if (!textNode) return;
+            // PC 환경에서는 마우스 진입 시에만 위치 계산
+            tooltip.addEventListener('mouseenter', function() {
+                const range = document.createRange();
+                const textNode = this.childNodes[0];
+                
+                if (!textNode) return;
 
-            range.setStart(textNode, 0);
-            range.setEnd(textNode, textNode.length);
-            const rects = Array.from(range.getClientRects());
-            
-            let rect;
-            if (rects.length > 1) {
-                rect = rects.reduce((shortest, current) => 
-                    current.width < shortest.width ? current : shortest
-                );
-            } else {
-                rect = rects[0];
-            }
+                range.setStart(textNode, 0);
+                range.setEnd(textNode, textNode.length);
+                const rects = Array.from(range.getClientRects());
+                
+                let rect;
+                if (rects.length > 1) {
+                    rect = rects.reduce((shortest, current) => 
+                        current.width < shortest.width ? current : shortest
+                    );
+                } else {
+                    rect = rects[0];
+                }
 
-            if (!rect) return;
+                if (!rect) return;
 
-            const relativePosition = rect.left / viewportWidth;
-            
-            if (rect.top < 100) {
-                tooltip.classList.add('show-bottom');
-            }
+                const relativePosition = rect.left / window.innerWidth;
+                
+                if (rect.top < 100) {
+                    this.classList.add('show-bottom');
+                }
 
-            if (relativePosition < 0.25) {
-                tooltip.classList.add('align-right');
-            } else if (relativePosition > 0.75) {
-                tooltip.classList.add('align-left');
-            } else {
-                tooltip.classList.add('align-center');
-            }
+                if (relativePosition < 0.25) {
+                    this.classList.add('align-right');
+                } else if (relativePosition > 0.75) {
+                    this.classList.add('align-left');
+                } else {
+                    this.classList.add('align-center');
+                }
+            });
+
+            // 마우스가 떠날 때 클래스 제거
+            tooltip.addEventListener('mouseleave', function() {
+                this.classList.remove('show-bottom', 'align-right', 'align-left', 'align-center');
+            });
         } else {
             // 모바일 환경에서는 배너 스타일 적용
             tooltip.classList.add('mobile-banner');
