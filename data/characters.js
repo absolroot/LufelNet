@@ -343,7 +343,7 @@ const characterData = {
         "element_weakness": "염동",
         "element_resistance": "핵열",
         "rarity": 5,
-        "position": "지배",
+        "position": "반항",
         "release_order": 7,
         "persona": "요한나",
         "name": "니지마 마코토",
