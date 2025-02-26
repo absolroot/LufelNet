@@ -70,6 +70,11 @@ class Navigation {
                     <img src="${rootPath}img/nav/tactic.png" alt="tactic" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="택">택</span><span data-text="틱">틱</span>
                 </a>
+                <!--
+                <a href="${rootPath}tactic/tactic-share.html" class="nav-item" data-nav="tactic-share">
+                    <img src="${rootPath}img/nav/tactic.png" alt="tactic-share" style="width: 32px; height: 32px; object-fit: contain;" />
+                    <span data-text="택">택</span><span data-text="틱">틱</span><span data-text="공">공</span><span data-text="유">유</span>
+                </a>-->
             </nav>
         `;
 

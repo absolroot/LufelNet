@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>택틱 공유-루페르넷</title>
+    <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.1">
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/tactic.css">
+    <link rel="stylesheet" href="tactic-share.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5862324369257695"
+     crossorigin="anonymous"></script>
+    <script>document.write('<script src="../js/version.js?v=' + new Date().getTime() + '"><\/script>');</script>
+
+    <!-- Firebase SDK 추가 -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+
+    <!-- 메인 스크립트 -->
+    <script>document.write('<script src="tactic-share.js?v=' + new Date().getTime() + '"><\/script>');</script>
+
+    <!-- 택틱 프리뷰 스크립트 -->
+    <script src="tactic-preview.js"></script>
+
+    <!-- 택틱 공유 해독 스크립트 -->
+    <script src="../data/characters.js"></script>
+    <script src="../data/revelations.js"></script>
+    <script src="../data/rituals.js"></script>
+    <script src="../data/weapons.js"></script>
+    <script src="../data/persona.js"></script>
+    <script src="../data/skills.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
+    <script src="../js/tactic/share.js"></script>
+
+
+
+</head>
+<body>
+    <script src="../data/tooltip.js"></script>
+    <script src="../js/tooltip.js"></script>
+    <script src="../js/nav.js"></script>
+
+
+    <div class="container">
+        <!-- 네비게이션이 삽입될 컨테이너 -->
+        <div id="nav-container"></div>
+        
+        <!-- 메인 컨텐츠 -->
+        <div class="main-wrapper">
+            <!-- 네비게이션 경로 -->
+            <div class="navigation-path">
+                <a href="../index.html">홈</a>
+                <span class="separator">/</span>
+                <span class="current-page">페이지 이름</span>
+            </div>
+            <div class="header-container">
+                <h1>택틱 공유 게시판</h1>
+            </div>
+
+            <!-- 게시물 작성 폼 -->     
+            <div class="post-form">
+                <h2>택틱 공유하기</h2>
+                <form id="tacticForm">
+                    <input type="text" id="tacticUrl" placeholder="택틱 메이커 공유 URL : https://lufelnet.r-e.kr/lufelnet/tactic/tactic.html?data=****" required>
+                    <input type="text" id="title" placeholder="제목" required>
+                    <input type="text" id="author" placeholder="제작자" required>
+                    <button type="submit">공유하기</button>
+                </form>
+            </div>
+
+            <!-- 게시물 목록 -->
+            <div class="posts-container">
+                <div class="posts-list" id="postsList"></div>
+                <div class="pagination">
+                    <button id="prevPage" disabled>이전</button>
+                    <span id="currentPage">1</span>
+                    <button id="nextPage">다음</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 페이지 로드 시 네비게이션 초기화 및 TacticShare 인스턴스 생성
+        document.addEventListener('DOMContentLoaded', () => {
+            Navigation.load('tactic-share', 1);
+            window.tacticShare = new TacticShare(); // 전역 객체로 설정
+        });
+    </script>
+
+    <script src="../js/top_button.js"></script>
+    <button id="top-button" class="floating-top-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12L5.4 13.4L11 7.8V20H13V7.8L18.6 13.4L20 12L12 4Z" fill="rgba(255, 255, 255, 0.6)"/>
+        </svg>
+    </button>
+
+</body>
+</html>
