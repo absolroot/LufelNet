@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-5862324369257695">
+
+    <title>괴도 - 루페르넷</title>
+    <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.1">
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/character.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5862324369257695"
+     crossorigin="anonymous"></script>
+     <script>document.write('<script src="../js/version.js?v=' + new Date().getTime() + '"><\/script>');</script>
+
+</head>
+<body>
+    <div class="container">
+        <!-- 네비게이션이 삽입될 컨테이너 -->
+        <div id="nav-container"></div>
+        
+        <!-- 메인 컨텐츠 -->
+
+        <div class="main-wrapper">
+
+            <div class="navigation-path">
+                <a href="../index.html">홈</a>
+                <span class="separator">/</span>
+                <span class="current-page">괴도</span>
+            </div>
+            <div class="header-container">
+                <h1>괴도 육성</h1>
+            </div>
+            <!-- 필터 섹션 -->
+            <div class="filter-section">
+                <div class="filter-header">
+                    <button class="filter-toggle-btn">
+                        <img src="../img/character-cards/filter.png" alt="필터" />
+                        <span></span>
+                    </button>
+                    <button class="filter-reset-btn" style="display: none;">
+                        <img src="../img/character-cards/reset.png" alt="초기화" />
+                    </button>
+                </div>
+                
+                <div class="filter-content" style="display: none;">
+                    <!-- 속성 필터 -->
+                    <div class="filter-group">
+                        <h3>속성</h3>
+                        <div class="filter-options">
+                            <label>
+                                <input type="checkbox" name="element" value="물리">
+                                <img src="../img/character-cards/속성_물리.png" alt="물리">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="element" value="총격">
+                                <img src="../img/character-cards/속성_총격.png" alt="총격">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="element" value="화염">
+                                <img src="../img/character-cards/속성_화염.png" alt="화염">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="element" value="빙결">
+                                <img src="../img/character-cards/속성_빙결.png" alt="빙결">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="element" value="전격">
+                                <img src="../img/character-cards/속성_전격.png" alt="전격">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="element" value="질풍">
+                                <img src="../img/character-cards/속성_질풍.png" alt="질풍">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="element" value="염동">
+                                <img src="../img/character-cards/속성_염동.png" alt="염동">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="element" value="핵열">
+                                <img src="../img/character-cards/속성_핵열.png" alt="핵열">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="element" value="축복">
+                                <img src="../img/character-cards/속성_축복.png" alt="축복">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="element" value="주원">
+                                <img src="../img/character-cards/속성_주원.png" alt="주원">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="element" value="만능">
+                                <img src="../img/character-cards/속성_만능.png" alt="만능">
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- 직업 필터 -->
+                    <div class="filter-group">
+                        <h3>직업</h3>
+                        <div class="filter-options">
+                            <label>
+                                <input type="checkbox" name="position" value="지배">
+                                <img src="../img/character-cards/직업_지배.png" alt="지배">
+                                <!--<span class="filter-text">지배 <span class="sub-text">(광역 공격)</span></span>-->
+                            </label>
+                            <label>
+                                <input type="checkbox" name="position" value="반항">
+                                <img src="../img/character-cards/직업_반항.png" alt="반항">
+                                <!--<span class="filter-text">반항 <span class="sub-text">(단일 공격)</span></span>-->
+                            </label>
+                            <label>
+                                <input type="checkbox" name="position" value="우월">
+                                <img src="../img/character-cards/직업_우월.png" alt="우월">
+                                <!--<span class="filter-text">우월 <span class="sub-text">(버퍼)</span></span>-->
+                            </label>
+                            <label>
+                                <input type="checkbox" name="position" value="굴복">
+                                <img src="../img/character-cards/직업_굴복.png" alt="굴복">
+                                <!--<span class="filter-text">굴복 <span class="sub-text">(디버퍼)</span></span>-->
+                            </label>
+                            <label>
+                                <input type="checkbox" name="position" value="방위">
+                                <img src="../img/character-cards/직업_방위.png" alt="방위">
+                                <!--<span class="filter-text">방위 <span class="sub-text">(실드)</span></span>-->
+                            </label>
+                            <label>
+                                <input type="checkbox" name="position" value="구원">
+                                <img src="../img/character-cards/직업_구원.png" alt="구원">
+                                <!--<span class="filter-text">구원 <span class="sub-text">(회복)</span></span>-->
+                            </label>
+                            <label>
+                                <input type="checkbox" name="position" value="해명">
+                                <img src="../img/character-cards/직업_해명.png" alt="해명">
+                                <!--<span class="filter-text">해명 <span class="sub-text">(서포터)</span></span>-->
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- 희귀도 필터 -->
+                    <div class="filter-group">
+                        <h3>희귀도</h3>
+                        <div class="filter-options">
+                            <label>
+                                <input type="checkbox" name="rarity" value="5" hidden>
+                                <div class="star-container">
+                                    <img src="../img/character-detail/star5.png" alt="★">
+                                    <img src="../img/character-detail/star5.png" alt="★">
+                                    <img src="../img/character-detail/star5.png" alt="★">
+                                    <img src="../img/character-detail/star5.png" alt="★">
+                                    <img src="../img/character-detail/star5.png" alt="★">
+                                </div>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rarity" value="4" hidden>
+                                <div class="star-container">
+                                    <img src="../img/character-detail/star4.png" alt="★">
+                                    <img src="../img/character-detail/star4.png" alt="★">
+                                    <img src="../img/character-detail/star4.png" alt="★">
+                                    <img src="../img/character-detail/star4.png" alt="★">
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--구분선-->
+            <div class="separator-line"></div>
+
+            <!-- 캐릭터 카드 컨테이너 -->
+            <div class="character-cards" id="characterCards">
+                <!-- 자바스크립트로 동적 생성됨 -->
+            </div>
+        </div>
+    </div>
+    <script src="../js/top_button.js"></script>
+    <button id="top-button" class="floating-top-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12L5.4 13.4L11 7.8V20H13V7.8L18.6 13.4L20 12L12 4Z" fill="rgba(255, 255, 255, 0.6)"/>
+        </svg>
+    </button>
+
+    <script src="../data/characters.js?v=1.0.1"></script>
+    <script src="../js/nav.js?v=1.0.1"></script>
+    <script>
+        // 페이지 로드 시 네비게이션 초기화
+        document.addEventListener('DOMContentLoaded', () => {
+            Navigation.load('character', 1); // 현재 페이지에 맞는 active 상태 설정
+            VersionChecker.check();
+
+            const cardsContainer = document.getElementById('characterCards');
+            
+            // mainParty와 supportParty 합치기
+            let allCharacters = [
+                ...characterList.mainParty,
+                ...characterList.supportParty
+            ];
+
+            // characters에서 '원더' 제외
+            allCharacters = allCharacters.filter(character => character !== "원더");
+            
+            // release_order 기준으로 정렬 (역순), 같은 경우 rarity 기준으로 정렬
+            const sortedCharacters = allCharacters
+                .filter(characterName => characterData[characterName])
+                .sort((a, b) => {
+                    const releaseOrderDiff = characterData[b].release_order - characterData[a].release_order;
+                    if (releaseOrderDiff !== 0) return releaseOrderDiff;
+                    return characterData[b].rarity - characterData[a].rarity;
+                });
+            
+            // 각 캐릭터에 대해 카드 생성
+            sortedCharacters.forEach(characterName => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.dataset.element = characterData[characterName].element;
+                card.dataset.position = characterData[characterName].position;
+                card.dataset.rarity = characterData[characterName].rarity;
+                
+                // 클릭 이벤트 추가
+                card.addEventListener('click', () => {
+                    window.location.href = `character.html?name=${encodeURIComponent(characterName)}`;
+                });
+                
+                // 포지션 아이콘 컨테이너
+                const positionContainer = document.createElement('div');
+                positionContainer.className = 'position-container';
+                
+                // 포지션 아이콘
+                const positionIcon = document.createElement('img');
+                positionIcon.src = `../img/character-cards/직업_${characterData[characterName].position}.png`;
+                positionIcon.alt = characterData[characterName].position;
+                positionIcon.className = 'position-icon';
+                
+                // 캐릭터 이미지
+                const img = document.createElement('img');
+                img.src = `../img/character-cards/${characterName}.webp`;
+                img.alt = characterName;
+                img.className = 'character-img';
+                img.loading = 'lazy';  // 지연 로딩 속성 추가
+                
+                // 속성 아이콘
+                const elementIcon = document.createElement('img');
+                elementIcon.src = `../img/character-cards/속성_${characterData[characterName].element}.png`;
+                elementIcon.alt = characterData[characterName].element;
+                elementIcon.className = 'element-icon';
+                
+                // 이름 이미지
+                const nameImg = document.createElement('img');
+                nameImg.src = `../img/character-cards/코드_${characterName}.png`;
+                nameImg.alt = characterName;
+                nameImg.className = 'name-img';
+                img.loading = 'lazy';  // 지연 로딩 속성 추가
+
+                // 이름 추가
+                const nameText = document.createElement('span');
+                nameText.textContent = characterData[characterName].name;
+                nameText.className = 'name-text';
+                
+                positionContainer.appendChild(positionIcon);
+                card.appendChild(positionContainer);
+                card.appendChild(img);
+                card.appendChild(elementIcon);
+                card.appendChild(nameImg);
+                card.appendChild(nameText);
+                cardsContainer.appendChild(card);
+            });
+
+            // ----------------------------------------------------
+            // 필터 효과 구현
+
+            const filterToggleBtn = document.querySelector('.filter-toggle-btn');
+            const filterContent = document.querySelector('.filter-content');
+            const filterResetBtn = document.querySelector('.filter-reset-btn');
+            const checkboxes = document.querySelectorAll('.filter-options input[type="checkbox"]');
+            filterContent.style.display = 'block';
+
+            // 필터 토글
+            filterToggleBtn.addEventListener('click', () => {
+                filterContent.style.display = filterContent.style.display === 'none' ? 'block' : 'none';
+            });
+            
+            // 체크박스 변경 감지
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    // 체크된 필터가 있는지 확인
+                    const hasChecked = Array.from(checkboxes).some(cb => cb.checked);
+                    //filterResetBtn.style.display = hasChecked ? 'block' : 'none';
+                    
+                    // 필터링 적용
+                    applyFilters();
+                });
+            });
+            
+            // 초기화 버튼
+            
+            filterResetBtn.addEventListener('click', () => {
+                checkboxes.forEach(cb => cb.checked = false);
+                filterResetBtn.style.display = 'none';
+                applyFilters();
+            });
+            
+            filterToggleBtn.style.display = 'none';
+            filterResetBtn.style.display = 'none';
+
+            // 필터 적용 함수
+            function applyFilters() {
+                const selectedElements = Array.from(document.querySelectorAll('input[name="element"]:checked')).map(cb => cb.value);
+                const selectedPositions = Array.from(document.querySelectorAll('input[name="position"]:checked')).map(cb => cb.value);
+                const selectedRarities = Array.from(document.querySelectorAll('input[name="rarity"]:checked')).map(cb => parseInt(cb.value));
+                
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    const element = card.dataset.element;
+                    const position = card.dataset.position;
+                    const rarity = parseInt(card.dataset.rarity);
+                    
+                    // 질풍빙결 특수 처리
+                    const elementMatch = selectedElements.length === 0 || 
+                        selectedElements.includes(element) || 
+                        (element === "질풍빙결" && (selectedElements.includes("질풍") || selectedElements.includes("빙결")));
+                        
+                    const positionMatch = selectedPositions.length === 0 || selectedPositions.includes(position);
+                    const rarityMatch = selectedRarities.length === 0 || selectedRarities.includes(rarity);
+                    
+                    card.style.display = elementMatch && positionMatch && rarityMatch ? 'block' : 'none';
+                });
+            }
+
+            // 카드 호버 효과
+            /*
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                const isOdd = Array.from(cards).indexOf(card) % 2 === 0;
+                const originalTransform = isOdd ? 
+                    'rotate(-2deg) translateY(-10px)' : 
+                    'rotate(-2deg) translateY(10px)';
+
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const rotateY = (-1/5 * x + 20) * 0.5;
+                    const rotateX = (4/30 * y - 20) * 0.5;
+
+                    card.style.transform = `${originalTransform} perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    card.style.setProperty('--overlay-position', `${x/5 + y/5}%`);
+                    card.style.setProperty('--overlay-opacity', x/200);
+                });
+
+                card.addEventListener('mouseout', () => {
+                    card.style.transform = originalTransform;
+                    card.style.setProperty('--overlay-opacity', '0');
+                });
+            });
+            */
+           
+            // 마지막줄 카드 더미 추가 
+            function adjustLastRow() {
+                const cardsContainer = document.querySelector('.character-cards');
+                const cards = cardsContainer.querySelectorAll('.card');
+                const width = window.innerWidth;
+
+                // 기존에 추가된 더미 요소들 제거
+                const dummies = cardsContainer.querySelectorAll('.dummy-card');
+                dummies.forEach(dummy => dummy.remove());
+
+                function addDummyCards(columnsCount) {
+                    const totalCards = cards.length;
+                    const remainder = totalCards % columnsCount;
+                    
+                    if (remainder > 0) {
+                        const dummyCount = columnsCount - remainder;
+                        
+                        for (let i = 0; i < dummyCount; i++) {
+                            const dummy = document.createElement('div');
+                            dummy.className = 'card dummy-card';
+                            dummy.style.visibility = 'hidden';
+                            dummy.style.width = `calc((100% - 8vw) / ${columnsCount})`;
+                            dummy.style.margin = '0';
+                            cardsContainer.appendChild(dummy);
+                        }
+                    }
+                }
+
+                if (width > 1159) {
+                    addDummyCards(6);  // 6열 레이아웃
+                } else if (width >= 960 && width <= 1159) {
+                    addDummyCards(5);  // 5열 레이아웃
+                } else if (width >= 745 && width <= 959) {
+                    addDummyCards(4);  // 4열 레이아웃
+                } else if (width >= 563 && width <= 745) {
+                    addDummyCards(3);  // 3열 레이아웃
+                }
+            }
+
+            // 초기 로드와 리사이즈 시 실행
+            window.addEventListener('load', adjustLastRow);
+            window.addEventListener('resize', adjustLastRow);
+        });
+        
+    </script>
+
+
+</body>
+</html>

@@ -250,8 +250,11 @@ class TacticShare {
     async validateTacticUrl(url) {
         const validPrefixes = [
             'lufelnet/tactic/tactic.html?data=',
-            'http://lufelnet.r-e.kr/lufelnet/tactic/tactic.html?data=',
-            'https://lufelnet.r-e.kr/lufelnet/tactic/tactic.html?data='
+            'lufelnet/tactic/?data=',
+            'http://lufel.net/lufelnet/tactic/tactic.html?data=',
+            'https://lufel.net/lufelnet/tactic/tactic.html?data=',
+            'http://lufel.net/tactic/?data=',
+            'https://lufel.net/tactic/?data='
         ];
 
         if (!validPrefixes.some(prefix => url.startsWith(prefix))) {

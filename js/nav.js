@@ -34,25 +34,25 @@ class Navigation {
                     <img src="${rootPath}img/logo/lufel.webp" alt="logo" />
                     <img src="${rootPath}img/logo/lufelnet.png" alt="logo-text" />
                 </div>
-                <a href="${rootPath}index.html" class="nav-item" data-nav="home">
+                <a href="${rootPath}" class="nav-item" data-nav="home">
                     <img src="${rootPath}img/nav/home.png" alt="guaidao" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="홈">홈</span>
                 </a>
-                <a href="${rootPath}character/character.html" class="nav-item" data-nav="character">
+                <a href="${rootPath}character" class="nav-item" data-nav="character">
                     <img src="${rootPath}img/nav/guaidao.png" alt="guaidao" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="괴">괴</span><span data-text="도">도</span>
                 </a>
 
-                <a href="${rootPath}persona/persona.html" class="nav-item" data-nav="persona">
+                <a href="${rootPath}persona" class="nav-item" data-nav="persona">
                     <img src="${rootPath}img/nav/persona.png" alt="persona" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="페">페</span><span data-text="르">르</span><span data-text="소">소</span><span data-text="나">나</span>
                 </a>
                 <!--
-                <a href="${rootPath}character/" class="nav-item" data-nav="boss">
+                <a href="${rootPath}character" class="nav-item" data-nav="boss">
                     <img src="${rootPath}img/nav/boss.png" alt="boss" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="보">보</span><span data-text="스">스</span>
                 </a>-->
-                <a href="${rootPath}revelations/revelations.html" class="nav-item" data-nav="revelations">
+                <a href="${rootPath}revelations" class="nav-item" data-nav="revelations">
                     <img src="${rootPath}img/nav/qishi.png" alt="qishi" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="계">계</span><span data-text="시">시</span>
                 </a>
@@ -62,11 +62,11 @@ class Navigation {
                     <span data-text="시">시</span><span data-text="뮬">뮬</span><span data-text="레">레</span><span data-text="이">이</span><span data-text="터">터</span>
                 </a> -->
 
-                <a href="${rootPath}defense-calc/defense-calc.html" class="nav-item" data-nav="defense-calc">
+                <a href="${rootPath}defense-calc" class="nav-item" data-nav="defense-calc">
                     <img src="${rootPath}img/nav/defense-calc.png" alt="defense-calc" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="방">방</span><span data-text="어">어</span><span data-text="력">력</span>
                 </a>
-                <a href="${rootPath}tactic/tactic.html" class="nav-item" data-nav="tactic">
+                <a href="${rootPath}tactic" class="nav-item" data-nav="tactic">
                     <img src="${rootPath}img/nav/tactic.png" alt="tactic" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="택">택</span><span data-text="틱">틱</span>
                 </a>
