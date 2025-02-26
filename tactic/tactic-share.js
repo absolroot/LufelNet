@@ -22,7 +22,7 @@ class TacticShare {
         this.likeDebounceMap = new Map(); // 좋아요 디바운스 맵
         this.likeCooldown = 10000; // 좋아요 쿨다운 10초
         this.dailyPostLimit = 10;
-        this.POSTS_PER_CHUNK = 100; // 청크당 게시물 수
+        this.POSTS_PER_CHUNK = 1000; // 청크당 게시물 수를 1000개로 증가
         
         this.getUserIP();
         this.initForm();
@@ -101,6 +101,7 @@ class TacticShare {
                 this.tacticPreview = new TacticPreview();
             }
 
+            // 현재 청크 번호 계산 (1000개 단위로)
             const currentChunk = Math.floor((this.currentPage - 1) / this.POSTS_PER_CHUNK);
             const chunkRef = db.collection('post_chunks').doc(`chunk_${currentChunk}`);
             
@@ -112,6 +113,8 @@ class TacticShare {
             }
 
             const chunkData = doc.data();
+            console.log('청크 데이터:', chunkData); // 디버깅용
+
             const posts = Object.values(chunkData.posts || {})
                 .sort((a, b) => {
                     const aTime = a.createdAt?.seconds || 0;
@@ -128,11 +131,16 @@ class TacticShare {
                     isLiked: post.likes?.recentIPs?.includes(this.userIP) || false
                 }));
 
+            console.log('처리된 게시물:', posts); // 디버깅용
             this.renderPosts(posts);
             
             // 페이지네이션 상태 업데이트
-            const hasNextPage = posts.length === this.postsPerPage;
+            const totalPosts = Object.keys(chunkData.posts || {}).length;
+            const currentChunkPosition = ((this.currentPage - 1) % this.POSTS_PER_CHUNK) * this.postsPerPage;
+            const hasNextPage = currentChunkPosition + this.postsPerPage < totalPosts || 
+                              (await this.checkNextChunkExists(currentChunk));
             const hasPrevPage = this.currentPage > 1;
+            
             this.updatePaginationButtons(hasNextPage, hasPrevPage);
 
         } catch (error) {
@@ -470,6 +478,18 @@ class TacticShare {
         const postElement = container.querySelector(`[data-post-id="${postData.id}"]`);
         if (postElement) {
             this.tacticPreview.addPreviewToPost(postElement, postData.query);
+        }
+    }
+
+    // 다음 청크 존재 여부 확인을 위한 새로운 메서드
+    async checkNextChunkExists(currentChunk) {
+        try {
+            const nextChunkRef = db.collection('post_chunks').doc(`chunk_${currentChunk + 1}`);
+            const nextChunkDoc = await nextChunkRef.get();
+            return nextChunkDoc.exists;
+        } catch (error) {
+            console.error('다음 청크 확인 실패:', error);
+            return false;
         }
     }
 }
