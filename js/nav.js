@@ -11,7 +11,7 @@ class Navigation {
         // 로고 컨테이너 추가
         const logoContainer = document.createElement('div');
         logoContainer.className = 'mobile-logo-container';
-        logoContainer.onclick = () => location.href = `${rootPath}index.html`;
+        logoContainer.onclick = () => location.href = `${rootPath}`;
         logoContainer.innerHTML = `
             <img src="${rootPath}img/logo/lufel.webp" alt="logo" />
             <img src="${rootPath}img/logo/lufelnet.png" alt="logo-text" />
@@ -30,7 +30,7 @@ class Navigation {
 
         const navTemplate = `
             <nav class="main-nav">
-                <div class="logo-container" onclick="location.href='${rootPath}index.html'">
+                <div class="logo-container" onclick="location.href='${rootPath}'">
                     <img src="${rootPath}img/logo/lufel.webp" alt="logo" />
                     <img src="${rootPath}img/logo/lufelnet.png" alt="logo-text" />
                 </div>
