@@ -39,9 +39,10 @@ class TacticPreview {
 
             orderedParty.forEach(member => {
                 const container = document.createElement('div');
-                container.className = 'character-container';
 
-                if (characterData[member.name]) {
+                if (characterData[member.name] && member.name !== "원더") {
+                    container.className = 'character-container';
+
                     const charImg = document.createElement('img');
                     charImg.className = 'character-img';
                     charImg.src = `../img/character-half/${member.name}.webp`;
@@ -50,6 +51,7 @@ class TacticPreview {
                     container.appendChild(charImg);
 
                     // 원더의 경우 무기 이미지 추가
+                    /*
                     if (member.name === "원더" && tacticData.weapon) {
                         const weaponImg = document.createElement('img');
                         weaponImg.className = 'weapon-img';
@@ -57,7 +59,7 @@ class TacticPreview {
                         weaponImg.alt = tacticData.weapon;
                         weaponImg.title = tacticData.weapon;
                         container.appendChild(weaponImg);
-                    }
+                    }*/
                 }
 
                 // 순서 이미지
@@ -107,6 +109,7 @@ class TacticPreview {
             partyImagesContainer.appendChild(partyImagesDiv);
 
             // 원더 페르소나 이미지 추가
+            /*
             if (tacticData.w.some(persona => persona !== "")) {
                 const personaImagesDiv = document.createElement('div');
                 personaImagesDiv.className = 'persona-images';
@@ -128,7 +131,7 @@ class TacticPreview {
                 });
 
                 partyImagesContainer.appendChild(personaImagesDiv);
-            }
+            }*/
 
             previewDiv.appendChild(partyImagesContainer);
             return previewDiv;

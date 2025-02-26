@@ -6,7 +6,7 @@
     <meta name="google-adsense-account" content="ca-pub-5862324369257695">
 
 
-    <title>택틱 공유-루페르넷</title>
+    <title>택틱 대장간 - 루페르넷</title>
     <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.1">
     <link rel="stylesheet" href="../styles/common.css">
     <link rel="stylesheet" href="../styles/tactic.css">
@@ -57,20 +57,31 @@
             <div class="navigation-path">
                 <a href="../">홈</a>
                 <span class="separator">/</span>
-                <span class="current-page">페이지 이름</span>
+                <span class="current-page">택틱 대장간</span>
             </div>
             <div class="header-container">
-                <h1>택틱 공유 게시판</h1>
+                <h1>택틱 대장간</h1>
             </div>
 
             <!-- 게시물 작성 폼 -->     
             <div class="post-form">
-                <h2>택틱 공유하기</h2>
+                <h2>택틱 메이커로 만든 작품을 등록하세요</h2>
                 <form id="tacticForm">
-                    <input type="text" id="tacticUrl" placeholder="택틱 메이커 공유 URL : https://lufel.net/tactic?data=****" required>
-                    <input type="text" id="title" placeholder="제목" required>
-                    <input type="text" id="author" placeholder="제작자" required>
-                    <button type="submit">공유하기</button>
+                    <div class="tacticUrl">
+                        <p>공유 URL</p>
+                        <input type="text" id="tacticUrl" placeholder="https://lufel.net/tactic/?data=*" required>
+                    </div>
+                    <div class="tacticTitle">
+                        <p>제목</p>
+                        <input type="text" id="title" placeholder="[첩첩 흉몽/허약 흉몽/마음의 바다/이벤트 이름] 보스 이름 (점수)" required>
+                    </div>
+                    <div class="tacticAuthor">
+                        <p>제작자</p>
+                        <input type="text" id="author" placeholder="제작자 닉네임" required>
+                    </div>
+                    <div class="submit-container">
+                        <button type="submit">등록</button>
+                    </div>
                 </form>
             </div>
 

@@ -1,9 +1,11 @@
+
 .post-form {
-    margin: 2rem 0;
-    padding: 1.5rem;
+    margin: 0 0 32px 0;
+    padding: 20px;
     background: #3d3030;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .post-form form {
@@ -12,24 +14,59 @@
     gap: 1rem;
 }
 
+.post-form h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(255, 255, 255, 0.9);
+    margin : 0 0 30px 0;
+}
+
+.tacticUrl, .tacticTitle, .tacticAuthor {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.tacticUrl p, .tacticTitle p, .tacticAuthor p {
+    color: rgb(255, 255, 255, 0.8);
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0px;
+    margin: 0px;
+}
+
 .post-form input {
-    padding: 0.5rem;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    font-size: 1rem;
+    padding: 10px 20px 10px 20px; 
+    background: rgb(0, 0, 0, 0.2);
+    border-radius: 32px;
+    font-size: 14px;
 }
 
-.post-form button {
-    padding: 0.5rem 1rem;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
+.submit-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.submit-container button {
+    width: fit-content;
+    color: rgb(255, 255, 255);
     cursor: pointer;
+    z-index: 2;
+    position: relative;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.1);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(102, 102, 102);
+    border-image: initial;
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: 0.2s;
 }
 
-.post-form button:hover {
-    background: #0056b3;
+.submit-container button:hover {
+    background: rgb(255, 255, 255, 0.3);
 }
 
 .posts-container {
@@ -43,11 +80,10 @@
 }
 
 .post-item {
-    padding: 1rem;
-    background: #3d3030;
-    border: 1px solid #dee2e6;
+    padding: 20px;
+    background: rgb(0, 0, 0, 0.3);
+    border: 1px solid rgb(255, 255, 255, 0.1);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .post-item h3 {
@@ -68,6 +104,24 @@
 .post-item a:hover {
     text-decoration: underline;
 }
+
+.post-header{
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+}
+
+.post-link{
+    display: none;
+}
+
+
+/* 택틱 공유 페이지 이미지 스타일 */
+.party-images-container {gap: 10px; margin-bottom: 0px;}
+.party-images {gap: 6px; }
+.weapon-img {height: 80px;}
+.persona-images {gap : 0px;}
+.character-img {width : 80px; height : 80px;}
+.ritual-img {bottom: 5px;}
 
 .likes {
     margin-top: 0.5rem;
@@ -97,16 +151,18 @@
 }
 
 .pagination button {
+    font-size: 12px;
     padding: 0.5rem 1rem;
     background: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 24px;
     cursor: pointer;
 }
 
 .pagination button:disabled {
-    background: #dee2e6;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.2);
     cursor: not-allowed;
 }
 

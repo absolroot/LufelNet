@@ -162,21 +162,28 @@ class TacticShare {
 
         container.innerHTML = posts.map(post => `
             <div class="post-item" data-post-id="${escapeHtml(post.id)}">
-                <h3>${escapeHtml(post.title)}</h3>
-                <p>제작자: ${escapeHtml(post.author)}</p>
-                <a href="${escapeHtml(post.query)}" target="_blank" rel="noopener noreferrer">택틱 보기</a>
-                <div class="tactic-preview-container"></div>
-                <div class="likes">
-                    <span class="likes-count">좋아요: ${post.likes}</span>
-                    <button 
-                        onclick="tacticShare.handleLike('${post.id}')"
-                        class="like-button ${post.isLiked ? 'liked' : ''}"
-                        ${post.isLiked ? 'disabled' : ''}
-                    >
-                        ${post.isLiked ? '❤️' : '👍'}
-                    </button>
+                <div class="post-header">
+                    <h3 class="post-title">${escapeHtml(post.title)}</h3>
+                    <span class="post-author">${escapeHtml(post.author)}</span>
+                    <span class="post-date">${this.formatDate(post.createdAt)}</span>
+                    <div class="likes-section">
+                        <span class="likes-count">좋아요: ${post.likes}</span>
+                        <button 
+                            onclick="tacticShare.handleLike('${post.id}')"
+                            class="like-button ${post.isLiked ? 'liked' : ''}"
+                            ${post.isLiked ? 'disabled' : ''}
+                        >
+                            ${post.isLiked ? '❤️' : '👍'}
+                        </button>
+                    </div>
                 </div>
-                <small>${this.formatDate(post.createdAt)}</small>
+                
+                <div class="post-content">
+                    <div class="post-link">
+                        <a href="${escapeHtml(post.query)}" target="_blank" rel="noopener noreferrer">택틱 보기</a>
+                    </div>
+                    <div class="tactic-preview-container"></div>
+                </div>
             </div>
         `).join('');
 
@@ -359,8 +366,8 @@ class TacticShare {
                 const title = document.getElementById('title').value;
 
                 // 길이 검증
-                if (author.length > 12) {
-                    alert('제작자 이름은 12자를 초과할 수 없습니다.');
+                if (author.length > 20) {
+                    alert('제작자 이름은 20자를 초과할 수 없습니다.');
                     return;
                 }
                 if (title.length > 50) {
@@ -381,7 +388,7 @@ class TacticShare {
                 const postData = {
                     id: postId,
                     query: tacticUrl,
-                    author: author.slice(0, 12),
+                    author: author.slice(0, 20),
                     title: title.slice(0, 50),
                     authorIP: this.userIP,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
@@ -413,8 +420,8 @@ class TacticShare {
         const titleInput = document.getElementById('title');
 
         authorInput.addEventListener('input', function() {
-            if (this.value.length > 12) {
-                this.value = this.value.slice(0, 12);
+            if (this.value.length > 20) {
+                this.value = this.value.slice(0, 20);
             }
         });
 
@@ -454,20 +461,27 @@ class TacticShare {
         const container = document.getElementById('postsList');
         const newPostHtml = `
             <div class="post-item" data-post-id="${escapeHtml(postData.id)}">
-                <h3>${escapeHtml(postData.title)}</h3>
-                <p>제작자: ${escapeHtml(postData.author)}</p>
-                <a href="${escapeHtml(postData.query)}" target="_blank" rel="noopener noreferrer">택틱 보기</a>
-                <div class="tactic-preview-container"></div>
-                <div class="likes">
-                    <span class="likes-count">좋아요: 0</span>
-                    <button 
-                        onclick="tacticShare.handleLike('${postData.id}')"
-                        class="like-button"
-                    >
-                        👍
-                    </button>
+                <div class="post-header">
+                    <h3 class="post-title">${escapeHtml(postData.title)}</h3>
+                    <span class="post-author">${escapeHtml(postData.author)}</span>
+                    <span class="post-date">${this.formatDate(postData.createdAt)}</span>
+                    <div class="likes-section">
+                        <span class="likes-count">좋아요: 0</span>
+                        <button 
+                            onclick="tacticShare.handleLike('${postData.id}')"
+                            class="like-button"
+                        >
+                            👍
+                        </button>
+                    </div>
                 </div>
-                <small>${this.formatDate(postData.createdAt)}</small>
+                
+                <div class="post-content">
+                    <div class="post-link">
+                        <a href="${escapeHtml(postData.query)}" target="_blank" rel="noopener noreferrer">택틱 보기</a>
+                    </div>
+                    <div class="tactic-preview-container"></div>
+                </div>
             </div>
         `;
 
