@@ -1,4 +1,4 @@
-const APP_VERSION = '0.9.1';  // 현재 앱 버전
+const APP_VERSION = '0.9.2';  // 현재 앱 버전
 
 class VersionChecker {
     static check() {
@@ -27,6 +27,14 @@ class VersionChecker {
             
             await Promise.all(cacheDeletionPromises);
             console.log('Cache cleared successfully');
+            
+            // CSS 파일 강제 새로고침을 위한 처리
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const url = new URL(link.href);
+                url.searchParams.set('v', new Date().getTime());
+                link.href = url.toString();
+            });
             
             // 서비스 워커도 현재 도메인에 대해서만 해제
             if ('serviceWorker' in navigator) {

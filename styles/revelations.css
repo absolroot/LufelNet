@@ -1,3 +1,5 @@
+/* 카드 스타일 */
+
 .main-content {
     background-color: transparent;
     width: 100%;
@@ -17,12 +19,14 @@
     cursor: pointer;
     background: #3d3030;
     border-radius: 10px;
-    padding: 20px;
+    padding: 18px;
     display: flex;
     gap: 20px;
     align-items: flex-start;
     flex-wrap: wrap;
     box-sizing: border-box;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease;
 }
 
 .img-container {
@@ -60,6 +64,13 @@
     filter: brightness(1.1);
     z-index: 1;
 } 
+
+/* 활성화된 카드 스타일 */
+.card.active {
+    border-color: rgba(255, 255, 255, 0.5);
+    filter: brightness(1.1);
+    z-index: 2;
+}
 
 .type-label {
     font-size: 16px;
