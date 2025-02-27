@@ -256,12 +256,13 @@
                 elementIcon.alt = characterData[characterName].element;
                 elementIcon.className = 'element-icon';
                 
+                /*
                 // 이름 이미지
                 const nameImg = document.createElement('img');
                 nameImg.src = `../img/character-cards/코드_${characterName}.png`;
                 nameImg.alt = characterName;
                 nameImg.className = 'name-img';
-                img.loading = 'lazy';  // 지연 로딩 속성 추가
+                img.loading = 'lazy';  // 지연 로딩 속성 추가*/
 
                 // 이름 추가
                 const nameText = document.createElement('span');
@@ -272,7 +273,7 @@
                 card.appendChild(positionContainer);
                 card.appendChild(img);
                 card.appendChild(elementIcon);
-                card.appendChild(nameImg);
+                //card.appendChild(nameImg);
                 card.appendChild(nameText);
                 cardsContainer.appendChild(card);
             });

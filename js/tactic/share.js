@@ -240,7 +240,7 @@ function processSharedData(sharedData) {
       .replace(/¤/g, '"},{"')
     );
     
-    console.log('After initial decompression:', compressed);
+    //console.log('After initial decompression:', compressed);
 
     const decompressed = {
       title: compressed.h || "페르소나5X 택틱 메이커",
@@ -276,7 +276,7 @@ function processSharedData(sharedData) {
       })
     };
 
-    console.log('Final decompressed result:', JSON.stringify(decompressed, null, 2));
+    //console.log('Final decompressed result:', JSON.stringify(decompressed, null, 2));
     
     
     // cleanData를 JSON 문자열로 변환했다가 다시 파싱해서 반환

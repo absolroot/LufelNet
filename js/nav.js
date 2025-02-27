@@ -40,12 +40,12 @@ class Navigation {
                 </a>
                 <a href="${rootPath}character" class="nav-item" data-nav="character">
                     <img src="${rootPath}img/nav/guaidao.png" alt="guaidao" style="width: 32px; height: 32px; object-fit: contain;" />
-                    <span data-text="괴">괴</span><span data-text="도">도</span>
+                    <span data-text="괴도">괴도</span>
                 </a>
 
                 <a href="${rootPath}persona" class="nav-item" data-nav="persona">
                     <img src="${rootPath}img/nav/persona.png" alt="persona" style="width: 32px; height: 32px; object-fit: contain;" />
-                    <span data-text="페">페</span><span data-text="르">르</span><span data-text="소">소</span><span data-text="나">나</span>
+                    <span data-text="페르소나">페르소나</span>
                 </a>
                 <!--
                 <a href="${rootPath}character" class="nav-item" data-nav="boss">
@@ -54,7 +54,7 @@ class Navigation {
                 </a>-->
                 <a href="${rootPath}revelations" class="nav-item" data-nav="revelations">
                     <img src="${rootPath}img/nav/qishi.png" alt="qishi" style="width: 32px; height: 32px; object-fit: contain;" />
-                    <span data-text="계">계</span><span data-text="시">시</span>
+                    <span data-text="계시">계시</span>
                 </a>
                 <!--
                 <a href="${rootPath}simulator/" class="nav-item" data-nav="simulator">
@@ -64,17 +64,17 @@ class Navigation {
 
                 <a href="${rootPath}defense-calc" class="nav-item" data-nav="defense-calc">
                     <img src="${rootPath}img/nav/defense-calc.png" alt="defense-calc" style="width: 32px; height: 32px; object-fit: contain;" />
-                    <span data-text="방">방</span><span data-text="어">어</span><span data-text="력">력</span>
+                    <span data-text="방어력 계산">방어력 계산</span>
                 </a>
                 <a href="${rootPath}tactic" class="nav-item" data-nav="tactic">
                     <img src="${rootPath}img/nav/tactic.png" alt="tactic" style="width: 32px; height: 32px; object-fit: contain;" />
-                    <span data-text="택">택</span><span data-text="틱">틱</span>
+                    <span data-text="택틱 메이커">택틱 메이커</span>
                 </a>
-                <!--
+
                 <a href="${rootPath}tactic/tactic-share.html" class="nav-item" data-nav="tactic-share">
-                    <img src="${rootPath}img/nav/tactic.png" alt="tactic-share" style="width: 32px; height: 32px; object-fit: contain;" />
-                    <span data-text="택">택</span><span data-text="틱">틱</span><span data-text="공">공</span><span data-text="유">유</span>
-                </a>-->
+                    <img src="${rootPath}img/nav/tactic-share.png" alt="tactic-share" style="width: 32px; height: 32px; object-fit: contain;" />
+                    <span data-text="택틱 대장간">택틱 대장간</span>
+                </a>
             </nav>
         `;
 

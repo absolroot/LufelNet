@@ -63,26 +63,62 @@
                 <h1>택틱 대장간</h1>
             </div>
 
-            <!-- 게시물 작성 폼 -->     
-            <div class="post-form">
-                <h2>택틱 메이커로 만든 작품을 등록하세요</h2>
-                <form id="tacticForm">
-                    <div class="tacticUrl">
-                        <p>공유 URL</p>
-                        <input type="text" id="tacticUrl" placeholder="https://lufel.net/tactic/?data=*" required>
+            <!-- 게시물 작성 폼 -->  
+            <div class="top-container">
+                <div class="post-form">
+                    <h2>택틱 메이커로 만든 작품을 등록하세요</h2>
+                    <form id="tacticForm">
+                        <div class="tacticUrl">
+                            <p>공유 URL</p>
+                            <input type="text" id="tacticUrl" placeholder="https://lufel.net/tactic/?data=*" required>
+                        </div>
+                        <div class="tacticTitle">
+                            <p>제목</p>
+                            <input type="text" id="title" placeholder="[첩첩 흉몽/허약 흉몽/마음의 바다/이벤트 이름] 보스 이름 (점수)" required>
+                        </div>
+                        <div class="tacticAuthor">
+                            <p>제작자</p>
+                            <input type="text" id="author" placeholder="제작자 닉네임" required>
+                        </div>
+                        <div class="submit-container">
+                            <div class="submit-text">
+                                <p>※ 부적절한 게시글은 작성자의 동의 없이 삭제될 수 있습니다.</p>
+                            </div>
+                            <button type="submit">등록</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="ranking-container">
+                    <div class="ranking-header">
+                        <img src="../img/tactic-share/rank.png" alt="랭킹" class="ranking-title-icon">
+                        <div class="ranking-tabs">
+                            <button class="ranking-tab active" data-period="weekly">주간</button>
+                            <button class="ranking-tab" data-period="monthly">월간</button>
+                            <button class="ranking-tab" data-period="all">역대</button>
+                        </div>
                     </div>
-                    <div class="tacticTitle">
-                        <p>제목</p>
-                        <input type="text" id="title" placeholder="[첩첩 흉몽/허약 흉몽/마음의 바다/이벤트 이름] 보스 이름 (점수)" required>
+                    <div class="ranking-list">
+                        <!-- 랭킹은 JavaScript로 동적 생성됨 -->
                     </div>
-                    <div class="tacticAuthor">
-                        <p>제작자</p>
-                        <input type="text" id="author" placeholder="제작자 닉네임" required>
+                </div>
+            </div>
+
+            <div class="tactic-controls">
+                <div class="search-container">
+                    <div class="search-section">
+                        <input type="text" id="searchInput" placeholder="제목 검색..." />
+                        <button id="searchButton">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="rgba(255, 255, 255, 0.6)"/>
+                            </svg>
+                        </button>
                     </div>
-                    <div class="submit-container">
-                        <button type="submit">등록</button>
-                    </div>
-                </form>
+                </div>
+                <div class="view-tabs">
+                    <button class="tab-button active" data-view="all">전체</button>
+                    <button class="tab-button" data-view="best">베스트</button>
+                </div>
             </div>
 
             <!-- 게시물 목록 -->

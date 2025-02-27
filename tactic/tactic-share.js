@@ -15,18 +15,29 @@ const db = firebase.firestore();
 class TacticShare {
     constructor() {
         this.currentPage = 1;
-        this.postsPerPage = 20;
+        this.postsPerPage = 10;
         this.lastDoc = null;
         this.firstDoc = null;
         this.userIP = '';
         this.likeDebounceMap = new Map(); // 좋아요 디바운스 맵
         this.likeCooldown = 10000; // 좋아요 쿨다운 10초
-        this.dailyPostLimit = 10;
+        this.dailyPostLimit = 5;
         this.POSTS_PER_CHUNK = 1000; // 청크당 게시물 수를 1000개로 증가
+        this.currentView = 'all'; // 현재 보기 모드
+        this.searchKeyword = ''; // 검색어
+        this.badWords = []; // 비속어 목록을 저장할 배열
+        this.currentRankingPeriod = 'weekly';
+        this.cachedPosts = null;  // 전체 포스트 캐시
+        this.lastCacheUpdate = null;  // 마지막 캐시 업데이트 시간
+        this.cacheDuration = 5 * 60 * 1000;  // 캐시 유효 시간 (5분)
         
         this.getUserIP();
         this.initForm();
         this.loadPosts();
+        this.initTabs();
+        this.initSearch();
+        this.loadBadWords(); // 비속어 목록 로드
+        this.initRanking();
     }
 
     async handleLike(postId) {
@@ -76,9 +87,15 @@ class TacticShare {
                 });
 
                 this.updateLikesDisplay(postId, likes);
+
+                // 캐시 업데이트
+                if (this.cachedPosts && this.cachedPosts[postId]) {
+                    this.cachedPosts[postId].likes = likes;
+                    this.loadRanking(); // 랭킹 즉시 업데이트
+                }
             });
 
-        } catch (error) {
+            } catch (error) {
             console.error('좋아요 실패:', error);
             if (error.message === '이미 좋아요를 누르셨습니다!') {
                 const post = document.querySelector(`.post-item[data-post-id="${postId}"]`);
@@ -87,7 +104,6 @@ class TacticShare {
                     if (likeButton) {
                         likeButton.classList.add('liked');
                         likeButton.disabled = true;
-                        likeButton.textContent = '❤️';
                     }
                 }
             }
@@ -116,7 +132,25 @@ class TacticShare {
             console.log('청크 데이터:', chunkData); // 디버깅용
 
             const posts = Object.values(chunkData.posts || {})
+                .filter(post => {
+                    // 검색어 필터링
+                    const matchesSearch = !this.searchKeyword || 
+                        post.title.toLowerCase().includes(this.searchKeyword);
+                    
+                    // 베스트 필터링
+                    const matchesView = this.currentView === 'all' || 
+                        (this.currentView === 'best' && post.likes?.count >= 10);
+                    
+                    return matchesSearch && matchesView;
+                })
                 .sort((a, b) => {
+                    // 베스트 뷰에서는 좋아요 순으로 정렬
+                    if (this.currentView === 'best') {
+                        const likesA = a.likes?.count || 0;
+                        const likesB = b.likes?.count || 0;
+                        if (likesB !== likesA) return likesB - likesA;
+                    }
+                    // 기본적으로는 시간순 정렬
                     const aTime = a.createdAt?.seconds || 0;
                     const bTime = b.createdAt?.seconds || 0;
                     return bTime - aTime;
@@ -132,7 +166,7 @@ class TacticShare {
                 }));
 
             console.log('처리된 게시물:', posts); // 디버깅용
-            this.renderPosts(posts);
+                this.renderPosts(posts);
             
             // 페이지네이션 상태 업데이트
             const totalPosts = Object.keys(chunkData.posts || {}).length;
@@ -161,20 +195,17 @@ class TacticShare {
         }
 
         container.innerHTML = posts.map(post => `
-            <div class="post-item" data-post-id="${escapeHtml(post.id)}">
+            <div class="post-item ${post.likes >= 10 ? 'best' : ''}" data-post-id="${escapeHtml(post.id)}">
                 <div class="post-header">
-                    <h3 class="post-title">${escapeHtml(post.title)}</h3>
-                    <span class="post-author">${escapeHtml(post.author)}</span>
-                    <span class="post-date">${this.formatDate(post.createdAt)}</span>
-                    <div class="likes-section">
-                        <span class="likes-count">좋아요: ${post.likes}</span>
-                        <button 
-                            onclick="tacticShare.handleLike('${post.id}')"
-                            class="like-button ${post.isLiked ? 'liked' : ''}"
-                            ${post.isLiked ? 'disabled' : ''}
-                        >
-                            ${post.isLiked ? '❤️' : '👍'}
-                        </button>
+                    <h3>
+                        <a href="${escapeHtml(post.query)}" target="_blank" rel="noopener noreferrer" class="post-title">
+                            ${escapeHtml(post.title)}
+                        </a>
+                    </h3>
+                    <div class="post-meta">
+                        <span class="post-author">${escapeHtml(post.author)}</span>
+                        <span class="separator">|</span>
+                        <span class="post-date">${this.formatDate(post.createdAt)}</span>
                     </div>
                 </div>
                 
@@ -183,6 +214,21 @@ class TacticShare {
                         <a href="${escapeHtml(post.query)}" target="_blank" rel="noopener noreferrer">택틱 보기</a>
                     </div>
                     <div class="tactic-preview-container"></div>
+                </div>
+
+                <div class="post-footer">
+                    <div class="likes-section">
+                        <button 
+                            onclick="tacticShare.handleLike('${post.id}')"
+                            class="like-button ${post.isLiked ? 'liked' : ''}"
+                            ${post.isLiked ? 'disabled' : ''}
+                        >
+                            <img src="../img/tactic-share/like.png" alt="좋아요" />
+                        </button>
+                        <div class="likes-count-wrapper">
+                            <span class="likes-count">${post.likes}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         `).join('');
@@ -198,10 +244,12 @@ class TacticShare {
 
     formatDate(timestamp) {
         if (!timestamp) return '';
-        // timestamp가 이미 객체인 경우 처리
         const seconds = timestamp.seconds || timestamp;
         const date = new Date(seconds * 1000);
-        return date.toLocaleDateString('ko-KR');
+        const year = date.getFullYear().toString().slice(2); // 연도에서 앞 2자리 제거
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        return `${year}.${month}.${day}`;
     }
 
     updatePaginationButtons(hasNextPage, hasPrevPage) {
@@ -256,12 +304,11 @@ class TacticShare {
     // URL 검증 함수 수정
     async validateTacticUrl(url) {
         const validPrefixes = [
-            'lufelnet/tactic/tactic.html?data=',
             'lufelnet/tactic/?data=',
-            'http://lufel.net/lufelnet/tactic/tactic.html?data=',
-            'https://lufel.net/lufelnet/tactic/tactic.html?data=',
             'http://lufel.net/tactic/?data=',
-            'https://lufel.net/tactic/?data='
+            'https://lufel.net/tactic/?data=',
+            'https://www.lufel.net/tactic/?data=',
+            'http://www.lufel.net/tactic/?data='
         ];
 
         if (!validPrefixes.some(prefix => url.startsWith(prefix))) {
@@ -354,16 +401,27 @@ class TacticShare {
             e.preventDefault();
             
             try {
-                // 일일 게시물 제한 확인
-                const limitReached = await this.checkDailyPostLimit();
-                if (limitReached) {
-                    alert('하루에 최대 10개의 택틱만 공유할 수 있어요.');
-                    return;
-                }
-
+                
                 const tacticUrl = document.getElementById('tacticUrl').value;
                 const author = document.getElementById('author').value;
                 const title = document.getElementById('title').value;
+
+                // 비속어 검사
+                if (this.containsBadWords(author)) {
+                    alert('제작자 이름에 부적절한 단어가 포함되어 있습니다.');
+                    return;
+                }
+                if (this.containsBadWords(title)) {
+                    alert('제목에 부적절한 단어가 포함되어 있습니다.');
+                    return;
+                }
+
+                // 일일 게시물 제한 확인
+                const limitReached = await this.checkDailyPostLimit();
+                if (limitReached) {
+                    alert('하루에 최대 5개의 택틱만 공유할 수 있어요.');
+                    return;
+                }
 
                 // 길이 검증
                 if (author.length > 20) {
@@ -447,12 +505,11 @@ class TacticShare {
             const likesCount = post.querySelector('.likes-count');
             const likeButton = post.querySelector('.like-button');
             if (likesCount) {
-                likesCount.textContent = `좋아요: ${likes.count}`;
+                likesCount.textContent = `${likes.count}`;
             }
             if (likeButton && likes.recentIPs?.includes(this.userIP)) {
                 likeButton.classList.add('liked');
                 likeButton.disabled = true;
-                likeButton.textContent = '❤️';
             }
         }
     }
@@ -460,19 +517,17 @@ class TacticShare {
     addNewPostToUI(postData) {
         const container = document.getElementById('postsList');
         const newPostHtml = `
-            <div class="post-item" data-post-id="${escapeHtml(postData.id)}">
+            <div class="post-item ${postData.likes >= 10 ? 'best' : ''}" data-post-id="${escapeHtml(postData.id)}">
                 <div class="post-header">
-                    <h3 class="post-title">${escapeHtml(postData.title)}</h3>
-                    <span class="post-author">${escapeHtml(postData.author)}</span>
-                    <span class="post-date">${this.formatDate(postData.createdAt)}</span>
-                    <div class="likes-section">
-                        <span class="likes-count">좋아요: 0</span>
-                        <button 
-                            onclick="tacticShare.handleLike('${postData.id}')"
-                            class="like-button"
-                        >
-                            👍
-                        </button>
+                    <h3>
+                        <a href="${escapeHtml(postData.query)}" target="_blank" rel="noopener noreferrer" class="post-title">
+                            ${escapeHtml(postData.title)}
+                        </a>
+                    </h3>
+                    <div class="post-meta">
+                        <span class="post-author">${escapeHtml(postData.author)}</span>
+                        <span class="separator">|</span>
+                        <span class="post-date">${this.formatDate(postData.createdAt)}</span>
                     </div>
                 </div>
                 
@@ -481,6 +536,20 @@ class TacticShare {
                         <a href="${escapeHtml(postData.query)}" target="_blank" rel="noopener noreferrer">택틱 보기</a>
                     </div>
                     <div class="tactic-preview-container"></div>
+                </div>
+
+                <div class="post-footer">
+                    <div class="likes-section">
+                        <button 
+                            onclick="tacticShare.handleLike('${postData.id}')"
+                            class="like-button"
+                        >
+                            <img src="../img/tactic-share/like.png" alt="좋아요" />
+                        </button>
+                        <div class="likes-count-wrapper">
+                            <span class="likes-count">0</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
@@ -496,6 +565,12 @@ class TacticShare {
         if (postElement) {
             this.tacticPreview.addPreviewToPost(postElement, postData.query);
         }
+
+        // 캐시 업데이트
+        if (this.cachedPosts) {
+            this.cachedPosts[postData.id] = postData;
+            this.loadRanking(); // 랭킹 즉시 업데이트
+        }
     }
 
     // 다음 청크 존재 여부 확인을 위한 새로운 메서드
@@ -508,6 +583,165 @@ class TacticShare {
             console.error('다음 청크 확인 실패:', error);
             return false;
         }
+    }
+
+    // 탭 초기화
+    initTabs() {
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+                button.classList.add('active');
+                this.currentView = button.dataset.view;
+                this.currentPage = 1; // 페이지 초기화
+                this.loadPosts();
+            });
+        });
+    }
+
+    // 검색 기능 초기화
+    initSearch() {
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+
+        const performSearch = () => {
+            this.searchKeyword = searchInput.value.trim().toLowerCase();
+            this.currentPage = 1;
+            this.loadPosts();
+        };
+
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performSearch();
+        });
+    }
+
+    // 비속어 목록 로드 함수 추가
+    async loadBadWords() {
+        try {
+            const response = await fetch('../data/fword_list.txt');
+            const text = await response.text();
+            this.badWords = text.split('\n').filter(word => word.trim()); // 빈 줄 제거
+        } catch (error) {
+            console.error('비속어 목록 로드 실패:', error);
+            this.badWords = [];
+        }
+    }
+
+    // 텍스트에 비속어가 포함되어 있는지 검사하는 함수
+    containsBadWords(text) {
+        if (!text) return false;
+        text = text.toLowerCase();
+        return this.badWords.some(word => {
+            word = word.trim().toLowerCase();
+            return word && text.includes(word);
+        });
+    }
+
+    // 랭킹 초기화
+    initRanking() {
+        document.querySelectorAll('.ranking-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.ranking-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                this.currentRankingPeriod = tab.dataset.period;
+                this.loadRanking();
+            });
+        });
+        this.loadRanking();
+    }
+
+    // 랭킹 데이터 로드
+    async loadRanking() {
+        try {
+            const now = new Date();
+            let startDate;
+
+            switch(this.currentRankingPeriod) {
+                case 'weekly':
+                    startDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+                    break;
+                case 'monthly':
+                    startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+                    break;
+                case 'all':
+                    startDate = new Date(0);
+                    break;
+            }
+
+            // 캐시된 데이터가 있고, 유효기간이 지나지 않았으며, 전체 포스트가 1000개 미만인 경우 캐시 사용
+            if (this.cachedPosts && 
+                this.lastCacheUpdate && 
+                (now.getTime() - this.lastCacheUpdate.getTime() < this.cacheDuration) &&
+                Object.keys(this.cachedPosts).length < 1000) {
+                
+                console.log('캐시된 데이터 사용');
+                this.processRankingData(this.cachedPosts, startDate);
+                return;
+            }
+
+            // 캐시가 없거나 만료된 경우 새로 로드
+            console.log('새로운 데이터 로드');
+            const chunks = await db.collection('post_chunks').get();
+            let allPosts = {};
+
+            for (const chunk of chunks.docs) {
+                const posts = chunk.data().posts || {};
+                allPosts = { ...allPosts, ...posts };
+            }
+
+            // 캐시 업데이트
+            this.cachedPosts = allPosts;
+            this.lastCacheUpdate = now;
+
+            this.processRankingData(allPosts, startDate);
+
+        } catch (error) {
+            console.error('랭킹 로드 실패:', error);
+        }
+    }
+
+    // 랭킹 데이터 처리 (별도 메서드로 분리)
+    processRankingData(posts, startDate) {
+        const authorStats = new Map();
+
+        Object.values(posts).forEach(post => {
+            if (post.createdAt?.seconds >= startDate.getTime() / 1000) {
+                const stats = authorStats.get(post.author) || { posts: 0, likes: 0 };
+                stats.posts++;
+                stats.likes += post.likes?.count || 0;
+                authorStats.set(post.author, stats);
+            }
+        });
+
+        const rankings = Array.from(authorStats.entries())
+            .map(([author, stats]) => ({
+                author,
+                score: (stats.posts * 5) + stats.likes,
+                posts: stats.posts,
+                likes: stats.likes
+            }))
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 3);
+
+        this.renderRanking(rankings);
+    }
+
+    // 랭킹 렌더링
+    renderRanking(rankings) {
+        const container = document.querySelector('.ranking-list');
+        container.innerHTML = rankings.map((rank, index) => `
+            <div class="ranking-item" data-rank="${index + 1}">
+                <div class="ranking-position">
+                    <img src="../img/tactic-share/rank${index + 1}.png" alt="${index + 1}위" class="rank-icon">
+                </div>
+                <div class="ranking-info">
+                    <div class="ranking-author">${escapeHtml(rank.author)}</div>
+                    <div class="ranking-stats">
+                        택틱 ${rank.posts}개 · 좋아요 ${rank.likes}개
+                    </div>
+                </div>
+            </div>
+        `).join('');
     }
 }
 

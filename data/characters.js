@@ -8,7 +8,7 @@ const characterList = {
         "세이지", "안", "아야카", "야오링", "야오링·사자무",
         "원더", "유스케", "유이 YUI", "유키미", "카스미",
         "키라", "키요시", "토모코", "토모코·여름", "토시야",
-        "하루", "하루나", "치즈코"
+        "하루", "하루나", "치즈코", "미오"
     ],
     supportParty: [
         "리코", "미유", "유우미", "카요", "후타바"
@@ -47,6 +47,42 @@ const characterList = {
 const characterData = {
     "원더": {
         "color": "#000000",
+    },
+    "미오": {
+        "color": "#4287f5",
+        "main_revelation": ["신념"],
+        "sub_revelation": ["헛수고"],
+        "element": "빙결",
+        "element_weakness": "",
+        "element_resistance": "빙결",
+        "rarity": 5,
+        "position": "굴복",
+        "release_order": 20,
+        "persona": "멘테",
+        "name": "나츠카와 미오",
+        "codename": "MATOI",
+        "sub_revel2": ["효과명중"],
+        "sub_revel3": [""],
+        "sub_revel4": [""],
+        "sub_option1": ["효과명중"],
+        "sub_option2": [""],
+        "sub_option3": [""],
+        "minimum_stats": {
+            "LV10": false,
+            "LV12": false,
+            "LV12+5": false,
+            "LV13": false,
+            "LV13+5": false
+        },
+        "battle_plus_stats": "nan",
+        "skill1_lv": "MAX!",
+        "skill2_lv": "8",
+        "skill3_lv": "MAX!",
+        "skill4_lv": "MAX",
+        "mind_stats1": "",
+        "mind_stats2": "",
+        "mind_skill1": "",
+        "mind_skill2": ""
     },
     "레오": {
         "color": "#01dfd7",

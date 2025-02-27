@@ -1,7 +1,31 @@
+.navigation-path {
+    margin-bottom: 4px;
+    font-weight: 500;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 20px 0px 20px;
+}
+
+.top-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.header-container{
+    padding: 0 20px;
+}
 
 .post-form {
+    width: calc(100% - 320px);
+    min-height: 290px;
+    margin-right: 320px;
     margin: 0 0 32px 0;
     padding: 20px;
+    box-sizing: border-box;
     background: #3d3030;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -39,13 +63,15 @@
 .post-form input {
     padding: 10px 20px 10px 20px; 
     background: rgb(0, 0, 0, 0.2);
-    border-radius: 32px;
+    border-radius: 4px;
     font-size: 14px;
 }
 
 .submit-container {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    padding : 0 20px;
 }
 
 .submit-container button {
@@ -61,16 +87,228 @@
     border-color: rgb(102, 102, 102);
     border-image: initial;
     padding: 8px 20px;
-    border-radius: 20px;
+    border-radius: 8px;
     transition: 0.2s;
 }
+
+.submit-text {
+    font-size: 12px;
+    color: rgb(255, 255, 255, 0.3);
+    padding:0;
+    margin-right: 10px;
+}
+
 
 .submit-container button:hover {
     background: rgb(255, 255, 255, 0.3);
 }
 
+/* Ranking */
+
+.ranking-container {
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    box-sizing: border-box;
+    background: #3d3030;
+    border-radius: 8px;
+    padding: 20px;
+    margin : 0px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.ranking-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.ranking-title-icon {
+    height: 40px;
+    width: auto;
+    margin-top: -10px;
+}
+
+.ranking-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.ranking-tab {
+    flex: 1;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.ranking-tab.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+.rank-icon {
+    height: 32px;
+    margin-right: 0px;
+    object-fit: contain;
+}
+
+
+.ranking-position {
+    display: flex;
+    align-items: center;
+    width: 32px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+.ranking-info {
+    flex: 1;
+    margin-left: 32px;
+}
+
+.ranking-author {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 4px;
+}
+
+.ranking-stats {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* 1-3위 특별 스타일 */
+/*
+.ranking-item[data-rank="1"] { background: linear-gradient(45deg, #FFD700, #FFA500); }
+.ranking-item[data-rank="2"] { background: linear-gradient(45deg, #C0C0C0, #A9A9A9); }
+.ranking-item[data-rank="3"] { background: linear-gradient(45deg, #CD7F32, #8B4513); }
+*/
+
+
+/* 검색 및 탭 search & tabs */
+
+.tactic-controls {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    max-width: 260px;
+    box-sizing: border-box;
+}
+
+.search-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px 16px 10px 20px;
+    border: none; 
+    border-radius: 32px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+#searchButton {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchButton:hover svg path {
+    fill: rgba(255, 255, 255, 0.8);
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    transform: translateY(40%);
+    pointer-events: none;
+}
+
+.view-tabs{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-left: 20px;
+    width : fit-content;
+}
+
+.tab-button {
+    width: fit-content;
+    min-width: 70px;
+    background-image: none;
+    background-color: rgb(0, 0, 0, 0.3);
+    border-radius: 40px;
+    border: 1px solid rgb(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    cursor: pointer;
+
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 400;
+    color: rgb(255, 255, 255, 0.8);
+}
+
+.tab-button.active {
+    background-image: none;
+    background-color: rgb(255, 255, 255, 0.1);
+    color: rgb(255, 255, 255, 1);
+}
+
+
+
+/* 공유된 택틱들 tactic list */
+
 .posts-container {
     margin-top: 2rem;
+    padding: 0 20px;
 }
 
 .posts-list {
@@ -80,40 +318,98 @@
 }
 
 .post-item {
-    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 80px;
+    padding: 16px 20px;
     background: rgb(0, 0, 0, 0.3);
     border: 1px solid rgb(255, 255, 255, 0.1);
     border-radius: 8px;
 }
 
-.post-item h3 {
-    margin: 0 0 0.5rem 0;
-    color: #ffffff;
+.post-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(-2px);
 }
+
+
+.post-item h3 {
+    margin: 0 0 8px 0;
+    color: rgb(255, 255, 255, 0.9);
+}
+
 
 .post-item p {
     margin: 0.5rem 0;
     color: #ffffff;
 }
 
-.post-item a {
-    color: #007bff;
+/* 제목 링크에 대한 스타일을 더 구체적으로 지정 */
+.post-item a.post-title {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.post-item a.post-title:hover {
+    text-decoration: none;
+    color: rgb(255, 255, 255, 0.9);
+}
+
+.post-title {
+    cursor: pointer;
+    color: rgb(255, 255, 255, 0.85);
+    font-size: 18px;
     text-decoration: none;
 }
 
-.post-item a:hover {
-    text-decoration: underline;
+.post-title:hover {
+    text-decoration: none;
 }
 
-.post-header{
-    display: grid;
-    grid-template-columns: 3fr 1fr 1fr 1fr;
+
+.post-meta{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 24px;
+    gap: 8px;
+}
+
+.post-author{
+    color: rgb(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.separator {
+    height: 24px;
+    color: rgb(255, 255, 255, 0.3);
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-date{
+    color: rgb(255, 255, 255, 0.5);
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .post-link{
     display: none;
 }
 
+
+.post-content{
+    margin-left:auto;
+    margin-right:20px;
+}
 
 /* 택틱 공유 페이지 이미지 스타일 */
 .party-images-container {gap: 10px; margin-bottom: 0px;}
@@ -123,23 +419,44 @@
 .character-img {width : 80px; height : 80px;}
 .ritual-img {bottom: 5px;}
 
-.likes {
-    margin-top: 0.5rem;
+.post-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.likes-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.likes-count-wrapper{
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
 }
 
-.likes button {
-    padding: 0.25rem 0.5rem;
-    background: #e9ecef;
+.like-button {
+    width : 60px;
+    height : 60px;
+    object-fit: contain;
+    padding: 0;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
+    transition: all 0.2s;
+    background: none;
 }
 
-.likes button:hover {
-    background: #dee2e6;
+.like-button img{
+    width : 100%;
+    height : 100%;
+}
+
+.like-button.liked{
+    filter: brightness(0.5);
 }
 
 .pagination {
@@ -166,26 +483,176 @@
     cursor: not-allowed;
 }
 
+#currentPage{
+    font-size: 13px;
+    color: rgb(255, 255, 255, 0.8);
+}
+
 small {
     color: #6c757d;
     display: block;
     margin-top: 0.5rem;
 }
 
-.like-button {
-    padding: 0.25rem 0.5rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s;
+.post-item.best, .tab-button[data-view="best"]{
+    position: relative;
+    background: #20140f;
+    border: 1px solid transparent;
+    background-clip: padding-box;
 }
 
-.like-button.liked {
-    background: #ff6b6b;
-    color: white;
-    cursor: not-allowed;
+.post-item.best::before{
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: 8px;  /* post-item의 border-radius와 동일하게 */
+    z-index: -1;
+    margin: -1px;
+    background: linear-gradient(
+        45deg,
+        #4169e1,
+        #c4ffff,
+        #e4c2d3,
+        #4169e1,
+        #c4ffff
+    );
+    background-size: 200% auto;
+    animation: gradient 4s linear infinite;
 }
 
-.like-button:not(.liked):hover {
-    background: #dee2e6;
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+
+@media screen and (max-width: 1120px) {
+    .top-container{
+        flex-direction: column;
+    }
+    .post-form{
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .ranking-container{
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .post-item {
+        display: grid;
+        grid-template-areas: 
+            "header footer"
+            "content content";
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+    }
+
+    .post-header {
+        grid-area: header;
+    }
+
+    .post-footer {
+        grid-area: footer;
+    }
+
+    .post-content {
+        grid-area: content;
+        margin: 0;
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+
+
+    .navigation-path, .header-container, .top-container, .tactic-controls, .posts-container{
+        padding: 0px;
+    }
+
+    .header-container{
+        width: fit-content;
+        margin-bottom: 1rem;
+    }
+    
+    .tacticUrl, .tacticTitle, .tacticAuthor {
+        grid-template-columns: 60px 1fr;
+    }
+    .tacticUrl p, .tacticTitle p, .tacticAuthor p {
+        font-size: 13px;
+    }
+
+    .submit-text{
+        font-size: 10px;
+    }
+
+    .submit-container{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .tactic-controls{
+        flex-direction: column;
+    }
+
+    .view-tabs{
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .posts-container{
+        margin-top: 1rem;
+    }
+
+    .like-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .post-title{
+        font-size: 14px;
+    }
+    .post-author, .post-date{
+        font-size: 12px;
+    }
+
+    .party-images{
+        gap: 12px;
+        margin-left : -12px;
+    }
+
+    .character-container{
+        width: 60px;
+        height: 60px;
+    }
+
+    .character-img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .ritual-img{
+        width: 30px;
+        height: 30px;
+        bottom: 0;
+    }
+    
+    .likes-count{
+        font-size: 12px;
+    }
+    
 }

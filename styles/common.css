@@ -171,6 +171,11 @@ body {
     box-sizing: border-box;
 }
 
+.nav-item span{
+    margin-left: 4px;
+    font-size: 15px;
+}
+
 .nav-item img {
     margin-right: 10px;
 }
