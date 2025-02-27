@@ -33,17 +33,17 @@ const defenseCalcData = [
         target: "단일/광역",
         skillIcon: "../img/wonder-weapon/태고의 역장.webp",
         skillName: "태고의 역장",
-        options: ["1스택","2스택","3스택","4스택"],
+        options: ["1중첩","2중첩","3중첩","4중첩"],
         values: {
-            "1스택": 9.0,
-            "2스택": 18.0,
-            "3스택": 27.0,
-            "4스택": 36.0
+            "1중첩": 9.0,
+            "2중첩": 18.0,
+            "3중첩": 27.0,
+            "4중첩": 36.0
         },
-        defaultOption: "4스택",
+        defaultOption: "4중첩",
         value: 36.0,
         duration: "2턴",
-        note: "원소이상 3스택 미만일 경우 매 턴 원더의 공격 강제"
+        note: "원소이상 2종 이하일 경우 매 턴 원더의 공격 필수"
     },
     {
         id: 4,
@@ -213,6 +213,25 @@ const defenseCalcData = [
         value: 10.0,
         duration: "2턴",
         note: ""
+    },
+    {
+        id: "tomoko1",
+        charName: "토모코·여름",
+        charImage: "토모코·여름.webp",
+        type: "의식1",
+        target: "광역",
+        skillIcon: "../img/character-detail/ritual1.png",
+        skillName: "어김없는 빛",
+        options: ["1중첩","2중첩","3중첩"],
+        values: {
+            "1중첩": 15.0,
+            "2중첩": 30.0,
+            "3중첩": 45.0
+        },
+        defaultOption: "3중첩",
+        value: 45.0,
+        duration: "3턴",
+        note: "화려한 불꽃 발동 시 1중첩"
     },
     {
         id: 16,

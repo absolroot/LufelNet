@@ -895,11 +895,12 @@ body {
 }
 
 /* 모바일에서 방어력 계산기 nav 버튼 숨기기 */
-@media (max-width: 768px) {  /* nav.js와 동일한 모바일 기준점 사용 */
+/*
+@media (max-width: 768px) {  
     .nav-item[data-nav="defense-calc"] {
         display: none;
     }
-}
+}*/
 
 
 /* html이나 body에 추가 */

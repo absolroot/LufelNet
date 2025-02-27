@@ -267,14 +267,19 @@ select:-moz-focusring {
     }
 
     .defense-table-container {
+        background-color: transparent;
         padding: 0;
         margin: 0;
     }
 
+    .defense-table, #defenseTableBody{
+        background-color: none;
+    }
+
     /* 모바일 헤더 스타일 */
     .mobile-table-header {
-        display: grid;
-        grid-template-columns: auto auto 1fr auto;
+        display: none;
+        grid-template-columns: auto auto auto auto;
         gap: 8px;
         padding: 12px;
         background: #3d3030;
@@ -314,17 +319,18 @@ select:-moz-focusring {
         grid-template-areas:
             "check char-img char-name char-name"
             "skill-icon skill-name skill-name value"
-            "type target option duration";
-        grid-template-columns: auto auto 1fr auto;
+            "none target option duration"
+            "none note note note";
+        grid-template-columns: 60px 60px 1fr auto;
         gap: 8px;
         padding: 12px;
-        margin: 0 8px 8px 8px;
-        background: rgba(0, 0, 0, 0.2);
+        margin: 0 0 8px 0px;
+        background: rgba(221, 132, 132, 0.1);
         border-radius: 8px;
     }
 
     .defense-table td {
-        padding: 4px;
+        padding: 0px;
         border: none !important;
     }
 
@@ -361,6 +367,7 @@ select:-moz-focusring {
         justify-content: flex-end;
     }
     .type-column { 
+        display: none;
         grid-area: type;
         font-size: 12px;
     }
@@ -377,6 +384,16 @@ select:-moz-focusring {
         font-size: 12px;
         text-align: right;
     }
+    .note-column { 
+        grid-area: note;
+        font-size: 12px;
+        height: fit-content;
+        min-height: 36px;
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .note-column:not(:empty)::before {
+        content: "💬 ";
+    }
 
     /* 이미지 크기 조정 */
     .char-img-column img {
@@ -391,7 +408,8 @@ select:-moz-focusring {
 
     /* 선택된 행 스타일 */
     .defense-table tr.selected {
-        background: rgba(221, 132, 132, 0.1);
+        background: rgba(221, 132, 132, 0.2);
+        border : 1px solid rgba(255, 255, 255, 0.5);
     }
 
     /* 빈 캐릭터 행 스타일 */
@@ -405,10 +423,22 @@ select:-moz-focusring {
         padding: 4px !important;
     }
 
+    /* note-column에 텍스트가 없으면 display: none; */
+    .note-column:empty {
+        display: none;
+    }
+    
+
     /* 체크박스 이미지 크기 */
     img[src*="check-off.png"],
     img[src*="check-on.png"] {
         width: 20px !important;
         height: 20px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .note-column:not(:empty)::before {
+        content: "💬 ";
     }
 }

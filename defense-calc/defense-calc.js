@@ -295,6 +295,43 @@ class DefenseCalc {
             // 테이블 컨테이너의 맨 앞에 헤더 추가
             const tableContainer = document.querySelector('.defense-table-container');
             tableContainer.insertBefore(headerContainer, tableContainer.firstChild);
+
+            // 모바일에서 빈 캐릭터 이름 처리
+            this.updateMobileCharNames();
+
+            // 화면 크기 변경 시 캐릭터 이름 업데이트
+            window.addEventListener('resize', () => {
+                if (window.innerWidth <= 768) {
+                    this.updateMobileCharNames();
+                }
+            });
+        }
+    }
+
+    updateMobileCharNames() {
+        if (window.innerWidth <= 768) {
+            const rows = this.tableBody.querySelectorAll('tr');
+            let lastValidCharName = '';
+
+            rows.forEach(row => {
+                const charNameCell = row.querySelector('.char-name-column');
+                if (charNameCell) {
+                    if (charNameCell.textContent.trim()) {
+                        lastValidCharName = charNameCell.textContent;
+                        charNameCell.dataset.originalName = lastValidCharName;
+                    } else if (lastValidCharName) {
+                        charNameCell.textContent = lastValidCharName;
+                        charNameCell.dataset.isInherited = 'true';
+                    }
+                }
+            });
+        } else {
+            // 모바일 모드가 아닐 때는 원래 이름으로 복원
+            const inheritedCells = this.tableBody.querySelectorAll('.char-name-column[data-is-inherited="true"]');
+            inheritedCells.forEach(cell => {
+                cell.textContent = '';
+                delete cell.dataset.isInherited;
+            });
         }
     }
 
