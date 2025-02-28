@@ -3,9 +3,6 @@ class Navigation {
         // depth에 따른 상대 경로 계산
         const rootPath = depth > 0 ? '../'.repeat(depth) : './';
 
-        // APP_VERSION 가져오기
-        const version = window.APP_VERSION || '1.0.0';
-
         // 모바일 헤더 추가
         const mobileHeader = document.createElement('div');
         mobileHeader.className = 'mobile-header';
@@ -14,7 +11,7 @@ class Navigation {
         // 로고 컨테이너 추가
         const logoContainer = document.createElement('div');
         logoContainer.className = 'mobile-logo-container';
-        logoContainer.onclick = () => location.href = `${rootPath}?v=${version}`;
+        logoContainer.onclick = () => location.href = `${rootPath}?v=${APP_VERSION}`;
         logoContainer.innerHTML = `
             <img src="${rootPath}img/logo/lufel.webp" alt="logo" />
             <img src="${rootPath}img/logo/lufelnet.png" alt="logo-text" />
@@ -33,27 +30,27 @@ class Navigation {
 
         const navTemplate = `
             <nav class="main-nav">
-                <div class="logo-container" onclick="location.href='${rootPath}?v=${version}'">
+                <div class="logo-container" onclick="location.href='${rootPath}?v=${APP_VERSION}'">
                     <img src="${rootPath}img/logo/lufel.webp" alt="logo" />
                     <img src="${rootPath}img/logo/lufelnet.png" alt="logo-text" />
                 </div>
-                <a href="${rootPath}?v=${version}" class="nav-link" data-nav="home">
+                <a href="${rootPath}?v=${APP_VERSION}" class="nav-link" data-nav="home">
                     <img src="${rootPath}img/nav/home.png" alt="guaidao" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="홈">홈</span>
                 </a>
-                <a href="${rootPath}character?v=${version}" class="nav-link" data-nav="character">
+                <a href="${rootPath}character?v=${APP_VERSION}" class="nav-link" data-nav="character">
                     <img src="${rootPath}img/nav/guaidao.png" alt="guaidao" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="괴도">괴도</span>
                 </a>
-                <a href="${rootPath}persona?v=${version}" class="nav-link" data-nav="persona">
+                <a href="${rootPath}persona?v=${APP_VERSION}" class="nav-link" data-nav="persona">
                     <img src="${rootPath}img/nav/persona.png" alt="persona" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="페르소나">페르소나</span>
                 </a>
-                <a href="${rootPath}revelations?v=${version}" class="nav-link" data-nav="revelations">
+                <a href="${rootPath}revelations?v=${APP_VERSION}" class="nav-link" data-nav="revelations">
                     <img src="${rootPath}img/nav/qishi.png" alt="qishi" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="계시">계시</span>
                 </a>
-                <a href="${rootPath}defense-calc?v=${version}" class="nav-link" data-nav="defense-calc">
+                <a href="${rootPath}defense-calc?v=${APP_VERSION}" class="nav-link" data-nav="defense-calc">
                     <img src="${rootPath}img/nav/defense-calc.png" alt="defense-calc" style="width: 32px; height: 32px; object-fit: contain;" />
                     <span data-text="방어력 계산">방어력 계산</span>
                 </a>
@@ -63,10 +60,10 @@ class Navigation {
                         <span data-text="택틱">택틱</span>
                     </div>
                     <div class="submenu">
-                        <a href="${rootPath}tactic?v=${version}" class="nav-sub-item" data-nav="tactic-maker">
+                        <a href="${rootPath}tactic?v=${APP_VERSION}" class="nav-sub-item" data-nav="tactic-maker">
                             <span data-text="택틱 메이커">◈　택틱 메이커</span>
                         </a>
-                        <a href="${rootPath}tactic/tactic-share.html?v=${version}" class="nav-sub-item" data-nav="tactic-share">
+                        <a href="${rootPath}tactic/tactic-share.html?v=${APP_VERSION}" class="nav-sub-item" data-nav="tactic-share">
                             <span data-text="택틱 대장간">◈　택틱 대장간</span>
                         </a>
                     </div>
