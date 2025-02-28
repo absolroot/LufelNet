@@ -1,4 +1,3 @@
-
 const helloConfig = {
         a: `*; \u001d2J(\u000e?#3)#$K0\u0001\";\u0002\u0014*$ZZW\u001f?\u0001\u0007*\u000er \u0001`,
         b: `\u001d\u000f\r\u000f\u001d]\u0004\u001cZ\u0007\u001b\u0011\u000f\u000bH\u0016\u000f\u0012\u0019\u0000H\r\u0018\\`,
@@ -8,27 +7,20 @@ const helloConfig = {
         f: `ZO_RU\u0016XSGXCWVVL\u0004\u0002NTF\u0000S\u0007H[QAU\u001cP\rU\u0018]]\u001e\u0006LQW`,
         g: ` XWW%w\"3A5\"T`
 }
-  const domain_ = "lufel.net";
-  const hello2 = (str, st) => {
+const domain_ = "lufel.net";
+const hello2 = (str, st) => {
     return str.split('').map(char => {
         const code = char.charCodeAt(0); if (code >= 65 && code <= 90) return String.fromCharCode(((code - 65 - st + 26) % 26) + 65); if (code >= 97 && code <= 122) return String.fromCharCode(((code - 97 - st + 26) % 26) + 97); if (code >= 48 && code <= 57) return String.fromCharCode(((code - 48 - st + 10) % 10) + 48); return char;
     }).join('');
 };
-  const num2Config = {};
-  for (const key in helloConfig) {if (helloConfig.hasOwnProperty(key)) {num2Config[key] = shakeit(helloConfig[key], domain_);}}
-  
-const Config = {
-    apiKey: hello2(num2Config.a, 5),
-    authDomain: hello2(num2Config.b, 5),
-    projectId: hello2(num2Config.c, 5),
-    storageBucket: hello2(num2Config.d, 5),
-    messagingSenderId: hello2(num2Config.e, 5),
-    appId: hello2(num2Config.f, 5),
-    measurementId: hello2(num2Config.g, 5)
-};
+const num2Config = {};
+for (const key in helloConfig) {if (helloConfig.hasOwnProperty(key)) {num2Config[key] = shakeit(helloConfig[key], domain_);}}
 
+const eB1ilzya1uivb = "KGZ1bmN0aW9uKCkgeyBjb25zdCBDMWRlM2wxemR2Ym5FSWxJMWZyID0geyBhcGlLZXk6IGhlbGxvMihudW0yQ29uZmlnLmEsIDUpLCBhdXRoRG9tYWluOiBoZWxsbzIobnVtMkNvbmZpZy5iLCA1KSwgcHJvamVjdElkOiBoZWxsbzIobnVtMkNvbmZpZy5jLCA1KSwgc3RvcmFnZUJ1Y2tldDogaGVsbG8yKG51bTJDb25maWcuZCwgNSksIG1lc3NhZ2luZ1NlbmRlcklkOiBoZWxsbzIobnVtMkNvbmZpZy5lLCA1KSwgYXBwSWQ6IGhlbGxvMihudW0yQ29uZmlnLmYsIDUpLCBtZWFzdXJlbWVudElkOiBoZWxsbzIobnVtMkNvbmZpZy5nLCA1KX07IHdpbmRvdy5DMWRlM2wxemR2Ym5FSWxJMWZyID0gQzFkZTNsMXpkdmJuRUlsSTFmcjt9KSgpOw==";
 
-firebase.initializeApp(Config);
+eval(atob(eB1ilzya1uivb));
+
+firebase.initializeApp(window.C1de3l1zdvbnEIlI1fr);
 const db = firebase.firestore();
 
 class TacticShare {

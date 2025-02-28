@@ -209,6 +209,53 @@
                             </label>
                         </div>
                     </div>
+
+                    <!-- 등급 필터 -->
+                    <div class="filter-group">
+                        <h3>등급</h3>
+                        <div class="filter-options">
+                            <label>
+                                <input type="checkbox" name="grade" value="1">
+                                <img src="../img/persona/persona-grade1.webp" alt="1등급">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="grade" value="2">
+                                <img src="../img/persona/persona-grade2.webp" alt="2등급">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="grade" value="3">
+                                <img src="../img/persona/persona-grade3.webp" alt="3등급">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="grade" value="4">
+                                <img src="../img/persona/persona-grade4.webp" alt="4등급">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="grade" value="5">
+                                <img src="../img/persona/persona-grade5.webp" alt="5등급">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="grade" value="6">
+                                <img src="../img/persona/persona-grade6.webp" alt="6등급">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="grade" value="7">
+                                <img src="../img/persona/persona-grade7.webp" alt="7등급">
+                                <span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="grade" value="8">
+                                <img src="../img/persona/persona-grade8.webp" alt="8등급">
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -266,6 +313,7 @@
                 detailContainer.dataset.position = personaData[personaName].position;
                 detailContainer.dataset.rarity = personaData[personaName].star;
                 detailContainer.dataset.name = personaName;  // 검색을 위한 data-name 속성 추가
+                detailContainer.dataset.grade = personaData[personaName].grade;  // 등급을 위한 data-grade 속성 추가
                 
                 // 좌측 카드 이미지 섹션
                 const cardSection = document.createElement('div');
@@ -467,18 +515,21 @@
                 const selectedElements = Array.from(document.querySelectorAll('input[name="element"]:checked')).map(cb => cb.value);
                 const selectedPositions = Array.from(document.querySelectorAll('input[name="position"]:checked')).map(cb => cb.value);
                 const selectedRarities = Array.from(document.querySelectorAll('input[name="rarity"]:checked')).map(cb => parseInt(cb.value));
+                const selectedGrades = Array.from(document.querySelectorAll('input[name="grade"]:checked')).map(cb => cb.value);
                 
                 const containers = document.querySelectorAll('.persona-detail-container');
                 containers.forEach(container => {
                     const element = container.dataset.element;
                     const position = container.dataset.position;
                     const rarity = parseInt(container.dataset.rarity);
+                    const grade = container.dataset.grade;
                         
                     const elementMatch = selectedElements.length === 0 || selectedElements.includes(element);
                     const positionMatch = selectedPositions.length === 0 || selectedPositions.includes(position);
                     const rarityMatch = selectedRarities.length === 0 || selectedRarities.includes(rarity);
+                    const gradeMatch = selectedGrades.length === 0 || selectedGrades.includes(grade);
                     
-                    container.style.display = elementMatch && positionMatch && rarityMatch ? 'flex' : 'none';
+                    container.style.display = elementMatch && positionMatch && rarityMatch && gradeMatch ? 'flex' : 'none';
                 });
             }
 

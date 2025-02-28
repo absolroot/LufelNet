@@ -251,7 +251,8 @@
 .filter-options img[src*="직업_우월.png"],
 .filter-options img[src*="직업_굴복.png"],
 .filter-options img[src*="직업_방위.png"],
-.filter-options img[src*="직업_해명.png"] {
+.filter-options img[src*="직업_해명.png"],
+.filter-options img[src*="persona-grade8.webp"] {
     width: 22px;
     height: 22px;
 }
