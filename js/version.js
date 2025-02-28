@@ -1,4 +1,4 @@
-const APP_VERSION = '1.0.2';  // 현재 앱 버전
+const APP_VERSION = '1.0.3';  // 현재 앱 버전
 
 class VersionChecker {
     static check() {
@@ -18,25 +18,29 @@ class VersionChecker {
 
     static async clearCache() {
         try {
-            // 현재 도메인의 캐시만 삭제
-            const currentDomain = window.location.origin;
+            // 모든 캐시 삭제 (도메인 제한 없이)
             const cacheNames = await caches.keys();
-            const cacheDeletionPromises = cacheNames
-                .filter(name => name.startsWith(currentDomain))
-                .map(name => caches.delete(name));
-            
-            await Promise.all(cacheDeletionPromises);
+            await Promise.all(
+                cacheNames.map(name => caches.delete(name))
+            );
             console.log('Cache cleared successfully');
             
-            // CSS 파일 강제 새로고침을 위한 처리
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const url = new URL(link.href);
+            // CSS와 JS 파일 강제 새로고침
+            const resources = document.querySelectorAll('link[rel="stylesheet"], script[src]');
+            resources.forEach(resource => {
+                const url = new URL(resource.href || resource.src);
                 url.searchParams.set('v', new Date().getTime());
-                link.href = url.toString();
+                if (resource.tagName === 'LINK') {
+                    resource.href = url.toString();
+                } else {
+                    // 기존 스크립트 제거 후 새로운 버전으로 다시 로드
+                    const newScript = document.createElement('script');
+                    newScript.src = url.toString();
+                    resource.parentNode.replaceChild(newScript, resource);
+                }
             });
             
-            // 서비스 워커도 현재 도메인에 대해서만 해제
+            // 서비스 워커 완전 해제
             if ('serviceWorker' in navigator) {
                 const registrations = await navigator.serviceWorker.getRegistrations();
                 await Promise.all(
@@ -44,6 +48,16 @@ class VersionChecker {
                 );
                 console.log('Service workers unregistered');
             }
+
+            // 브라우저 캐시 강제 무효화 시도
+            await fetch(window.location.href, {
+                cache: 'reload',
+                headers: {
+                    'Cache-Control': 'no-cache, no-store, must-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
+                }
+            });
         } catch (error) {
             console.error('Cache clearing failed:', error);
         }
