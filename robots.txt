@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /character/
+Allow: /persona/
+Allow: /revelations/
+Allow: /tactic/
+
+# 사이트맵 위치
+Sitemap: https://p5x.lupernet.net/sitemap.xml
+
+# 크롤링 딜레이 설정
+Crawl-delay: 1 

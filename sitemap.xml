@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- 메인 페이지 -->
+    <url>
+        <loc>https://p5x.lupernet.net/</loc>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- 괴도 섹션 -->
+    <url>
+        <loc>https://p5x.lupernet.net/character/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- 페르소나 섹션 -->
+    <url>
+        <loc>https://p5x.lupernet.net/persona/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- 계시 섹션 -->
+    <url>
+        <loc>https://p5x.lupernet.net/revelations/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- 택틱 섹션 -->
+    <url>
+        <loc>https://p5x.lupernet.net/tactic/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- 택틱 공유 -->
+    <url>
+        <loc>https://p5x.lupernet.net/tactic/tactic-share.html</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- 방어력 계산기 -->
+    <url>
+        <loc>https://p5x.lupernet.net/defense-calc/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+</urlset> 
