@@ -10,17 +10,36 @@
     <script>
         const audio = document.getElementById('background-audio');
         const playlist = [
-            './music/Gone with the Storm.mp3',
-            './music/Life Will Change.mp3'
+            './music/P5X - Gone with the Storm.mp3',
+            './music/P5 - Life Will Change.mp3',
+            './music/P3R - It\'s Going Down Now.mp3',
+            './music/P5 - Rivers in the Desert.mp3',
+            './music/P3 - Memories of You.mp3',
+            './music/P5S - Daredevil.mp3',
+            './music/P5R - Take Over.mp3'
         ];
         let currentTrack = 0;
         
         // 음소거 상태로 시작
         audio.muted = true;
 
+        // 플레이리스트를 섞는 함수
+        /*
+        function shufflePlaylist() {
+            for (let i = playlist.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [playlist[i], playlist[j]] = [playlist[j], playlist[i]];
+            }
+        }*/
+
         // 다음 곡 재생 함수
         function playNextTrack() {
             currentTrack = (currentTrack + 1) % playlist.length;
+            /*
+            if (currentTrack === 0) {
+                // 플레이리스트의 마지막 곡이 끝나면 다시 섞기
+                shufflePlaylist();
+            }*/
             audio.src = playlist[currentTrack];
             audio.play();
         }
@@ -47,7 +66,11 @@
             window.parent.postMessage('paused', '*');
         });
 
+        // 초기 플레이리스트 섞기
+        // shufflePlaylist();
+        
         // 초기 자동 재생 시도
+        audio.src = playlist[currentTrack];
         audio.play().catch(() => {
             console.log('Autoplay prevented');
         });

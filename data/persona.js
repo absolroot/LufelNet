@@ -590,6 +590,32 @@ const personaData = {
             {name : "우중충한 하늘", priority: 3},
         ]
     },
+    "트론": {
+        grade: "8",
+        star: "5",
+        position: "-",
+        element: "화염",
+        instinct: {
+            name: "-",
+            effects: [
+                "-"
+            ],
+            priority: 0
+        },
+        uniqueSkill: {
+            name: "-",
+            effect: "-",
+            priority: 0,
+            icon: "화염광역"
+        },
+        highlight: {
+            effect: "-",
+            priority: 0
+        },
+        recommendSkill : [
+        ],
+        comment : "한국 서버 출시 후 데이터 추가 예정"
+    },
     "라미아": {
         grade: "3",
         star: "5",

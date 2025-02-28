@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 메인 계시 설정
         if (character.main_revelation && Array.isArray(character.main_revelation)) {
             mainRevelationValue.textContent = '';
-            mainRevelationValue.appendChild(createRevelationValue(character.main_revelation));
+            mainRevelationValue.appendChild(createRevelationValue(character.main_revelation, true));
         } else {
             mainRevelationValue.textContent = '-';
         }
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 서브 계시 설정
         if (character.sub_revelation && Array.isArray(character.sub_revelation)) {
             subRevelationValue.textContent = '';
-            subRevelationValue.appendChild(createRevelationValue(character.sub_revelation));
+            subRevelationValue.appendChild(createRevelationValue(character.sub_revelation, false));
         } else {
             subRevelationValue.textContent = '-';
         }
@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 계시 값을 분리하고 각각에 아이콘을 추가하도록 수정
-    function createRevelationValue(revelations) {
+    function createRevelationValue(revelations, isMainRevelation = false) {
         if (!revelations || revelations.length === 0) return '-';
         
         const container = document.createElement('div');
@@ -433,7 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         revelations.forEach(revelation => {
             const item = document.createElement('div');
-            item.className = 'revelation-value-item';
+            item.className = 'revelation-value-item tooltip-text';
             
             const text = document.createElement('span');
             text.textContent = revelation;
@@ -442,6 +442,44 @@ document.addEventListener('DOMContentLoaded', () => {
             icon.src = `../img/character-detail/revel/${revelation}.webp`;
             icon.alt = revelation;
             icon.className = 'revelation-icon';
+            
+            if (!isMainRevelation) {
+                // 일월성진 효과 데이터
+                if (revelationData.sub_effects && revelationData.sub_effects[revelation]) {
+                    const subEffect = revelationData.sub_effects[revelation];
+                    const tooltipText = `[${revelation}]\n2세트: ${subEffect.set2}\n4세트: ${subEffect.set4}`;
+                    item.setAttribute('data-tooltip', tooltipText);
+                }
+            } else {
+                // 주 성위 효과 데이터
+                if (revelationData.set_effects && revelationData.set_effects[revelation]) {
+                    const setEffects = revelationData.set_effects[revelation];
+                    
+                    // 현재 선택된 일월성진 계시들 가져오기 (수정된 부분)
+                    const subRevelationContainer = document.querySelector('.sub-revelation .revelation-values');
+                    const currentSubRevs = Array.from(subRevelationContainer?.querySelectorAll('.revelation-value-item span') || [])
+                        .map(el => el.textContent.trim())
+                        .filter(text => text); // 빈 문자열 제거
+
+                    console.log(currentSubRevs);
+                    // 현재 선택된 일월성진에 대한 세트 효과만 필터링
+                    const tooltipText = Object.entries(setEffects)
+                        .filter(([subRev]) => currentSubRevs.includes(subRev))
+                        .map(([subRev, effect]) => `[${revelation} - ${subRev}]\n${effect}`)
+                        .join('\n\n');
+
+                    // 툴팁 텍스트가 비어있지 않은 경우에만 설정
+                    if (tooltipText) {
+                        item.setAttribute('data-tooltip', tooltipText);
+                    } else {
+                        // 선택된 일월성진이 없는 경우 모든 조합 효과 표시
+                        const allEffectsText = Object.entries(setEffects)
+                            .map(([subRev, effect]) => `[${revelation} - ${subRev}]\n${effect}`)
+                            .join('\n\n');
+                        item.setAttribute('data-tooltip', allEffectsText);
+                    }
+                }
+            }
             
             item.appendChild(text);
             item.appendChild(icon);
