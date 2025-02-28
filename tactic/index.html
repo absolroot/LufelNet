@@ -9,43 +9,52 @@
   <script>document.write('<script src="../js/version.js?v=' + new Date().getTime() + '"><\/script>');</script>
 
   <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.1">
-  <link rel="stylesheet" href="../styles/common.css">
-  <link rel="stylesheet" href="../styles/tactic.css">
-  
+
+  <script>
+    // APP_VERSION을 사용하여 리소스 버전 관리
+    document.write(`
+        <link rel="stylesheet" href="../styles/common.css?v=${APP_VERSION}">
+        <link rel="stylesheet" href="../styles/tactic.css?v=${APP_VERSION}">
+        <script src="../js/nav.js?v=${APP_VERSION}"><\/script>
+    `);
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-57DTGQ5TR7"></script>
   <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-57DTGQ5TR7');</script>
 
   <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
 
-    <script src="../js/nav.js"></script>
-
-    <!-- 데이터 파일들 -->
-    <script src="../data/characters.js?v=1.3.1"></script>
-    <script src="../data/revelations.js?v=1.3.1"></script>
-    <script src="../data/rituals.js?v=1.3.1"></script>
-    <script src="../data/weapons.js?v=1.3.1"></script>
-    <script src="../data/persona.js?v=1.3.1"></script>
-    <script src="../data/skills.js?v=1.3.1"></script>
-    <!-- 공유/가져오기/내보내기 데이터 처리 함수 -->
-    <script src="../js/tactic/share.js?v=1.3.1"></script>
-    <script src="../js/tactic/import.js?v=1.3.1"></script>
-    <script src="../js/tactic/export.js?v=1.3.1"></script>
-    <!-- 기본 설정 함수 -->
-    <script src="../js/tactic/setparty.js?v=1.3.1"></script>
-    <script src="../js/tactic/setwonder.js?v=1.3.1"></script>
-    <!-- 파티 이미지 함수 -->
-    <script src="../js/tactic/partyimg.js?v=1.3.1"></script>
-    <!-- 액션 생성 함수 -->
-    <script src="../js/tactic/createAction.js?v=1.3.1"></script>
-    <!-- 턴 렌더링 함수 -->
-    <script src="../js/tactic/renderTurns.js?v=1.3.1"></script>
-    <!-- 자동 액션 업데이트 함수 -->
-    <script src="../js/tactic/updateAuto.js?v=1.3.1"></script>
-    <!-- 의식 별 행동패턴 찾기 -->
-    <script src="../js/tactic/findPattern.js?v=1.3.1"></script>
-    <!-- 시뮬레이터 관련 함수 -->
-    <script src="../js/simulator.js?v=1.0.0"></script>
+  <script>
+    // 데이터 파일들 로드
+    document.write(`
+      <!-- 데이터 파일들 -->
+      <script src="../data/characters.js?v=${APP_VERSION}"><\/script>
+      <script src="../data/revelations.js?v=${APP_VERSION}"><\/script>
+      <script src="../data/rituals.js?v=${APP_VERSION}"><\/script>
+      <script src="../data/weapons.js?v=${APP_VERSION}"><\/script>
+      <script src="../data/persona.js?v=${APP_VERSION}"><\/script>
+      <script src="../data/skills.js?v=${APP_VERSION}"><\/script>
+      <!-- 공유/가져오기/내보내기 데이터 처리 함수 -->
+      <script src="../js/tactic/share.js?v=${APP_VERSION}"><\/script>
+      <script src="../js/tactic/import.js?v=${APP_VERSION}"><\/script>
+      <script src="../js/tactic/export.js?v=${APP_VERSION}"><\/script>
+      <!-- 기본 설정 함수 -->
+      <script src="../js/tactic/setparty.js?v=${APP_VERSION}"><\/script>
+      <script src="../js/tactic/setwonder.js?v=${APP_VERSION}"><\/script>
+      <!-- 파티 이미지 함수 -->
+      <script src="../js/tactic/partyimg.js?v=${APP_VERSION}"><\/script>
+      <!-- 액션 생성 함수 -->
+      <script src="../js/tactic/createAction.js?v=${APP_VERSION}"><\/script>
+      <!-- 턴 렌더링 함수 -->
+      <script src="../js/tactic/renderTurns.js?v=${APP_VERSION}"><\/script>
+      <!-- 자동 액션 업데이트 함수 -->
+      <script src="../js/tactic/updateAuto.js?v=${APP_VERSION}"><\/script>
+      <!-- 의식 별 행동패턴 찾기 -->
+      <script src="../js/tactic/findPattern.js?v=${APP_VERSION}"><\/script>
+      <!-- 시뮬레이터 관련 함수 -->
+      <script src="../js/simulator.js?v=${APP_VERSION}"><\/script>
+    `);
+  </script>
   <!-- html2canvas 라이브러리 추가 -->
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>

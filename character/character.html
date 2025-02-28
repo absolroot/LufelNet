@@ -7,8 +7,7 @@
 
     <title>괴도 상세 - 루페르넷</title>
     <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.1">
-    <link rel="stylesheet" href="../styles/common.css">
-    <link rel="stylesheet" href="../styles/cha_detail.css">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5862324369257695"
      crossorigin="anonymous"></script>
      <script>document.write('<script src="../js/version.js?v=' + new Date().getTime() + '"><\/script>');</script>
@@ -17,20 +16,31 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-57DTGQ5TR7"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-57DTGQ5TR7');</script>
 
+    <script>
+        // APP_VERSION을 사용하여 리소스 버전 관리
+        document.write(`
+            <!-- 스타일시트 -->
+            <link rel="stylesheet" href="../styles/common.css?v=${APP_VERSION}">
+            <link rel="stylesheet" href="../styles/cha_detail.css?v=${APP_VERSION}">
+
+            <!-- 데이터 파일들 -->
+            <script src="../data/character_ritual.js?v=${APP_VERSION}"><\/script>
+            <script src="../data/characters.js?v=${APP_VERSION}"><\/script>
+            <script src="../data/character_skills.js?v=${APP_VERSION}"><\/script>
+            <script src="../data/character_weapon.js?v=${APP_VERSION}"><\/script>
+            <script src="../data/tooltip.js?v=${APP_VERSION}"><\/script>
+
+            <!-- 기능 스크립트 -->
+            <script src="../js/nav.js?v=${APP_VERSION}"><\/script>
+            <script src="../js/cha_detail.js?v=${APP_VERSION}"><\/script>
+            <script src="../js/tooltip.js?v=${APP_VERSION}"><\/script>
+            <script src="../js/detail/dot-carousel.js?v=${APP_VERSION}"><\/script>
+            <script src="../js/top_button.js?v=${APP_VERSION}"><\/script>
+        `);
+    </script>
 
 </head>
 <body>
-    <script src="../js/nav.js?v=1.0.1"></script>
-    
-    <script src="../data/character_ritual.js"></script>
-    <script src="../data/characters.js"></script>
-    <script src="../data/character_skills.js"></script>
-    <script src="../data/character_weapon.js"></script>
-    <script src="../data/tooltip.js"></script>
-
-    <script src="../js/cha_detail.js"></script>
-    <script src="../js/tooltip.js"></script>
-    <script src="../js/detail/dot-carousel.js"></script>
 
     <div class="container">
         <!-- 네비게이션이 삽입될 컨테이너 -->
@@ -661,7 +671,6 @@
         });
     </script>
 
-    <script src="../js/top_button.js"></script>
     <button id="top-button" class="floating-top-btn">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 4L4 12L5.4 13.4L11 7.8V20H13V7.8L18.6 13.4L20 12L12 4Z" fill="rgba(255, 255, 255, 0.6)"/>

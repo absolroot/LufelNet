@@ -7,47 +7,50 @@
 
 
     <title>택틱 대장간 - 루페르넷</title>
-    <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.1">
-    <link rel="stylesheet" href="../styles/common.css">
-    <link rel="stylesheet" href="../styles/tactic.css">
-    <link rel="stylesheet" href="tactic-share.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5862324369257695"
-     crossorigin="anonymous"></script>
+    
     <script>document.write('<script src="../js/version.js?v=' + new Date().getTime() + '"><\/script>');</script>
+    <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.1">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5862324369257695" crossorigin="anonymous"></script>
 
     <!-- Firebase SDK 추가 -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
-
-    <!-- 메인 스크립트 -->
-    <script>document.write('<script src="tactic-share.js?v=' + new Date().getTime() + '"><\/script>');</script>
-
-    <!-- 택틱 프리뷰 스크립트 -->
-    <script src="tactic-preview.js"></script>
-
-    <!-- 택틱 공유 해독 스크립트 -->
-    <script src="../data/characters.js"></script>
-    <script src="../data/revelations.js"></script>
-    <script src="../data/rituals.js"></script>
-    <script src="../data/weapons.js"></script>
-    <script src="../data/persona.js"></script>
-    <script src="../data/skills.js"></script>
-
-
     <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
-    <script src="../js/tactic/share.js"></script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-57DTGQ5TR7"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-57DTGQ5TR7');</script>
 
+    <script>
+        // APP_VERSION을 사용하여 리소스 버전 관리
+        document.write(`
+            <link rel="stylesheet" href="../styles/common.css?v=${APP_VERSION}">
+            <link rel="stylesheet" href="../styles/tactic.css?v=${APP_VERSION}">
+            <link rel="stylesheet" href="tactic-share.css?v=${APP_VERSION}">
+
+            <!-- 데이터 파일들 -->
+            <script src="../data/characters.js?v=${APP_VERSION}"><\/script>
+            <script src="../data/revelations.js?v=${APP_VERSION}"><\/script>
+            <script src="../data/rituals.js?v=${APP_VERSION}"><\/script>
+            <script src="../data/weapons.js?v=${APP_VERSION}"><\/script>
+            <script src="../data/persona.js?v=${APP_VERSION}"><\/script>
+            <script src="../data/skills.js?v=${APP_VERSION}"><\/script>
+            <script src="../data/tooltip.js?v=${APP_VERSION}"><\/script>
+
+            <!-- 기능 스크립트 -->
+            <script src="tactic-share.js?v=${APP_VERSION}"><\/script>
+            <script src="tactic-preview.js?v=${APP_VERSION}"><\/script>
+            <script src="../js/tactic/share.js?v=${APP_VERSION}"><\/script>
+            <script src="../js/tooltip.js?v=${APP_VERSION}"><\/script>
+            <script src="../js/nav.js?v=${APP_VERSION}"><\/script>
+        `);
+    </script>
+
 
 </head>
 <body>
-    <script src="../data/tooltip.js"></script>
-    <script src="../js/tooltip.js"></script>
-    <script src="../js/nav.js"></script>
 
 
     <div class="container">

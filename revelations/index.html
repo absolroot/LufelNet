@@ -6,22 +6,33 @@
     <meta name="google-adsense-account" content="ca-pub-5862324369257695">
 
     <title>계시 - 루페르넷</title>
+    <script>document.write('<script src="../js/version.js?v=' + new Date().getTime() + '"><\/script>');</script>
+
     <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.1">
-    <link rel="stylesheet" href="../styles/common.css?v=1.0.1">
-    <link rel="stylesheet" href="../styles/revelations.css?v=1.0.1">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5862324369257695"
     crossorigin="anonymous"></script>
-    <script>document.write('<script src="../js/version.js?v=' + new Date().getTime() + '"><\/script>');</script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-57DTGQ5TR7"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-57DTGQ5TR7');</script>
     
+    <script>
+        // 데이터 파일들 로드
+        document.write(`
+            <link rel="stylesheet" href="../styles/common.css?v=${APP_VERSION}">
+            <link rel="stylesheet" href="../styles/revelations.css?v=${APP_VERSION}">
+            <script src="../data/revelations.js?v=${APP_VERSION}"><\/script>
+            <script src="../js/nav.js?v=${APP_VERSION}"><\/script>
+            <script src="../data/tooltip.js?v=${APP_VERSION}"><\/script>
+            <script src="../js/tooltip.js?v=${APP_VERSION}"><\/script>
+            <script src="../data/skills.js?v=${APP_VERSION}"><\/script>
+            <script src="../js/top_button.js?v=${APP_VERSION}"><\/script>
+        `);
+    </script>
+
 </head>
 <body>
-    <script src="../data/tooltip.js"></script>
-    <script src="../js/tooltip.js"></script>
-
     <div class="container">
         <!-- 네비게이션이 삽입될 컨테이너 -->
         <div id="nav-container"></div>
@@ -162,8 +173,7 @@
         </div>
     </div>
 
-    <script src="../js/nav.js?v=1.0.1"></script>
-    <script src="../data/revelations.js"></script>
+
     <script>
         // 페이지 로드 시 네비게이션 초기화
         document.addEventListener('DOMContentLoaded', () => {
@@ -447,7 +457,6 @@
         });
     </script>
 
-    <script src="../js/top_button.js"></script>
     <button id="top-button" class="floating-top-btn">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 4L4 12L5.4 13.4L11 7.8V20H13V7.8L18.6 13.4L20 12L12 4Z" fill="rgba(255, 255, 255, 0.6)"/>
