@@ -18,29 +18,33 @@ class VersionChecker {
 
     static async clearCache() {
         try {
-            // 모든 캐시 삭제 (도메인 제한 없이)
+            // 모든 캐시 삭제
             const cacheNames = await caches.keys();
             await Promise.all(
                 cacheNames.map(name => caches.delete(name))
             );
             console.log('Cache cleared successfully');
             
-            // CSS와 JS 파일 강제 새로고침
+            // CSS와 JS 파일 강제 새로고침 (APP_VERSION 사용)
             const resources = document.querySelectorAll('link[rel="stylesheet"], script[src]');
             resources.forEach(resource => {
                 const url = new URL(resource.href || resource.src);
-                url.searchParams.set('v', new Date().getTime());
+                // 기존 v 파라미터 제거
+                url.searchParams.delete('v');
+                // 새로운 버전 추가
+                url.searchParams.set('v', APP_VERSION);
+                
                 if (resource.tagName === 'LINK') {
                     resource.href = url.toString();
-                } else {
-                    // 기존 스크립트 제거 후 새로운 버전으로 다시 로드
+                } else if (resource.src && !resource.src.includes('googlesyndication') && !resource.src.includes('googletagmanager')) {
+                    // 광고 및 분석 스크립트 제외하고 새로고침
                     const newScript = document.createElement('script');
                     newScript.src = url.toString();
                     resource.parentNode.replaceChild(newScript, resource);
                 }
             });
             
-            // 서비스 워커 완전 해제
+            // 서비스 워커 해제
             if ('serviceWorker' in navigator) {
                 const registrations = await navigator.serviceWorker.getRegistrations();
                 await Promise.all(
@@ -49,7 +53,7 @@ class VersionChecker {
                 console.log('Service workers unregistered');
             }
 
-            // 브라우저 캐시 강제 무효화 시도
+            // 브라우저 캐시 강제 무효화
             await fetch(window.location.href, {
                 cache: 'reload',
                 headers: {
