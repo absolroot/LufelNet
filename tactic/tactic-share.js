@@ -1,15 +1,34 @@
-// Firebase 초기화
-const firebaseConfig = {
-    apiKey: "AIzaSyAfFJaJACzYqVRxm9JCo42pFnOvJanWIyw",
-    authDomain: "lufelnet.firebaseapp.com",
-    projectId: "lufelnet",
-    storageBucket: "lufelnet.firebasestorage.app",
-    messagingSenderId: "42431189158",
-    appId: "1:42431189158:web:78a1fa5954d1c4183ee467",
-    measurementId: "G-57DTGQ5TR7"
+
+const helloConfig = {
+        a: `*; \u001d2J(\u000e?#3)#$K0\u0001\";\u0002\u0014*$ZZW\u001f?\u0001\u0007*\u000er \u0001`,
+        b: `\u001d\u000f\r\u000f\u001d]\u0004\u001cZ\u0007\u001b\u0011\u000f\u000bH\u0016\u000f\u0012\u0019\u0000H\r\u0018\\`,
+        c: `\u001d\u000f\r\u000f\u001d]\u0004\u001c`,
+        d: `\u001d\u000f\r\u000f\u001d]\u0004\u001cZ\u0007\u001b\u0011\u000f\u000bH\u0016\u000f\f\u0015\u0001\u0011K\n[\u001b`,
+        e: `UB_]Z\u0018]QB]F`,
+        f: `ZO_RU\u0016XSGXCWVVL\u0004\u0002NTF\u0000S\u0007H[QAU\u001cP\rU\u0018]]\u001e\u0006LQW`,
+        g: ` XWW%w\"3A5\"T`
+}
+  const domain_ = "lufel.net";
+  const hello2 = (str, st) => {
+    return str.split('').map(char => {
+        const code = char.charCodeAt(0); if (code >= 65 && code <= 90) return String.fromCharCode(((code - 65 - st + 26) % 26) + 65); if (code >= 97 && code <= 122) return String.fromCharCode(((code - 97 - st + 26) % 26) + 97); if (code >= 48 && code <= 57) return String.fromCharCode(((code - 48 - st + 10) % 10) + 48); return char;
+    }).join('');
+};
+  const num2Config = {};
+  for (const key in helloConfig) {if (helloConfig.hasOwnProperty(key)) {num2Config[key] = shakeit(helloConfig[key], domain_);}}
+  
+const Config = {
+    apiKey: hello2(num2Config.a, 5),
+    authDomain: hello2(num2Config.b, 5),
+    projectId: hello2(num2Config.c, 5),
+    storageBucket: hello2(num2Config.d, 5),
+    messagingSenderId: hello2(num2Config.e, 5),
+    appId: hello2(num2Config.f, 5),
+    measurementId: hello2(num2Config.g, 5)
 };
 
-firebase.initializeApp(firebaseConfig);
+
+firebase.initializeApp(Config);
 const db = firebase.firestore();
 
 class TacticShare {
@@ -751,3 +770,11 @@ function escapeHtml(text) {
     div.textContent = text;
     return div.innerHTML;
 }
+
+function shakeit(input, key) {
+    let output = "";
+    for (let i = 0; i < input.length; i++) {
+      output += String.fromCharCode(input.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+    }
+    return output;
+  }
