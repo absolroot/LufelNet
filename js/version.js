@@ -16,6 +16,7 @@ class VersionChecker {
         }
     }
 
+    
     static async clearCache() {
         try {
             // 모든 캐시 삭제
