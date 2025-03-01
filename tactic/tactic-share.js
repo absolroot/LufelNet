@@ -211,6 +211,9 @@ class TacticShare {
                     <h3>
                         <a href="${escapeHtml(post.query)}" target="_blank" rel="noopener noreferrer" class="post-title">
                             ${escapeHtml(post.title)}
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z" fill="rgba(255, 255, 255, 0.6)"/>
+                            </svg>
                         </a>
                     </h3>
                     <div class="post-meta">
@@ -218,6 +221,7 @@ class TacticShare {
                         <span class="separator">|</span>
                         <span class="post-date">${this.formatDate(post.createdAt)}</span>
                     </div>
+                    ${post.comment ? `<div class="post-comment">${escapeHtml(post.comment)}</div>` : ''}
                 </div>
                 
                 <div class="post-content">
@@ -459,6 +463,7 @@ class TacticShare {
                     query: tacticUrl,
                     author: author.slice(0, 20),
                     title: title.slice(0, 50),
+                    comment: document.getElementById('comment').value.slice(0, 200),
                     authorIP: this.userIP,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                     likes: {
@@ -533,6 +538,9 @@ class TacticShare {
                     <h3>
                         <a href="${escapeHtml(postData.query)}" target="_blank" rel="noopener noreferrer" class="post-title">
                             ${escapeHtml(postData.title)}
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z" fill="rgba(255, 255, 255, 0.6)"/>
+                            </svg>
                         </a>
                     </h3>
                     <div class="post-meta">
@@ -540,6 +548,7 @@ class TacticShare {
                         <span class="separator">|</span>
                         <span class="post-date">${this.formatDate(postData.createdAt)}</span>
                     </div>
+                    ${postData.comment ? `<div class="post-comment">${escapeHtml(postData.comment)}</div>` : ''}
                 </div>
                 
                 <div class="post-content">

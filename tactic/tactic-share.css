@@ -45,14 +45,14 @@
     margin : 0 0 30px 0;
 }
 
-.tacticUrl, .tacticTitle, .tacticAuthor {
+.tacticUrl, .tacticTitle, .tacticAuthor, .tacticComment {
     display: grid;
     grid-template-columns: 80px 1fr;
     gap: 0.5rem;
     align-items: center;
 }
 
-.tacticUrl p, .tacticTitle p, .tacticAuthor p {
+.tacticUrl p, .tacticTitle p, .tacticAuthor p, .tacticComment p {
     color: rgb(255, 255, 255, 0.8);
     font-size: 14px;
     font-weight: 400;
@@ -358,15 +358,51 @@
 
 .post-title {
     cursor: pointer;
-    color: rgb(255, 255, 255, 0.85);
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-color);
     text-decoration: none;
+    transition: color 0.2s;
 }
 
 .post-title:hover {
-    text-decoration: none;
+    color: var(--accent-color);
 }
 
+.post-title svg {
+    fill: rgb(255, 255, 255, 0.8);
+    transition: transform 0.3s;
+}
+
+.post-title:hover svg {
+    transform: translateX(4px);
+}
+
+.post-title svg path {
+    transition: fill 0.2s;
+}
+
+.post-title:hover svg path {
+    fill: var(--accent-color);
+}
+
+.post-comment {
+    margin: 10px 0 0 0;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.4;
+    max-width: 600px;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    cursor: text;
+}
 
 .post-meta{
     display: flex;
@@ -588,10 +624,10 @@ small {
         margin-bottom: 1rem;
     }
     
-    .tacticUrl, .tacticTitle, .tacticAuthor {
+    .tacticUrl, .tacticTitle, .tacticAuthor, .tacticComment {
         grid-template-columns: 60px 1fr;
     }
-    .tacticUrl p, .tacticTitle p, .tacticAuthor p {
+    .tacticUrl p, .tacticTitle p, .tacticAuthor p, .tacticComment p {
         font-size: 13px;
     }
 
@@ -655,4 +691,9 @@ small {
         font-size: 12px;
     }
     
+    .post-comment {
+        font-size: 12px;
+        padding: 6px 10px;
+        margin-top: 6px;
+    }
 }
