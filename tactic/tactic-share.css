@@ -390,9 +390,9 @@
 
 .post-comment {
     margin: 10px 0 0 0;
-    padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
+    padding: 8px 0px;
+    /*background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;*/
     font-size: 12px;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.4;
