@@ -118,13 +118,8 @@ const defenseCalcData = [
         target: "단일",
         skillIcon: "../img/tactic-persona/야노식.webp",
         skillName: "야노식",
-        options: ["선봉 후 교체","선봉"],
-        values: {
-            "선봉 후 교체": 29.6,
-            "선봉": 41.6
-        },
-        defaultOption: "선봉 후 교체",
-        value: 29.6,
+        options: [],
+        value: 41.6,
         duration: "2턴",
         note: "[조준]"
     },
