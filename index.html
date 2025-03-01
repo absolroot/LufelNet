@@ -226,7 +226,7 @@
 
         async function loadUpdates() {
             try {
-                const response = await fetch('./data/updates.csv');
+                const response = await fetch(`./data/updates.csv?v=${APP_VERSION}`);
                 const data = await response.text();
                 
                 // CSV 파싱
