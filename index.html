@@ -132,6 +132,7 @@
                     
                 </div>
             </div>
+            <div class="separator-line"></div>
             <div class="middle-container">
                 <div class="popular-content">
                     <h2>인기 괴도</h2>
@@ -169,6 +170,49 @@
                     <button id="show-more-updates-btn" class="show-more-updates-btn" style="display: none;">더보기</button>
                 </div>
             </div>
+            <div class="guides-container">
+                <h2>가이드</h2>
+                <div class="guide-cards">
+                    <div class="guide-card">
+                        <div class="guide-card-header">
+                            <img src="./img/home/guide1.png" alt="가이드 이미지">
+                            <h3>도시 생활</h3>
+                        </div>
+                        <div class="guide-card-content">
+                            <div class="article" onclick="window.open('https://docs.google.com/spreadsheets/d/1L47W0r5nHpAlU_qUY3HuslcqBRS78tHC682eFCXiftM', '_blank')">∘ 협력자 선물 & 선택지</div>
+                            <div class="article" onclick="window.open('https://gall.dcinside.com/mgallery/board/view/?id=persona5phantomx&no=158597', '_blank')">∘ 협력자 우선순위 추천</div>
+                            <div class="article" onclick="window.open('https://arca.live/b/persona5x/112002828', '_blank')">∘ 이치가야 낚시</div>
+                            <div class="article" onclick="window.open('https://arca.live/b/persona5x/110240842', '_blank')">∘ 요리 레시피 획득</div>
+                        </div>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-card-header">
+                            <img src="./img/home/guide2.png" alt="가이드 이미지">
+                            <h3>육성 및 재화</h3>
+                        </div>
+                        <div class="guide-card-content">
+                            <div class="article" onclick="window.open('https://gall.dcinside.com/mgallery/board/view/?id=persona5phantomx&no=170601', '_blank')">∘ 계시에 대하여</div>
+                            <div class="article" onclick="window.open('https://arca.live/b/persona5x/115843217', '_blank')">∘ 주 성위 계시 입수처</div>
+                            <div class="article" onclick="window.open('https://gall.dcinside.com/mgallery/board/view/?id=persona5phantomx&no=175353', '_blank')">∘ 교환상점 구매목록</div>
+                            <div class="article" onclick="window.open('https://docs.google.com/spreadsheets/d/1PotwjpI7fPORdSZ3PfSnbIffbLkvxVXZRpFzGfsuY1w', '_blank')">∘ 패키지 과금효율 계산</div>
+                        </div>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-card-header">
+                            <img src="./img/home/guide3.png" alt="가이드 이미지">
+                            <h3>전투 및 팰리스</h3>
+                        </div>
+                        <div class="guide-card-content">
+                            <div class="article" onclick="window.open('https://gall.dcinside.com/mgallery/board/view/?id=persona5phantomx&no=163337', '_blank')">∘ 대미지 계산식</div>
+                            <div class="article" onclick="window.open('https://www.bilibili.com/video/BV1xF4m1N7bZ', '_blank')">∘ 팰리스 1장 100% 탐색도</div>
+                            <div class="article" onclick="window.open('https://www.bilibili.com/video/BV1zD421n7jJ', '_blank')">∘ 팰리스 2장 100% 탐색도</div>
+                            <div class="article" onclick="window.open('https://www.bilibili.com/video/BV1kr421T7Wp', '_blank')">∘ 팰리스 3장 100% 탐색도</div>
+                            <div class="article" onclick="window.open('https://www.bilibili.com/video/BV1duUSYfEdY', '_blank')">∘ 팰리스 4장 100% 탐색도</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="posts-container">
                 <div class="posts-header">
                     <h2>택틱 대장간 NEW</h2>
@@ -245,7 +289,7 @@
 
         // 업데이트 내역 로드
         let allUpdates = []; // 모든 업데이트 저장
-        const INITIAL_SHOW = 4; // 처음에 보여줄 개수
+        const INITIAL_SHOW = 5; // 처음에 보여줄 개수
         const LOAD_MORE_COUNT = 10; // 더보기 클릭시 추가할 개수
         let currentlyShown = 0;
 
@@ -260,7 +304,9 @@
                     .filter(line => line.trim()) // 빈 줄 제거
                     .map(line => {
                         const [date, version, content] = line.split(',');
-                        return { date, version, content: content.replace('|', ', ') };
+                        // 날짜에서 '20' 접두사 제거
+                        const formattedDate = date.replace(/^20/, '');
+                        return { date: formattedDate, version, content: content.replace('|', ', ') };
                     });
 
                 // 초기 업데이트 표시
