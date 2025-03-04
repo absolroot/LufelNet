@@ -461,6 +461,14 @@
         
         if (sharedData) {
           const decodedData = processSharedData(sharedData);
+          
+          // 공유 데이터일 시 UI를 기본적으로 숨김 상태로 설정
+          document.querySelector('.container').classList.add('hide-ui');
+          const desktopToggleBtn = document.querySelector('.header-container .toggle-ui-btn');
+          const mobileToggleBtn = document.querySelector('.mobile-buttons .toggle-ui-btn');
+          if (desktopToggleBtn) desktopToggleBtn.classList.add('active');
+          if (mobileToggleBtn) mobileToggleBtn.classList.add('active');
+
 
           console.log(decodedData);
 
