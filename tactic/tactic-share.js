@@ -24,9 +24,9 @@ firebase.initializeApp(window.C1de3l1zdvbnEIlI1fr);
 const db = firebase.firestore();
 
 class TacticShare {
-    constructor() {
+    constructor(options = {}) {
         this.currentPage = 1;
-        this.postsPerPage = 10;
+        this.postsPerPage = options.postsPerPage || 10;
         this.lastDoc = null;
         this.firstDoc = null;
         this.userIP = '';

@@ -25,6 +25,13 @@
     <meta name="twitter:description" content="페르소나5X 공략 사이트 루페르넷 - 괴도, 페르소나, 계시, 택틱 등 다양한 게임 정보와 전략을 제공합니다.">
     <meta name="twitter:image" content="https://www.lufel.net/img/home/seo.png">
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
+    
+
     <title>P5X 루페르넷</title>
     <script>document.write('<script src="../js/version.js?v=' + new Date().getTime() + '"><\/script>');</script>
     <script>
@@ -32,7 +39,18 @@
         document.write(`
             <link rel="stylesheet" href="./styles/common.css?v=${APP_VERSION}">
             <link rel="stylesheet" href="./styles/home.css?v=${APP_VERSION}">
+            <link rel="stylesheet" href="./styles/tactic-posts.css?v=${APP_VERSION}">
             <script src="./js/nav.js?v=${APP_VERSION}"><\/script>
+            
+            <!-- 데이터 파일들 -->
+            <script src="./data/characters.js?v=${APP_VERSION}"><\/script>
+            <script src="./data/revelations.js?v=${APP_VERSION}"><\/script>
+            <script src="./data/skills.js?v=${APP_VERSION}"><\/script>
+
+            <!-- 기능 스크립트 -->
+            <script src="./js/tactic-posts-home.js?v=${APP_VERSION}"><\/script>
+            <script src="./tactic/tactic-preview.js?v=${APP_VERSION}"><\/script>
+            <script src="./js/tactic/share.js?v=${APP_VERSION}"><\/script>
         `);
     </script>
     <link rel="icon" type="image/x-icon" href="./img/ui/favicon.ico">
@@ -98,7 +116,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-card" onclick="location.href='./tactic/?v=' + APP_VERSION">
+                    <div class="menu-card" onclick="location.href='./tactic/tactic-share.html?v=' + APP_VERSION">
                         <div class="card-content">
                             <div class="text-section">
                                 <h2>택틱 <img src="./img/home/icon4.png" alt="택틱 아이콘" class="title-icon"></h2>
@@ -151,7 +169,13 @@
                     <button id="show-more-updates-btn" class="show-more-updates-btn" style="display: none;">더보기</button>
                 </div>
             </div>
-
+            <div class="posts-container">
+                <div class="posts-header">
+                    <h2>택틱 대장간 NEW</h2>
+                    <a href="./tactic/tactic-share.html" class="show-more-posts-btn">더보기 ＋</a>
+                </div>
+                <div class="posts-list" id="postsList"></div>
+            </div>
             <div class="footer-container">
                 <div class="footer-text">
                     <p>※ 루페르넷은 개인이 만든 비공식 페르소나5X 정보 제공 사이트로 게임의 콘텐츠와 소재의 트레이드마크와 저작권은 SEGA·ATLUS·Perfect World Games에 있습니다.</p>
@@ -182,6 +206,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             Navigation.load('home', 0);
             VersionChecker.check();
+            window.tacticShare = new TacticShare({ postsPerPage: 3});
 
             const musicPlayer = document.getElementById('music-player');
             const musicControl = document.getElementById('musicControl');
