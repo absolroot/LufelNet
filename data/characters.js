@@ -95,7 +95,7 @@ const characterData = {
         "rarity": 5,
         "position": "굴복",
         "release_order": 20,
-        "persona": "멘테",
+        "persona": "민테",
         "name": "나츠카와 미오",
         "codename": "MATOI",
         "sub_revel2": [""],

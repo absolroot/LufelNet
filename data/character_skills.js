@@ -2,6 +2,50 @@ const characterSkillsData = {
     "원더": {
         "name": "원더"
 },
+    "미오": {
+        "name": "나츠카와 미오",
+        "skill1": {
+            "name": "파도의 메아리",
+            "element": "빙결광역",
+            "type":"디버프", 
+            "sp": 20,
+            "cool": 0,
+            "description": ""
+        },
+        "skill2": {
+            "name": "파도의 결박",
+            "element": "빙결",      
+            "type":"제어",
+            "sp": 20,
+            "cool": 0,
+            "description": ""
+        },      
+        "skill3": {
+            "name": "흐름의 폭발",
+            "element": "빙결광역",
+            "type":"디버프",
+            "sp": 20,
+            "cool": 0,
+            "description": ""
+        },
+        "skill_highlight": {
+            "element": "빙결광역",
+            "type":"디버프",
+            "description": ""
+        },
+        "passive1": {
+            "name": "위협",
+            "element": "패시브",
+            "description": ""
+        },
+        "passive2": {
+            "name": "비호",
+            "element": "패시브",
+            "description": ""
+        }
+    },
+    
+
     "레오": {
         "name": "카미야마 레오",
         "skill1": {

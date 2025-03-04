@@ -18,6 +18,27 @@ const WeaponData = {
             "description": ""
         }
     },
+
+    "미오": {
+        "name": "나츠카와 미오",
+        "weapon4-1":{
+            "name": "",
+            "health": 0,
+            "attack": 0,
+            "defense": 0,
+            "skill_name": "",
+            "description": ""
+        },
+        "weapon5-1":{
+            "name": "서리빛 스텔라",
+            "health": 0,
+            "attack": 0,
+            "defense": 0,
+            "skill_name": "",
+            "description": ""
+        }
+    },
+
     "레오": {
         "name": "카미야마 레오",
         "weapon4-1":{
