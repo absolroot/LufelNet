@@ -918,6 +918,34 @@ const personaData = {
         comment : "파티에만 지니고 있어도 전투 시작 시 『용혈』을 획득한다"
 
     },
+    "아프사라스": {
+        grade: "2",
+        star: "2",
+        position: "우월",
+        element: "빙결",
+        instinct: {
+            name: "감미로운 노랫소리 I",
+            effects: [
+                "방어력이 8.7% 중가한다. 동료를 목표로 스킬 시전 시 2턴 동안 동료의 방어력이 15.4% 증가한다."
+            ],
+            priority: 1
+        },
+        uniqueSkill: {
+            name: "리벨리온",
+            effect: "동료 1명의 크리티컬 확률이 9.3% 증가하고, 자신의 크리티컬 확률 10%마다 1.6% 추가 증가한다. 상한은 6.4%이며, 효과는 3턴 동안 지속된다.",
+            priority: 1,
+            icon: "보조"
+        },
+        highlight: {
+            effect: "모든 동료의 주는 대미지가 29.5% 증가하며 2턴 동안 지속된다.",
+            priority: 0
+        },
+        recommendSkill : [
+             {name : "마하라쿠카 오토", priority: 2},
+             {name : "어드바이스", priority: 2},
+             {name : "민첩의 마음가짐", priority: 1},
+        ]
+    },
     "킹프로스트": {
         grade: "7",
         star: "5",
