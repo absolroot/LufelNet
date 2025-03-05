@@ -215,7 +215,7 @@
 
             <div class="posts-container">
                 <div class="posts-header">
-                    <h2>택틱 대장간 NEW</h2>
+                    <h2><a href="./tactic/tactic-share.html">택틱 대장간 NEW</a></h2>
                     <a href="./tactic/tactic-share.html" class="show-more-posts-btn">더보기 ＋</a>
                 </div>
                 <div class="posts-list" id="postsList"></div>
@@ -250,7 +250,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             Navigation.load('home', 0);
             VersionChecker.check();
-            window.tacticShare = new TacticShare({ postsPerPage: 1});
+            window.tacticShare = new TacticShare({ postsPerPage: 2});
 
             const musicPlayer = document.getElementById('music-player');
             const musicControl = document.getElementById('musicControl');

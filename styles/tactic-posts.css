@@ -27,6 +27,17 @@
     color: #f0d6aa;
 }
 
+.posts-header h2 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.posts-header h2 a:hover {
+    text-decoration: none;
+    color: #f3e2c5;
+}
+
+
 .show-more-posts-btn {
     background: none;
     border: none;
