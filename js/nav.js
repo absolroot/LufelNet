@@ -68,6 +68,17 @@ class Navigation {
                         </a>
                     </div>
                 </div>
+                <div class="nav-item has-submenu" data-nav="tier">
+                    <div class="nav-main-item">
+                        <img src="${rootPath}img/nav/tier.png" alt="tier" style="width: 32px; height: 32px; object-fit: contain;" />
+                        <span data-text="티어">티어 (beta)</span>
+                    </div>
+                    <div class="submenu">
+                        <a href="${rootPath}tier?v=${APP_VERSION}" class="nav-sub-item" data-nav="tier-maker">
+                            <span data-text="티어 메이커">◈　티어 메이커</span>
+                        </a>
+                    </div>
+                </div>
             </nav>
         `;
 

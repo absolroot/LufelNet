@@ -1040,13 +1040,6 @@ body {
     }
 }
 
-/* 모바일 환경에서 방어력 계산기 nav 버튼 숨기기 */
-/*
-@media (max-width: 768px) {  
-    .nav-item[data-nav="defense-calc"] {
-        display: none;
-    }
-}*/
 
 
 /* html이나 body에 추가 */
@@ -1144,3 +1137,12 @@ html {
     }
 }
 
+
+
+/* 모바일 환경에서 특정 nav 버튼 숨기기 */
+
+@media (max-width: 768px) {  
+    .nav-item[data-nav="tier"] {
+        display: none;
+    }
+}

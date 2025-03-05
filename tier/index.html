@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-5862324369257695">
+
+    <!-- SEO 메타태그 -->
+    <meta name="description" content="P5X 티어 메이커 - 루페르넷">
+    <meta name="keywords" content="페르소나5X, P5X, 티어 메이커, 티어, 괴도 티어">
+    <meta name="author" content="루트">
+    
+    <!-- Open Graph 메타태그 -->
+    <meta property="og:title" content="P5X 티어 메이커 - 루페르넷">
+    <meta property="og:description" content="페르소나5X 티어 메이커 - 나만의 티어를 만들어보세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://p5x.lupernet.net/tier/index.html">
+    
+    <!-- 트위터 카드 메타태그 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="P5X 티어 메이커 - 루페르넷">
+    <meta name="twitter:description" content="페르소나5X 티어 메이커 - 나만의 티어를 만들어보세요.">
+
+    <title>P5X 루페르넷 - 티어 메이커</title>
+    
+    <script>document.write('<script src="../js/version.js?v=' + new Date().getTime() + '"><\/script>');</script>
+    <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.1">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-57DTGQ5TR7"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-57DTGQ5TR7');</script>
+
+    <script>
+        // APP_VERSION을 사용하여 리소스 버전 관리
+        document.write(`
+            <link rel="stylesheet" href="../styles/common.css?v=${APP_VERSION}">
+            <link rel="stylesheet" href="tiers.css?v=${APP_VERSION}">
+
+            <!-- 데이터 파일들 -->
+            <script src="../data/characters.js?v=${APP_VERSION}"><\/script>
+
+            <!-- 기능 스크립트 -->
+            <script type="module" src="tiers.js?v=${APP_VERSION}"><\/script>
+            <script src="../js/nav.js?v=${APP_VERSION}"><\/script>
+        `);
+    </script>
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+</head>
+<body>
+
+
+    <div class="container">
+        <!-- 네비게이션이 삽입될 컨테이너 -->
+        <div id="nav-container"></div>
+
+        <!-- 메인 컨텐츠 -->
+        <div class="main-wrapper">
+            <!-- 네비게이션 경로 -->
+            <div class="navigation-path">
+                <a href="../index.html">홈</a>
+                <span class="separator">/</span>
+                <span class="current-page">티어 메이커</span>
+            </div>
+            <div class="header-container">
+                <h1>티어 메이커 (beta)</h1>
+            </div>
+            <div class="add-tier-button-container">
+                <button id="add-tier-button" class="add-tier-btn">
+                    <i class="bi bi-plus-circle"></i> 새 티어 추가
+                </button>
+            </div>
+            <div
+            class="tiers-container"
+            data-placeholder="Click on the title to add a new tier."
+            ></div>
+
+            <div class="cards container">
+            </div>
+
+            <dialog class="settings-modal">
+            <section>
+                <div class="colors"></div>
+
+                <textarea class="tier-label" placeholder="Tier label"></textarea>
+
+                <button id="delete">Delete Row</button>
+                <button id="clear">Clear Row</button>
+                <button id="prepend">Add a Row Above</button>
+                <button id="append">Add a Row Below</button>
+            </section>
+            </dialog>
+        </div>
+    </div>
+
+    <script>
+        // 페이지 로드 시 네비게이션 초기화
+        document.addEventListener('DOMContentLoaded', () => {
+            Navigation.load('tier-maker', 1); // 현재 페이지에 맞는 active 상태 설정
+        });
+    </script>
+
+    <script src="../js/top_button.js"></script>
+    <button id="top-button" class="floating-top-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12L5.4 13.4L11 7.8V20H13V7.8L18.6 13.4L20 12L12 4Z" fill="rgba(255, 255, 255, 0.6)"/>
+        </svg>
+    </button>
+</body>
+</html>
