@@ -83,13 +83,13 @@
 
           const mainRevImg = document.createElement("img");
           mainRevImg.className = "revelation-img main-rev";
-          mainRevImg.src = `../img/tactic-revelation/${mainRev}.webp`;
+          mainRevImg.src = `../img/revelation/${mainRev}.webp`;
           mainRevImg.alt = mainRev;
           revelationsContainer.appendChild(mainRevImg);
 
           const subRevImg = document.createElement("img");
           subRevImg.className = "revelation-img sub-rev";
-          subRevImg.src = `../img/tactic-revelation/${subRev}.webp`;
+          subRevImg.src = `../img/revelation/${subRev}.webp`;
           subRevImg.alt = subRev;
           revelationsContainer.appendChild(subRevImg);
 
