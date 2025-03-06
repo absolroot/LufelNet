@@ -108,8 +108,8 @@ const characterData = {
             "LV10": "효과명중 171%",
             "LV12": false,
             "LV12+5": false,
-            "LV13": false,
-            "LV13+5": false
+            "LV13": "효과명중 182%",
+            "LV13+5": "효과명중 200%"
         },
         "battle_plus_stats": "· 마이팰리스 2.3% / 헛수고 : 2턴 동안 30% 효과명중 증가",
         "skill1_lv": "MAX!",
