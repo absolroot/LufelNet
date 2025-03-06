@@ -90,7 +90,7 @@ const characterData = {
         "main_revelation": ["신념"],
         "sub_revelation": ["헛수고"],
         "element": "빙결",
-        "element_weakness": "",
+        "element_weakness": "축복",
         "element_resistance": "빙결",
         "rarity": 5,
         "position": "굴복",

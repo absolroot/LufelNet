@@ -176,6 +176,86 @@ const defenseCalcData = [
         note: "축복 속성 한정"
     },
     {
+        id: "mio1",
+        charName: "미오",
+        charImage: "미오.webp",
+        type: "스킬1",
+        target: "광역",
+        skillIcon: "../img/skill-element/빙결광역.png",
+        skillName: "파도의 메아리",
+        options: ["LV10","LV10+심상5","LV13","LV13+심상5"],
+        values: {
+            "LV10": 39.0,
+            "LV10+심상5": 43.0,
+            "LV13": 41.5,
+            "LV13+심상5": 45.5
+        },
+        defaultOption: "LV13+심상5",
+        value: 45.5,
+        duration: "3턴",
+        note: ""
+    },
+    {
+        id: "mio2",
+        charName: "",
+        charImage: "",
+        type: "스킬3",
+        target: "광역",
+        skillIcon: "../img/skill-element/빙결광역.png",
+        skillName: "흐름의 폭발",
+        options: ["LV10","LV10+심상5","LV13","LV13+심상5"],
+        values: {
+            "LV10": 36.6,
+            "LV10+심상5": 40.4,
+            "LV13": 38.8,
+            "LV13+심상5": 43.6
+        },
+        defaultOption: "LV13+심상5",
+        value: 43.6,
+        duration: "2턴",
+        note: ""
+    },
+    {
+        id: "mio3",
+        charName: "",
+        charImage: "",
+        type: "스킬3(강화)",
+        target: "광역",
+        skillIcon: "../img/skill-element/빙결광역.png",
+        skillName: "폭발의 용오름",
+        options: ["LV10","LV10+심상5","LV13","LV13+심상5"],
+        values: {
+            "LV10": 43.9,
+            "LV10+심상5": 48.4,
+            "LV13": 46.6,
+            "LV13+심상5": 51.1
+        },
+        defaultOption: "LV13+심상5",
+        value: 51.1,
+        duration: "2턴",
+        note: ""
+    },
+    {
+        id: "mio4",
+        charName: "",
+        charImage: "",
+        type: "전용무기",
+        target: "광역",
+        skillIcon: "../img/character-weapon/미오-5-01.png",
+        skillName: "서리빛 스텔라",
+        options: ["개조0","개조1&2","개조3&4","개조5&6"],
+        values: {
+            "개조0": 23.3,
+            "개조1&2": 30.3,
+            "개조3&4": 37.3,
+            "개조5&6": 44.3
+        },
+        defaultOption: "개조5&6",
+        value: 44.3,
+        duration: "2턴",
+        note: ""
+    },
+    {
         id: 14,
         charName: "후타바",
         charImage: "후타바.webp",
