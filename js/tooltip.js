@@ -92,7 +92,7 @@ function addTooltips() {
             .sort((a, b) => b.length - a.length);
             
         // 특별 키워드 목록 (『』없이도 적용될 키워드들)
-        const specialKeywords = ['추가 효과', '동결', '감전', '풍습', '화상', '정신 이상', '망각', '수면', '현기증', '광노', '도발', '화염 속성 TECHNICAL', '핵열 속성 TECHNICAL'];
+        const specialKeywords = ['추가 효과', '동결', '감전', '풍습', '화상', '정신 이상', '망각', '수면', '현기증', '광노', '도발', '화염 속성 TECHNICAL', '핵열 속성 TECHNICAL', '스킬 마스터','빙결 속성 TECHNICAL'];
         // 특수 처리가 필요한 키워드들
         const specialEffectKeywords = ['주원', '축복'];
         

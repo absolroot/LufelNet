@@ -105,21 +105,21 @@ const characterData = {
         "sub_option2": [""],
         "sub_option3": [""],
         "minimum_stats": {
-            "LV10": false,
+            "LV10": "효과명중 171%",
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
             "LV13+5": false
         },
-        "battle_plus_stats": "nan",
+        "battle_plus_stats": "· 마이팰리스 2.3% / 헛수고 : 2턴 동안 30% 효과명중 증가",
         "skill1_lv": "MAX!",
         "skill2_lv": "8",
         "skill3_lv": "MAX!",
         "skill4_lv": "MAX",
-        "mind_stats1": "",
-        "mind_stats2": "",
-        "mind_skill1": "",
-        "mind_skill2": ""
+        "mind_stats1": "대미지보너스 16%",
+        "mind_stats2": "공격력 20%",
+        "mind_skill1": "1/2!",
+        "mind_skill2": "3/HL!"
     },
     "레오": {
         "color": "#01dfd7",
