@@ -798,6 +798,36 @@ const personaData = {
              {name : "어드바이스", priority: 3},
         ]
     },
+    "산달폰": {
+        grade: "8",
+        star: "5",
+        position: "방위",
+        element: "만능",
+        instinct: {
+            name: "거대한 수호 III",
+            effects: [
+                "방어력이 43.6% 중가한다.",
+                "산달폰이 필드 에 있을 경우 실드를 보유하고 있는 동료의 방어력이 42% 중가한다. 고유 스킬 시전 시 소모하는 생명이 15%까지 감소한다."
+            ],
+            priority: 1
+        },
+        uniqueSkill: {
+            name: "헌신의 비호",
+            effect: "모든 동료가 공격력 20.4%+617의 실드를 획득한다. 메인 목표 동료가 해당 실드를 보유하고 있을 때 주는 대미지가 20.4% 증가하며, 2턴 동안 지속된다.",
+            priority: 1,
+            icon: "보조광역"
+        },
+        highlight: {
+            effect: "모든 동료가 공격력 48.6%+1471의 실드를 획득하며 2턴 동안 지속된다.",
+            priority: 0
+        },
+        recommendSkill : [
+             {name : "실드 강화", priority: 3 },
+             {name : "공격 강화", priority: 2 },
+             {name : "치료 촉진", priority: 1 },
+        ],
+        comment : "필드에 존재해야한다는 조건 때문에 미트라스와 아프사라스가 우선되는 경향이 잦다."
+    },
     "이시스": {
         grade: "3",
         star: "3",
