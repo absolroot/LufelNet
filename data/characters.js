@@ -69,6 +69,7 @@ const characterData = {
         "sub_option3": ["미출시"],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -106,6 +107,7 @@ const characterData = {
         "sub_option3": [""],
         "minimum_stats": {
             "LV10": "효과명중 171%",
+            "LV10+5": "효과명중 189%",
             "LV12": false,
             "LV12+5": false,
             "LV13": "효과명중 182%",
@@ -142,6 +144,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": "공격력 4064",
             "LV12+5": "공격력 4465",
             "LV13": false,
@@ -178,6 +181,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -214,6 +218,7 @@ const characterData = {
         "sub_option3": ["생명", "방어력"],
         "minimum_stats": {
             "LV10": "효과명중 170%",
+            "LV10+5": "효과명중 190%",
             "LV12": false,
             "LV12+5": false,
             "LV13": "효과명중 182%",
@@ -250,6 +255,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -286,6 +292,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -322,6 +329,7 @@ const characterData = {
         "sub_option3": ["공격력", "대미지보너스"],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": "속도 170",
             "LV12+5": "속도 180",
             "LV13": false,
@@ -358,6 +366,7 @@ const characterData = {
         "sub_option3": ["공격력", "크리티컬 확률"],
         "minimum_stats": {
             "LV10": "SP회복 450.1% , 크리티컬 효과 388%",
+            "LV10+5": "SP회복 450.1% , 크리티컬 효과 418%",
             "LV12": false,
             "LV12+5": false,
             "LV13": "SP회복 450.1% , 크리티컬 효과 418%",
@@ -394,10 +403,11 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": "방어력 6100",
+            "LV10+5": "방어력 6725",
             "LV12": false,
             "LV12+5": false,
-            "LV13": "방어력 6210",
-            "LV13+5": "방어력 6810"
+            "LV13": "방어력 6475",
+            "LV13+5": "방어력 7100"
         },
         "battle_plus_stats": "· 해명의힘 / 직책 8% / 마이팰리스 40 / 패시브 24%",
         "skill1_lv": "8",
@@ -429,6 +439,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -465,6 +476,7 @@ const characterData = {
         "sub_option3": ["SP회복"],
         "minimum_stats": {
             "LV10": "생명 15000",
+            "LV10+5": "생명 15000",
             "LV12": false,
             "LV12+5": false,
             "LV13": "생명 15000",
@@ -501,6 +513,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -536,6 +549,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -571,6 +585,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -606,6 +621,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": "생명 16000",
+            "LV10+5": "생명 16000",
             "LV12": false,
             "LV12+5": false,
             "LV13": "생명 16000",
@@ -641,6 +657,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -676,6 +693,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -711,6 +729,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -746,6 +765,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": "생명 15600",
             "LV12+5": "생명 15600",
             "LV13": false,
@@ -781,6 +801,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": "공격력 4067",
+            "LV10+5": "공격력 4484",
             "LV12": false,
             "LV12+5": false,
             "LV13": "공격력 4317",
@@ -816,6 +837,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -851,10 +873,11 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": "속도 180",
+            "LV10+5": "속도 183",
             "LV12": false,
             "LV12+5": false,
             "LV13": "속도 180",
-            "LV13+5": "속도 199"
+            "LV13+5": "속도 200"
         },
         "battle_plus_stats": "· 마이팰리스 1 / 전용무기 : 스킬을 사용해 적 공격시 2턴 속도 15 증가",
         "skill1_lv": "MAX!",
@@ -886,6 +909,7 @@ const characterData = {
         "sub_option3": ["공격력", "대미지보너스"],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -921,6 +945,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -956,6 +981,7 @@ const characterData = {
         "sub_option3": ["대미지보너스"],
         "minimum_stats": {
             "LV10": "공격력 5000",
+            "LV10+5": "공격력 5500",
             "LV12": false,
             "LV12+5": false,
             "LV13": "공격력 6500",
@@ -991,6 +1017,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -1026,6 +1053,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": "방어력 4500",
             "LV12+5": "방어력 4500",
             "LV13": false,
@@ -1061,6 +1089,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": "효과명중 173%",
             "LV12+5": "효과명중 191%",
             "LV13": false,
@@ -1096,6 +1125,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -1132,6 +1162,7 @@ const characterData = {
             "관통"],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": "공격력 5400",
             "LV12+5": "공격력 5850",
             "LV13": false,
@@ -1167,6 +1198,7 @@ const characterData = {
         "sub_option3": ["효과명중"],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": "관통 31.5% (개조6)",
@@ -1202,6 +1234,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -1237,6 +1270,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": "공격력 4064",
             "LV12+5": "공격력 4464",
             "LV13": false,
@@ -1272,6 +1306,7 @@ const characterData = {
         "sub_option3": ["SP회복"],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -1307,6 +1342,7 @@ const characterData = {
         "sub_option3": ["생명", "방어"],
         "minimum_stats": {
             "LV10": false,
+            "LV10+5": false,
             "LV12": false,
             "LV12+5": false,
             "LV13": false,
@@ -1342,6 +1378,7 @@ const characterData = {
         "sub_option3": ["공격력", "대미지보너스"],
         "minimum_stats": {
             "LV10": "효과명중 140% / 210%",
+            "LV10+5": "효과명중 140% / 210%",
             "LV12": false,
             "LV12+5": false,
             "LV13": "효과명중 140% / 210%",
@@ -1377,6 +1414,7 @@ const characterData = {
         "sub_option3": [],
         "minimum_stats": {
             "LV10": "공격력 4880",
+            "LV10+5": "공격력 5380",
             "LV12": false,
             "LV12+5": false,
             "LV13": "공격력 5180",
@@ -1412,6 +1450,7 @@ const characterData = {
         "sub_option3": ["대미지보너스"],
         "minimum_stats": {
             "LV10": "공격력 4600",
+            "LV10+5": "공격력 5060",
             "LV12": false,
             "LV12+5": false,
             "LV13": "공격력 5980",
