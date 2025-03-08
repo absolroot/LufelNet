@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const statLevels = document.querySelectorAll('.stat-level');
         const levels = character.rarity === 4 
             ? ['LV12', 'LV12+5']  // 4성 캐릭터
-            : ['LV10', 'LV13', 'LV13+5']; // 5성 캐릭터
+            : ['LV10', 'LV10+5', 'LV13', 'LV13+5']; // 5성 캐릭터
 
         const validStats = [
             '공격력', '방어력', '효과 명중', '효과명중', '생명', 
@@ -519,8 +519,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         
         const levels = characterInfo.rarity === 4 
-            ? ['전체', '10레벨', '12레벨', '12레벨+5심상']
-            : ['전체', '10레벨', '13레벨', '13레벨+5심상'];
+            ? ['전체', '10레벨', '10레벨+심상5', '12레벨', '12레벨+심상5']
+            : ['전체', '10레벨', '10레벨+심상5', '13레벨', '13레벨+심상5'];
         
         levels.forEach((level, index) => {
             const button = document.createElement('button');
@@ -573,7 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // 초기 설명에도 숫자 패턴에 skill-level-values 클래스 적용
             let description = skill.description || '';
-            description = description.replace(/(\d+(?:\.\d+)?%?|\[제보\])(\/(\d+(?:\.\d+)?%?|\[제보\])){1,2}/g, match => {
+            description = description.replace(/(\d+(?:\.\d+)?%?|\[제보\])(\/(\d+(?:\.\d+)?%?|\[제보\])){1,3}/g, match => {
                 const values = match.split('/');
                 return values.map(value => {
                     if (value === '[제보]') {
@@ -620,8 +620,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 let description = skill.description;
                 
                 if (levelIndex === '-1') { // '전체' 선택 시
-                    // 슬래시로 구분된 수치를 모두 표시
-                    description = description.replace(/(\d+(?:\.\d+)?%?|\[제보\])(\/(\d+(?:\.\d+)?%?|\[제보\])){1,2}/g, match => {
+                    // 슬래시로 구분된 수치를 모두 표시 (4개 수치 지원)
+                    description = description.replace(/(\d+(?:\.\d+)?%?|\[제보\])(\/(\d+(?:\.\d+)?%?|\[제보\])){1,3}/g, match => {
                         const values = match.split('/');
                         return values.map(value => {
                             if (value === '[제보]') {
@@ -632,7 +632,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 } else {
                     // 특정 레벨의 수치만 표시
-                    description = description.replace(/(\d+(?:\.\d+)?%?|\[제보\])(\/(\d+(?:\.\d+)?%?|\[제보\])){1,2}/g, match => {
+                    description = description.replace(/(\d+(?:\.\d+)?%?|\[제보\])(\/(\d+(?:\.\d+)?%?|\[제보\])){1,3}/g, match => {
                         const values = match.split('/');
                         const selectedValue = values[levelIndex] || values[values.length - 1];
                         if (selectedValue === '[제보]') {

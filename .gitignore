@@ -18,3 +18,6 @@ resize_img.py
 
 localweb.bat
 run.py
+
+data/character_skill_10+5.py
+data/character_skills_backup.js
