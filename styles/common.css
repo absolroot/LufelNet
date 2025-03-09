@@ -768,8 +768,8 @@ input[type="checkbox"]:hover {
 
     .main-nav {
         position: fixed;
-        width: 100vw;  /* viewport width로 변경 */
-        right: -100vw; /* viewport width만큼 밀어냄 */
+        width: 100vw;
+        right: -100vw;
         left: auto;
         transition: 0.3s ease;
         z-index: 1000;
@@ -779,7 +779,18 @@ input[type="checkbox"]:hover {
         margin: 0;
         padding-left: 0;
         padding-right: 0;
-        box-sizing: border-box; /* 패딩을 너비에 포함 */
+        box-sizing: border-box;
+        height: 100vh; /* 뷰포트 높이로 설정 */
+        overflow-y: auto; /* 세로 스크롤 추가 */
+    }
+    
+    /* 스크롤바가 보이더라도 배경 이미지가 잘리지 않도록 수정 */
+    .main-nav::after {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
 
     .main-wrapper {
@@ -820,15 +831,7 @@ input[type="checkbox"]:hover {
         display: none;
     }
 
-    .main-nav::after {
-        width: 100%;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
 
-    .main-nav.active::after {
-        opacity: 0.5;
-    }
 
     .back-button-link {
         position: fixed;
@@ -855,7 +858,9 @@ input[type="checkbox"]:hover {
         right: 20px;
     }
     
-
+    .logo-container {
+        margin-bottom: 4vw !important;
+    }
 }
 
 
