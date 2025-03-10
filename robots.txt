@@ -4,6 +4,8 @@ Allow: /character/
 Allow: /persona/
 Allow: /revelations/
 Allow: /tactic/
+Allow: /defense-calc/
+Allow: /tier/
 
 # 사이트맵 위치
 Sitemap: https://p5x.lupernet.net/sitemap.xml

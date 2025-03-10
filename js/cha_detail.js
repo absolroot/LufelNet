@@ -577,7 +577,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const values = match.split('/');
                 return values.map(value => {
                     if (value === '[제보]') {
-                        return `<a href="https://docs.google.com/spreadsheets/d/14rozlISSjo_jFyJumC6KRw1BppV_Em_kS6i5r1fOE78" class="report-link" target="_blank">[제보]</a>`;
+                        return `<a href="https://forms.gle/Z5SgtSNpSvnprJxAA" class="report-link" target="_blank">[제보]</a>`;
                     }
                     return `<span class="skill-level-values">${value}</span>`;
                 }).join('/');
@@ -625,7 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const values = match.split('/');
                         return values.map(value => {
                             if (value === '[제보]') {
-                                return `<a href="https://docs.google.com/spreadsheets/d/14rozlISSjo_jFyJumC6KRw1BppV_Em_kS6i5r1fOE78" class="report-link" target="_blank">[제보]</a>`;
+                                return `<a href="https://forms.gle/Z5SgtSNpSvnprJxAA" class="report-link" target="_blank">[제보]</a>`;
                             }
                             return `<span class="skill-level-values">${value}</span>`;
                         }).join('/');
@@ -636,7 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const values = match.split('/');
                         const selectedValue = values[levelIndex] || values[values.length - 1];
                         if (selectedValue === '[제보]') {
-                            return `<a href="https://docs.google.com/spreadsheets/d/14rozlISSjo_jFyJumC6KRw1BppV_Em_kS6i5r1fOE78" class="report-link" target="_blank">[제보]</a>`;
+                            return `<a href="https://forms.gle/Z5SgtSNpSvnprJxAA" class="report-link" target="_blank">[제보]</a>`;
                         }
                         return `<span class="skill-level-values">${selectedValue}</span>`;
                     });
