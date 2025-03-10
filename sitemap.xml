@@ -2,59 +2,304 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <!-- 메인 페이지 -->
     <url>
-        <loc>https://p5x.lupernet.net/</loc>
+        <loc>https://www.lufel.net/</loc>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <!-- 괴도 섹션 -->
     <url>
-        <loc>https://p5x.lupernet.net/character/</loc>
+        <loc>https://www.lufel.net/character/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <!-- 페르소나 섹션 -->
     <url>
-        <loc>https://p5x.lupernet.net/persona/</loc>
+        <loc>https://www.lufel.net/persona/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <!-- 계시 섹션 -->
     <url>
-        <loc>https://p5x.lupernet.net/revelations/</loc>
+        <loc>https://www.lufel.net/revelations/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <!-- 택틱 섹션 -->
     <url>
-        <loc>https://p5x.lupernet.net/tactic/</loc>
+        <loc>https://www.lufel.net/tactic/</loc>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <!-- 택틱 공유 -->
     <url>
-        <loc>https://p5x.lupernet.net/tactic/tactic-share.html</loc>
+        <loc>https://www.lufel.net/tactic/tactic-share.html</loc>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <!-- 방어력 계산기 -->
     <url>
-        <loc>https://p5x.lupernet.net/defense-calc/</loc>
+        <loc>https://www.lufel.net/defense-calc/</loc>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <!-- 티어 -->
     <url>
-        <loc>https://p5x.lupernet.net/tier/</loc>
+        <loc>https://www.lufel.net/tier/</loc>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
+    <!-- 캐릭터 상세 페이지들-->
+
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=아케치</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=아야카</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=후타바</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=리코·매화</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=루우나</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=미오</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=야오링·사자무</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=카스미</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=하루</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=몽타뉴·백조</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=마사키</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=모토하·여름</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=토모코·여름</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=키라</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=리코</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=마코토</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=치즈코</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=유우미</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=유스케</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=유이%20YUI</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=미나미</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=렌</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=류지</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=모르가나</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=안</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=야오링</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=레오</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=하루나</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=루페르</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=레오</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=모토하</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=몽타뉴</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=슌</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=세이지</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=유키미</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+        
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=키요시</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=토모코</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=토시야</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=미유</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.lufel.net/character/character.html?name=카요</loc>
+        <changefreq>weakly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    
 
 </urlset> 

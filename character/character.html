@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-adsense-account" content="ca-pub-5862324369257695">
-
+    
+    <!-- 동적 메타 태그를 위한 플레이스홀더 -->
     <title>P5X 루페르넷 - 캐릭터 상세</title>
+    <meta name="description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+
     <link rel="icon" type="image/x-icon" href="../img/ui/favicon.ico?v=1.0.1">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5862324369257695"
@@ -39,6 +46,8 @@
             <script src="../js/top_button.js?v=${APP_VERSION}"><\/script>
         `);
     </script>
+
+    <link rel="canonical" href="" id="canonical-link">
 
 </head>
 <body>
@@ -280,20 +289,6 @@
                 </div>
             </div>
 
-            <!-- 광고 섹션 1 -->
-            <!--
-            <div class="ad-container card-style">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-format="fluid"
-                     data-ad-layout-key="-6t+ed+2i-1n-4w"
-                     data-ad-client="ca-pub-5862324369257695"
-                     data-ad-slot="4847809051"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>-->
-
             <!-- 의식 섹션 -->
             <div class="ritual-card card-style">
                 <div class="ritual-header">
@@ -372,20 +367,6 @@
                     <!-- 무기들이 여기에 동적으로 추가됨 -->
                 </div>
             </div>
-
-            <!-- 광고 섹션 2 -->
-            <!--
-            <div class="ad-container card-style">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-format="fluid"
-                     data-ad-layout-key="-6t+ed+2i-1n-4w"
-                     data-ad-client="ca-pub-5862324369257695"
-                     data-ad-slot="4847809051"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>-->
         </div>
     </div>
 
@@ -669,6 +650,26 @@
                     loadWeapons(characterName, button.dataset.stage);
                 });
             });
+
+            // SEO 메타데이터 동적 업데이트
+            const baseUrl = 'https://www.lufel.net'; // 실제 도메인으로 변경 필요
+            
+            // 타이틀 업데이트
+            document.title = `${character.name} - 페르소나5 더 팬텀 X 루페르넷`;
+            
+            // 메타 설명 업데이트
+            const description = `${character.name}(${character.codename}) - 페르소나5 더 팬텀 X 루페르넷 : 추천 세팅, 스킬, 의식, 전용무기 정보`;
+            document.querySelector('meta[name="description"]').setAttribute('content', description);
+            
+            // Open Graph 태그 업데이트
+            document.querySelector('meta[property="og:title"]').setAttribute('content', `${character.name} - 페르소나5 더 팬텀 X 루페르넷`);
+            document.querySelector('meta[property="og:description"]').setAttribute('content', description);
+            document.querySelector('meta[property="og:image"]').setAttribute('content', `${baseUrl}/img/character-detail/${characterName}.webp`);
+            document.querySelector('meta[property="og:url"]').setAttribute('content', `${baseUrl}/character/character.html?name=${characterName}`);
+
+            // canonical URL 설정
+            const canonicalUrl = `https://p5x.lupernet.net/character/character.html?name=${characterName}`;
+            document.getElementById('canonical-link').setAttribute('href', canonicalUrl);
         });
     </script>
 

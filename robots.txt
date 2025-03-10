@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Allow: /character/
+Allow: /character/character.html?name=*
 Allow: /persona/
 Allow: /revelations/
 Allow: /tactic/
@@ -8,7 +9,7 @@ Allow: /defense-calc/
 Allow: /tier/
 
 # 사이트맵 위치
-Sitemap: https://p5x.lupernet.net/sitemap.xml
+Sitemap: https://www.lufel.net/sitemap.xml
 
 # 크롤링 딜레이 설정
-Crawl-delay: 1 
+# Crawl-delay: 1 
